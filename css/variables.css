@@ -1,0 +1,18 @@
+:root {
+  --pink: #ff4f9a;
+  --green: #d5f570;
+  --black: #black;
+  --gray: #3f3f3f;
+  --oWhit: #f5f2f2;
+  --body: 20pt .montserrat-<uniquifier> {font-family: "Montserrat",
+    sans-serif; font-optical-sizing: auto; font-weight: <weight>;
+      font-style: normal;};;
+  --subH: 30pt .montserrat-<uniquifier> {font-family: "Montserrat",
+    sans-serif; font-optical-sizing: auto; font-weight: <60>;
+      font-style: normal;};;
+  --heading: 45pt;
+  --body2:
+    .montserrat-<uniquifier> {font-family: "Montserrat",
+    sans-serif; font-optical-sizing: auto; font-weight: <weight>;
+      font-style: normal;};
+}
