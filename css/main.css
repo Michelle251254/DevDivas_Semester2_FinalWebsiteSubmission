@@ -1,7 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@font-face {
+  font-family: "rob";
+  src: url("../assets/fonts/Rubik_Dirt/RubikDirt-Regular.ttf");
+}
+
+@font-face {
+  font-family: "rugby";
+  src: url("../assets/fonts/Montserrat/Montserrat-VariableFont_wght.ttf");
+}
 
 
 
 h1 {
-  font-family: var(--bodyCopy);
+  font-family: "rob";
+  font-size: var(--hSize);
+}
+
+h2{
+  font-family: "rugby";
+  font-size: var(--sSize);
+  font-weight: 500;
+}
+
+p{
+  font-family: "rugby";
+  font-size: var(--bCSize);
 }
