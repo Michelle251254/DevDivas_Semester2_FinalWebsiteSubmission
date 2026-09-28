@@ -1,0 +1,14 @@
+:root{
+--theme-signup: #000000;
+--theme-signup-darken: #FF4F9A;
+--theme-signup-background: #FF4F9A;
+--theme-login: #000000;
+--theme-login-darken: #D5F570;
+--theme-login-background: #D5F570;
+--theme-dark: #000000; /*right*/
+--theme-light: #FFFF; /* lift*/ 
+--font-default: "Roboto", sans-serif;
+
+--success: #5cb85c;
+--error: #d9534f;
+}
