@@ -6,61 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log in & Sing up</title>
 
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik+Dirt&display=swap"
+        rel="stylesheet">
+
     <!-- links -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/verbal.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="css/verbal.css">
+    <link rel="stylesheet" href="css/logIn.css">
 
 </head>
 
 <body>
     <div id="back">
         <canvas id="canvas" class="canvas-back"></canvas>
-        <div class="backRight">
+        <div class="backRight Logo ">
+            <div class="Title logo-Rigth">Replay</div>
+            <div class="subH1 subRigth">MUSIC, ON REPEAT.</div>
+            <div class="subH2">Loud playlists, louder discovery. Sign in to pick up your queue, or join the riot </div>
         </div>
         <div class="backLeft">
+            <div class="Title logo-Left">Replay</div>
+            <div class="subH1 subLeft">MUSIC, ON REPEAT.</div>
+            <div class="subH2">Loud playlists, louder discovery. Sign in to pick up your queue, or join the riot </div>
         </div>
+    </div>
     </div>
 
     <div id="slideBox">
         <div class="topLayer">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class=" left ">
-                        <div class="col-md-6 content">
-                            <h2>Sign Up</h2>
-                            <form id="form-signup" method="post" onsubmit="return false;">
-                                <div class="form-element form-stack">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input id="email" type="email" name="email">
-                                </div>
-                                <div class="form-element form-stack">
-                                    <label for="username-signup" class="form-label">Username</label>
-                                    <input id="username-signup" type="text" name="username">
-                                </div>
-                                <div class="form-element form-stack">
-                                    <label for="password-signup" class="form-label">Password</label>
-                                    <input id="password-signup" type="password" name="password">
-                                </div>
-                                <div class="form-element form-checkbox">
-                                    <input id="confirm-terms" type="checkbox" name="confirm" value="yes"
-                                        class="checkbox">
-                                    <label for="confirm-terms">I agree to the <a href="#">Terms of Service</a> and <a
-                                            href="#">Privacy Policy</a></label>
-                                </div>
-                                <div class="form-element form-submit">
-                                    <button id="signUp" class="signup" type="submit" name="signup">Sign up</button>
-                                    <button id="goLeft" class="signup off">Log In</button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-md-6 logo">
-                            <h1>replay</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="right">
                 <div class="content">
                     <h2>Login</h2>
@@ -80,19 +58,47 @@
                     </form>
                 </div>
             </div>
+            <div class="left">
+                <div class="col-md-6 content">
+                    <h2>Sign Up</h2>
+                    <form id="form-signup" method="post" onsubmit="return false;">
+                        <div class="form-element form-stack">
+                            <label for="email" class="form-label">Email</label>
+                            <input id="email" type="email" name="email">
+                        </div>
+                        <div class="form-element form-stack">
+                            <label for="username-signup" class="form-label">Username</label>
+                            <input id="username-signup" type="text" name="username">
+                        </div>
+                        <div class="form-element form-stack">
+                            <label for="password-signup" class="form-label">Password</label>
+                            <input id="password-signup" type="password" name="password">
+                        </div>
+                        <div class="form-element form-checkbox">
+                            <input id="confirm-terms" type="checkbox" name="confirm" value="yes" class="checkbox">
+                            <label for="confirm-terms">I agree to the <a href="#">Terms of Service</a> and <a
+                                    href="#">Privacy Policy</a></label>
+                        </div>
+                        <div class="form-element form-submit">
+                            <button id="signUp" class="signup" type="submit" name="signup">Sign up</button>
+                            <button id="goLeft" class="signup off">Log In</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
         </div>
-    </div>
 
 
 
 
-    <!-- script -->
-    <script src="https://code.jquery.com/jquery-4.0.0.js"
-        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-    <script src="/js/main.js"></script>
+        <!-- script -->
+        <script src="https://code.jquery.com/jquery-4.0.0.js"
+            integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+            crossorigin="anonymous"></script>
+        <script src="js/logIn.js"></script>
 </body>
 
 </html>

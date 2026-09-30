@@ -1,5 +1,5 @@
 @import "/css/verbal.css";
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik+Dirt&display=swap');
 body {
     margin: 0;
     height: 100%;
@@ -8,7 +8,9 @@ body {
     box-sizing: border-box;
     font-family: var(--font-default);
 }
-
+/*==================
+    cocvas the forms
+ =================== */
 .backRight {
     position: absolute;
     right: 0;
@@ -41,12 +43,50 @@ body {
     z-index: 10;
 }
 
+.logo{
+    display: flex;
+    flex-direction: column;
+}
+.Title{
+margin-top: 15vh;
+margin-left: 17%;
+font-family: 'Rubik Dirt' ,sans-serif;
+font-size: 8rem;
+}
+.subH1{
+margin-left: 17%;
+font-family: 'Rubik Dirt', sans-serif;
+font-size: 2rem;
+}
+.subH2{
+    width: 60%;
+    margin-top: 5vh;
+    margin-left: 17%;
+    font-family: 'Montserrat',sans-serif;
+    word-wrap: break-word;
+    color: var(--theme-light)
+}
+.logo-Rigth{
+color: var(--theme-login-darken);
+}
+.logo-Left{
+    color:  var(--theme-signup-darken);
+}
+.subRigth{
+    color: var(--theme-signup-darken)
+}
+.subLeft{
+    color: var(--theme-login-darken)
+}
+
+
+
 #slideBox {
     width: 50%;
     max-height: 100%;
     height: 100%;
     overflow: hidden;
-    margin-left: 50%;
+    margin-right: 50%;
     position: absolute;
     box-shadow:
         0 14px 28px rgba(0, 0, 0, 0.25),
@@ -78,7 +118,7 @@ input {
 .left {
     width: 50%;
     height: 100%;
-    overflow: scroll;
+    overflow: hidden;
     background: var(--theme-signup-background);
     left: 0;
     position: absolute;
@@ -111,7 +151,7 @@ input {
 .right {
     width: 50%;
     height: 100%;
-    overflow: scroll;
+    overflow: hidden;
     background: var(--theme-login-background);
     right: 0;
     position: absolute;
@@ -296,15 +336,4 @@ button:hover {
     }
 }
 
-@media only screen and (max-width: 768px) {
-    #slideBox {
-        width: 80%;
-        margin-left: 20%;
-    }
-
-    .signup-info,
-    .login-info {
-        display: none;
-    }
-}
 
