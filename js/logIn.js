@@ -18,7 +18,7 @@ $(document).ready(function () {
             });
         } else {
             $("#slideBox").animate({
-                marginLeft: "20%",
+                marginLeft: "50%",
             });
         }
         $(".topLayer").animate({
