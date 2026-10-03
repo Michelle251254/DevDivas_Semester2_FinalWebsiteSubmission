@@ -1,5 +1,4 @@
 @import "/css/verbal.css";
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik+Dirt&display=swap");
 
 @media (min-width: 768px) {
   body {
@@ -17,7 +16,7 @@ body {
   overflow: hidden;
   width: 100% !important;
   box-sizing: border-box;
-  font-family: var(--font-default);
+  font-family: var(--sH);
 }
 /*==================
     cocvas the forms
@@ -27,7 +26,7 @@ body {
   right: 0;
   width: 50%;
   height: 100%;
-  background: var(--theme-signup);
+  background: var(--black);
 }
 
 .backLeft {
@@ -35,7 +34,7 @@ body {
   left: 0;
   width: 50%;
   height: 100%;
-  background: var(--theme-login);
+  background: var(--black);
 }
 
 #back {
@@ -75,19 +74,19 @@ body {
   margin-left: 17%;
   font-family: "Montserrat", sans-serif;
   word-wrap: break-word;
-  color: var(--theme-light);
+  color: var(--oWhit);
 }
 .logo-Rigth {
-  color: var(--theme-login-darken);
+  color: var(--green);
 }
 .logo-Left {
-  color: var(--theme-signup-darken);
+  color: var(--pink);
 }
 .subRigth {
-  color: var(--theme-signup-darken);
+  color: var(--pink);
 }
 .subLeft {
-  color: var(--theme-login-darken);
+  color: var(--green);
 }
 
 #slideBox {
@@ -128,32 +127,32 @@ input {
   width: 50%;
   height: 100%;
   overflow: hidden;
-  background: var(--theme-signup-background);
+  background: var(--pink);
   left: 0;
   position: absolute;
 
   label {
-    color: var(--theme-light);
+    color: var(--oWhit);
   }
 
   input {
-    border-bottom: 1px solid var(--theme-light);
-    color: var(--theme-light);
+    border-bottom: 1px solid var(--oWhit);
+    color: var(--oWhit);
 
     &:focus,
     &:active {
-      border-color: var(--theme-signup);
-      color: var(--theme-signup);
+      border-color: var(--black);
+      color: var(--black);
     }
 
     &:-webkit-autofill {
-      -webkit-box-shadow: 0 0 0 30px var(--theme-signup-background) inset;
-      -webkit-text-fill-color: var(--theme-light);
+      -webkit-box-shadow: 0 0 0 30px var(--pink) inset;
+      -webkit-text-fill-color: var(--oWhit);
     }
   }
 
   a {
-    color: var(--theme-signup);
+    color: var(--black);
   }
 }
 
@@ -161,25 +160,25 @@ input {
   width: 50%;
   height: 100%;
   overflow: hidden;
-  background: var(--theme-login-background);
+  background: var(--green);
   right: 0;
   position: absolute;
 
   label {
-    color: var(--theme-dark);
+    color: var(--black);
   }
 
   input {
-    border-bottom: 1px solid var(--theme-dark);
+    border-bottom: 1px solid var(--black);
 
     &:focus,
     &:active {
-      border-color: var(--theme-login);
+      border-color: var(--black);
     }
 
     &:-webkit-autofill {
-      -webkit-box-shadow: 0 0 0 30px var(--theme-login-background) inset;
-      -webkit-text-fill-color: var(--theme-dark);
+      -webkit-box-shadow: 0 0 0 30px var(--green) inset;
+      -webkit-text-fill-color: var(--black);
     }
   }
 }
@@ -196,16 +195,17 @@ input {
 
 .content h2 {
   font-weight: 300;
-  font-size: 2.6em;
+  font-size: var(--hSize);
+  font-family: "Rubik Dirt", sans-serif;
   margin: 0.2em 0 0.1em;
 }
 
 .left .content h2 {
-  color: var(--theme-signup);
+  color: var(--black);
 }
 
 .right .content h2 {
-  color: var(--theme-login);
+  color: var(--black);
 }
 
 .form-element {
@@ -224,8 +224,8 @@ input {
 .checkbox {
   -webkit-appearance: none;
   outline: none;
-  background-color: var(--theme-light);
-  border: 1px solid var(--theme-light);
+  background-color: var(--oWhit);
+  border: 1px solid var(--oWhit);
   box-shadow:
     0 1px 2px rgba(0, 0, 0, 0.05),
     inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
@@ -256,7 +256,7 @@ input {
 .checkbox:checked:after {
   outline: none;
   content: "\2713";
-  color: var(--theme-signup);
+  color: var(--black);
   font-size: 1.4em;
   font-weight: 900;
   position: absolute;
@@ -293,11 +293,11 @@ button {
   transition: all 0.25s;
 
   &.signup {
-    background: var(--theme-signup);
+    background: var(--black);
   }
 
   &.login {
-    background: var(--theme-login);
+    background: var(--black);
   }
 
   &.off {
@@ -306,11 +306,11 @@ button {
     margin: 0;
 
     &.signup {
-      color: var(--theme-signup);
+      color: var(--black);
     }
 
     &.login {
-      color: var(--theme-login);
+      color: var(--black);
     }
   }
 }
@@ -323,24 +323,26 @@ button:hover {
     0 3px 6px rgba(0, 0, 0, 0.1);
 
   &.signup {
-    background: var(--theme-signup-darken);
+    font-family: var(--h);
+    background: var(--pink);
   }
 
   &.login {
-    background: var(--theme-login-darken);
+    font-family: var(--h);
+    background: var(--green);
   }
 
   &.off {
     box-shadow: none;
 
     &.signup {
-      color: var(--theme-light);
-      background: var(--theme-dark);
+      color: var(--oWhit);
+      background: var(--black);
     }
 
     &.login {
-      color: var(--theme-dark);
-      background: var(--theme-light);
+      color: var(--black);
+      background: var(--oWhit);
     }
   }
 }

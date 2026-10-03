@@ -1,0 +1,19 @@
+@import "/css/verbal.css";
+
+h1{
+    font-family: "Montserrat", sans-serif;
+    font-size: var(--hSize);
+}
+
+h2{
+    font-family: var(--sH);
+    font-size: var(--sSize);
+}
+
+p{
+    font-family: var(--sH);
+    font-size: var(--pSize);
+
+}
+/*nav*/
+
