@@ -43,4 +43,4 @@ $("searchInput").on("input" , function () {
 //============================================
 //connect to HTML searchbar 
 //============================================
-//<input id="searchInput" type="text"> </input>
+//<input id="searchInput" type="text"> 
