@@ -34,10 +34,9 @@ p {
   color: var(--pink);
 }
 
-.padding{
+.padding {
   padding: 10px;
 }
-
 
 .navbar-replay {
   background-color: var(--nav-bg);
@@ -70,12 +69,10 @@ p {
   font-weight: 700;
 }
 
-
 .navbar-replay .navbar-toggler {
   border-color: var(--pink);
   filter: invert(1);
 }
-
 
 .search-form .form-control {
   background-color: transparent;
@@ -97,7 +94,6 @@ p {
   box-shadow: 0 0 0 0.2rem rgba(255, 79, 154, 0.25);
 }
 
-
 .avatar {
   display: inline-flex;
   align-items: center;
@@ -111,7 +107,6 @@ p {
   font-size: 0.8rem;
   text-decoration: none;
 }
-
 
 .welcome {
   padding: 20px 0 20px;
@@ -129,17 +124,11 @@ p {
   margin: 0;
 }
 
-
 .featured {
   position: relative;
   border-radius: 12px;
   padding: 40px 30px;
-  background: linear-gradient(
-    90deg,
-    #111 0%,
-    var(--pink) 48%,
-    #82304f 100%
-  );
+  background: linear-gradient(90deg, #111 0%, var(--pink) 48%, #82304f 100%);
 }
 
 .featured-tag {
@@ -216,4 +205,94 @@ p {
   color: var(--pink);
 }
 
+.trending .discover {
+  padding: 40px 0;
+}
 
+.section-title {
+  font-size: 1.6rem;
+  margin: 0 0 20px;
+}
+
+.see-all {
+  color: var(--pink);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+}
+
+.see-all:hover {
+  text-decoration: underline;
+}
+
+.song-card {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+}
+
+.song-cover {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  transition: transform 0.2s;
+}
+
+.song-card:hover .song-cover {
+  transform: translateY(-4px);
+}
+
+.bg-pink {
+  background-color: var(--pink);
+}
+
+.bg-green {
+  background-color: var(--green);
+}
+
+.rating-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background-color: rgba(30, 30, 30, 0.85);
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 50px;
+}
+
+.rating-badge::first-letter {
+  color: var(--green);
+}
+
+.rank {
+  position: absolute;
+  bottom: 4px;
+  left: 10px;
+  font-family: var(--h);
+  font-size: 2rem;
+  color: #fff;
+  line-height: 1;
+}
+
+.song-name {
+  font-size: 1rem;
+}
+
+.song-artist {
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+@media (max-width: 575px) {
+  .welcome-title {
+    font-size: 1.6rem;
+  }
+
+  .featured-cover {
+    width: 120px;
+    height: 120px;
+  }
+}
