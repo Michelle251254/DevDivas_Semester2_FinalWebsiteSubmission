@@ -58,7 +58,11 @@ console.log(allSongs);
 console.log(allSongs.length);
 
 displaySongs(allSongs);
-
+//=======================================
+// CLARISHA adding filter
+//=======================================
+createGenreFilter();
+createYearFilter();
 })();
 
 
@@ -145,5 +149,15 @@ $(document).on("click", ".songCardSave", function () {
 });
 
 
+//===========================
+// Clarisha testing filters
+//===========================
+console.log(allSongs);
 
+console.log(allSongs.length);
 
+displaySongs(allSongs);
+
+createGenreFilter();
+
+createYearFilter();
