@@ -5,7 +5,6 @@
 //NOTES AND LOGIC for future presentation:
 //I created a separate filtering system for my Content Library so that it is independent from my search bar. I use jQuery to retrieve the selected Genre and Release Year from the dropdown menus. I then use JavaScript's .filter() method to loop through my allSongs array and create a new array containing only songs that match the selected filters. I use conditional statements to allow "All Genres" and "All Years" to display all content, while specific selections only display matching songs. I use && so that when multiple filters are selected, a song must meet all of the selected conditions. Finally, I pass the filtered array into my existing displaySongs() function so that the content cards are dynamically updated. I use jQuery change event listeners so the filtering happens whenever the user changes either dropdown.
 
-
 function filterSongs() {
   let selectedGenre = $("#genreFilter").val();
   let selectedYear = $("#yearFilter").val();
@@ -85,6 +84,63 @@ function createYearFilter() {
     );
   }
 }
+//==================================================================
+// POPULARITY
+//==================================================================
+function filterByPopularity() {
+  let selectedPopularity = $("#popularityFilter").val();
+
+  let filteredSongs = allSongs.filter(function (song) {
+    if (selectedPopularity === "all") {
+      return true;
+    }
+
+    return song.favourites >= Number(selectedPopularity);
+  });
+
+  displaySongs(filteredSongs);
+}
+
+//==================================================================
+// SORT
+//==================================================================
+function sortSongs() {
+  let selectedSort = $("#sortFilter").val();
+
+  let sortedSongs = [...allSongs];
+
+  if (selectedSort === "titleAZ") {
+    sortedSongs.sort(function (a, b) {
+      return a.title.localeCompare(b.title);
+    });
+  }
+
+  if (selectedSort === "artistAZ") {
+    sortedSongs.sort(function (a, b) {
+      return a.artist.localeCompare(b.artist);
+    });
+  }
+
+  if (selectedSort === "newest") {
+    sortedSongs.sort(function (a, b) {
+      return new Date(b.releaseDate) - new Date(a.releaseDate);
+    });
+  }
+
+  if (selectedSort === "oldest") {
+    sortedSongs.sort(function (a, b) {
+      return new Date(a.releaseDate) - new Date(b.releaseDate);
+    });
+  }
+
+  if (selectedSort === "popular") {
+    sortedSongs.sort(function (a, b) {
+      return b.favourites - a.favourites;
+    });
+  }
+
+  displaySongs(sortedSongs);
+}
 
 //===============================================================
 // Filter events
@@ -95,4 +151,12 @@ $(document).on("change", "#genreFilter", function () {
 
 $(document).on("change", "#yearFilter", function () {
   filterSongs();
+});
+
+$(document).on("change", "#popularityFilter", function () {
+  filterByPopularity();
+});
+
+$(document).on("change", "#sortFilter", function () {
+  sortSongs();
 });
