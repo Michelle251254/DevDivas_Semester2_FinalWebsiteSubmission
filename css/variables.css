@@ -13,8 +13,10 @@
   --hSize: 45pt;
   --sSize: 30pt;
   --pSize: 20pt;
+  --side-margin: clamp(1rem, 6vw, 6rem); 
 
   /* Fonts */
   --h: "Rubik Dirt", system-ui, sans-serif;
   --sH: "Montserrat", system-ui, sans-serif;
+
 }

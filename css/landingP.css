@@ -1,8 +1,3 @@
-/* ===== SIDE MARGINS: change this one line to change the margins on the whole site ===== */
-:root {
-  --side-margin: clamp(1rem, 6vw, 6rem); /* min 1rem on phones, max 6rem on big screens */
-}
-
 .page-margin {
   padding-left: var(--side-margin);
   padding-right: var(--side-margin);
@@ -215,7 +210,6 @@ p {
   color: var(--pink);
 }
 
-/* FIXED: the comma means "trending OR discover" (before, it only matched .discover inside .trending) */
 .trending,
 .discover {
   padding: 40px 0;
@@ -226,7 +220,6 @@ p {
   margin: 0 0 20px;
 }
 
-/* ===== SEE ALL (Bootstrap collapse toggle) ===== */
 .see-all {
   color: var(--pink);
   font-weight: 700;
@@ -243,7 +236,6 @@ p {
   transition: transform 0.2s;
 }
 
-/* Bootstrap sets aria-expanded="true" on the link when it is open, so we can style that */
 .see-all[aria-expanded="true"] .arrow {
   transform: rotate(90deg);
 }
@@ -260,10 +252,9 @@ p {
   display: none;
 }
 
-/* ===== SIDEWAYS SCROLL ROW (songs 1-6) ===== */
 .song-scroll {
-  padding-top: 8px; /* room for the hover lift */
-  padding-bottom: 12px; /* room for the scrollbar */
+  padding-top: 8px;
+  padding-bottom: 12px;
   scroll-snap-type: x mandatory;
   scrollbar-width: thin;
   scrollbar-color: var(--pink) #222;
