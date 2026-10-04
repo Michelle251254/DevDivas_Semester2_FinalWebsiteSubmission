@@ -1,6 +1,4 @@
-
-
-<meta> Clarisha Scheepers</meta>//=================================
+//=================================
 // SEARCH BAR JAVASCRIPT CLARISHA
 //=================================
 
@@ -23,26 +21,28 @@
  
 
 function searchSongs(searchTerm) {
-    searchTerm = searchTerm.toLowerCase().trim();
+   searchTerm = searchTerm.toLowerCase().trim();
 
-    let filteredSongs = allSongs.filter(function (song){
+   let filteredSongs = allSongs.filter(function (song){
 
         return song.title.toLowerCase().includes(searchTerm) ||
-        song.artist.toLowerCase().includes(searchTerm) ||
-        song.genre.toLowerCase().includes(searchTerm);
+       song.artist.toLowerCase().includes(searchTerm) ||
+       song.genre.toLowerCase().includes(searchTerm);
     });
     displaySongs(filteredSongs);
 }
 //===========================================
 //jquery to dynamically display the content 
 //===========================================
-$("searchInput").on("input" , function () {
-    let searchTerm = $(this).val();
-    searchSongs(searchTerm);
+$(document).ready(function () {
+
+    $("#searchInput").on("input", function () {
+
+        let searchTerm = $(this).val();
+
+        searchSongs(searchTerm);
+
+    });
 
 });
 
-//============================================
-//connect to HTML searchbar 
-//============================================
-//<input id="searchInput" type="text"> 
