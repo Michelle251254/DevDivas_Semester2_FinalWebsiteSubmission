@@ -1,0 +1,43 @@
+
+.libraryFilters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 25px auto 30px;
+}
+
+.libraryFilters select {
+  appearance: none;
+
+  min-width: 170px;
+  padding: 12px 42px 12px 16px;
+
+  background-color: #ffffff;
+  color: #171717;
+
+  border: 1px solid #ffd5f7;
+  border-radius: 12px;
+
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+}
+
+.libraryFilters select:hover {
+  border-color: #ff00ff;
+  transform: translateY(-1px);
+}
+
+.libraryFilters select:focus {
+  outline: none;
+  border-color: #171717;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+
+.libraryFilters select:active {
+  transform: translateY(0);
+}

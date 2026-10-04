@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/card.css">
     <link rel="stylesheet" href="../css/variables.css" />
-
+    <link rel="stylesheet" href="../css/filters.css">
 
 
 </head>
@@ -46,20 +46,53 @@
         </div>
     </nav>
 
-<div class="container libraryContainer">
+
+
+
+
+    <!--CLARISHA FILTERS-->
+    <div class="libraryFilters">
+        <select id="genreFilter">
+            <option value="all">All Genres</option>
+        </select>
+
+        <select id="yearFilter">
+            <option value="all">All Years</option>
+        </select>
+
+        <select id="popularityFilter">
+            <option value="all">All Popularity</option>
+            <option value="100">100+ Likes</option>
+            <option value="500">500+ Likes</option>
+            <option value="1000">1,000+ Likes</option>
+            <option value="5000">5,000+ Likes</option>
+        </select>
+
+        <select id="sortFilter">
+            <option value="default">Sort By</option>
+            <option value="titleAZ">Title A-Z</option>
+            <option value="artistAZ">Artist A-Z</option>
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+            <option value="popular">Most Liked</option>
+        </select>
+    </div>
+
+    <!--CLARISHA FILTERS-->
+
+
+    <div class="container libraryContainer">
 
         <p id="libraryCount" class="libraryCount"></p>
 
         <div class="row g-4" id="libraryGrid"></div>
 
-</div>
+    </div>
 
-
-
-
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="../js/api.js"></script>
-<script src="../js/searchbar.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/searchbar.js"></script>
+    <script src="../js/filter.js"></script>
 
 
 
