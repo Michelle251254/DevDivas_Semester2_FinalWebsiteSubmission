@@ -58,3 +58,30 @@ displaySongRow(".discover .song-scroll", allSongs.slice(16, 22), 1, "col col-6 c
 displaySongRow("#discoverMore .row", allSongs.slice(22, 28), 7, "col");
 
 })();
+
+function getRating(favourites) {
+    let rating = 3.5 + (favourites / 1000);
+
+    if (rating > 5) {
+        rating = 5;
+    }
+
+    return rating.toFixed(1);
+}
+
+
+
+function getStars(rating) {
+    let stars = "";
+    let filled = Math.round(rating);
+
+    for (let i = 0; i < 5; i++) {
+        if (i < filled) {
+            stars = stars + "&#9733;";
+        } else {
+            stars = stars + "&#9734;";
+        }
+    }
+
+    return stars;
+}
