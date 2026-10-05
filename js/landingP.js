@@ -85,3 +85,79 @@ function getStars(rating) {
 
     return stars;
 }
+
+function displayFeatured(songs) {
+    $("#featuredCarousel .carousel-inner").empty();
+
+    for (let i = 0; i < songs.length; i++) {
+        let song = songs[i];
+
+        let activeClass = "";
+        if (i === 0) {
+            activeClass = " active";
+        }
+
+        let colour = "bg-green";
+        if (i % 2 === 1) {
+            colour = "bg-pink";
+        }
+
+        let artwork = "";
+        if (song.image !== "") {
+            artwork = "<img src='" + song.image + "' alt='Album artwork'>";
+        }
+
+        let slide =
+            "<div class='carousel-item" + activeClass + "' data-bs-interval='5000'>" +
+                "<div class='featured-content d-flex align-items-center flex-wrap gap-4'>" +
+                    "<div class='featured-cover " + colour + "'>" + artwork + "</div>" +
+                    "<div class='featured-info'>" +
+                        "<p class='new-release'>NEW RELEASE</p>" +
+                        "<h2 class='featured-title'>" + song.title + "</h2>" +
+                        "<p class='featured-artist'>" + song.artist + "</p>" +
+                        "<div class='featured-rating'>" +
+                            "<span class='stars'>" + getStars(song.rating) + "</span>" +
+                            "<span class='rating-text'>" + song.rating + "/5</span>" +
+                        "</div>" +
+                        "<a href='#' class='btn btn-play'>PLAY NOW</a>" +
+                    "</div>" +
+                "</div>" +
+            "</div>";
+
+        $("#featuredCarousel .carousel-inner").append(slide);
+    }
+}
+
+function displaySongRow(container, songs, startRank, columnClass) {
+    $(container).empty();
+
+    for (let i = 0; i < songs.length; i++) {
+        let song = songs[i];
+        let rank = startRank + i;
+
+        let colour = "bg-green";
+        if (rank % 2 === 1) {
+            colour = "bg-pink";
+        }
+
+        let artwork = "";
+        if (song.image !== "") {
+            artwork = "<img src='" + song.image + "' alt='Album artwork'>";
+        }
+
+        let card =
+            "<div class='" + columnClass + "'>" +
+                "<a href='#' class='song-card'>" +
+                    "<div class='song-cover " + colour + "'>" +
+                        artwork +
+                        "<span class='rating-badge'>&#9733; " + song.rating + "</span>" +
+                        "<span class='rank'>" + rank + "</span>" +
+                    "</div>" +
+                    "<p class='song-name'>" + song.title + "</p>" +
+                    "<p class='song-artist'>" + song.artist + "</p>" +
+                "</a>" +
+            "</div>";
+
+        $(container).append(card);
+    }
+}
