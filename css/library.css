@@ -34,6 +34,11 @@ p {
   color: var(--pink);
 }
 
+.page-margin {
+  padding-left: var(--side-margin);
+  padding-right: var(--side-margin);
+}
+
 .padding {
   padding: 10px;
 }
@@ -107,3 +112,4 @@ p {
   font-size: 0.8rem;
   text-decoration: none;
 }
+
