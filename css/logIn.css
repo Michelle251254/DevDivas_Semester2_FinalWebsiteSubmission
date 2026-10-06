@@ -1,26 +1,28 @@
-@import "/css/variables.css";
+html,
+body {
+  height: 100%;
+}
 
-@media (min-width: 768px) {
-  body {
-    background-color: lightgray;
-  }
-}
-@media (max-width: 768px) {
-  .sidebar {
-    display: none; /* Hide sidebar on smaller screens */
-  }
-}
 body {
   margin: 0;
-  height: 100%;
   overflow: hidden;
   width: 100% !important;
   box-sizing: border-box;
   font-family: var(--sH);
+  background-color: var(--black);
 }
+
 /*==================
-    cocvas the forms
+    canvas + background halves
  =================== */
+#back {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh; 
+  position: absolute;
+  z-index: -999;
+}
+
 .backRight {
   position: absolute;
   right: 0;
@@ -37,13 +39,6 @@ body {
   background: var(--black);
 }
 
-#back {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  z-index: -999;
-}
-
 .canvas-back {
   position: absolute;
   top: 0;
@@ -57,42 +52,55 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+/* RESPONSIVE: clamp(smallest, grows with window, biggest) so the text scales smoothly */
 .Title {
   margin-top: 15vh;
   margin-left: 17%;
   font-family: "Rubik Dirt", sans-serif;
-  font-size: 8rem;
+  font-size: clamp(3rem, 9vw, 8rem);
 }
+
 .subH1 {
   margin-left: 17%;
   font-family: "Rubik Dirt", sans-serif;
-  font-size: 2rem;
+  font-size: clamp(1.1rem, 2.4vw, 2rem);
 }
+
 .subH2 {
   width: 60%;
   margin-top: 5vh;
   margin-left: 17%;
   font-family: "Montserrat", sans-serif;
+  font-size: clamp(0.8rem, 1.5vw, 1.1rem);
   word-wrap: break-word;
   color: var(--oWhit);
 }
+
 .logo-Rigth {
   color: var(--green);
 }
+
 .logo-Left {
   color: var(--pink);
 }
+
 .subRigth {
   color: var(--pink);
 }
+
 .subLeft {
   color: var(--green);
 }
 
+/*==================
+    the sliding box
+ =================== */
 #slideBox {
   width: 50%;
   max-height: 100%;
-  height: 100%;
+  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   margin-right: 50%;
   position: absolute;
@@ -126,7 +134,8 @@ input {
 .left {
   width: 50%;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto; 
   background: var(--pink);
   left: 0;
   position: absolute;
@@ -159,7 +168,8 @@ input {
 .right {
   width: 50%;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto; 
   background: var(--green);
   right: 0;
   position: absolute;
@@ -189,23 +199,26 @@ input {
   justify-content: center;
   min-height: 100%;
   width: 80%;
+  max-width: 480px; 
   margin: 0 auto;
+  padding: 2rem 0;
   position: relative;
 }
 
 .content h2 {
   font-weight: 300;
-  font-size: var(--hSize);
+  font-size: clamp(2.2rem, 5vw, var(--hSize));
   font-family: "Rubik Dirt", sans-serif;
   margin: 0.2em 0 0.1em;
-}
-
-.left .content h2 {
   color: var(--black);
 }
 
-.right .content h2 {
+
+.mobile-logo {
+  font-family: "Rubik Dirt", sans-serif;
+  font-size: 1.6rem;
   color: var(--black);
+  margin-bottom: 0.5rem;
 }
 
 .form-element {
@@ -233,13 +246,14 @@ input {
   border-radius: 4px;
   display: inline-block;
   position: relative;
+  flex-shrink: 0; 
 }
 
 .checkbox:focus,
 .checkbox:checked:focus,
 .checkbox:active,
 .checkbox:checked:active {
-  border-color: var(--theme-signup);
+  border-color: var(--black); 
   box-shadow:
     0 1px 2px rgba(0, 0, 0, 0.05),
     inset 0px 1px 3px rgba(0, 0, 0, 0.1);
@@ -344,5 +358,19 @@ button:hover {
       color: var(--black);
       background: var(--oWhit);
     }
+  }
+}
+
+
+@media (max-width: 767.98px) {
+  #slideBox {
+    width: 100%;
+    margin-right: 0;
+
+    margin-left: 0 !important;
+  }
+
+  .content {
+    width: 86%;
   }
 }
