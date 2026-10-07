@@ -16,39 +16,84 @@
     <link rel="stylesheet" href="../css/filters.css">
 </head>
 
-<body>
+<html>
 
-    <nav class="navbar navbar-expand-lg navbar-replay">
-        <div class="container-fluid px-4">
-            <a class="navbar-brand logo" href="index.html">REPLAY</a>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-replay">
+            <div class="container-fluid px-4">
+                <a class="navbar-brand logo" href="index.html">REPLAY</a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
                 aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <div class="collapse navbar-collapse" id="navMenu">
-                <ul class="navbar-nav mx-auto gap-lg-5">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Explore</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#">Library</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Favourites</a></li>
-                </ul>
+                <div class="collapse navbar-collapse" id="navMenu">
+                    <ul class="navbar-nav mx-auto gap-lg-5">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Explore</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="#">Library</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Favourites</a></li>
+                    </ul>
 
-                <form class="search-form d-flex align-items-center me-lg-3 my-3 my-lg-0" role="search">
-                    <input id="searchInput" class="form-control" type="search" placeholder="Search"
+                    <form class="search-form d-flex align-items-center me-lg-3 my-3 my-lg-0" role="search">
+                        <input id="searchInput" class="form-control" type="search" placeholder="Search"
                         aria-label="Search">
-                </form>
+                    </form>
 
-                <a href="#" class="avatar" aria-label="Your profile">JM</a>
+                    <a href="#" class="avatar" aria-label="Your profile">JM</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="backToLibrary">
+            <a class="backToLibrary" href="library.html">Back To Library</a>
+        </div>
+
+        <div class="songInfoContainer">
+            <div class="albumArt"></div>
+
+            <div class="songMetaRow">
+                <p class="songGenre">POP-PUNK • SINGLE</p>
+            </div>
+
+            <div class="songMetaRow">
+                <h2 class="songTitle">SONG TITLE</h2>
+            </div>
+
+            <div class="songMetaRow">
+                <p class="class">By <span class="artistBold">Artist</span> • Released Year</p>
+            </div>
+
+            <div class="songMetaRow">
+                <p>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </p>
+                <p>4.8/5 • 12402 ratings</p>
+            </div>
+
+            <div class="songMetaRow">
+                <ul class="songTags">
+                    <li class="songTag">High Energy</li>
+                    <li class="songTag">Explicit</li>
+                    <li class="songTag">3:42</li>
+                </ul>
             </div>
         </div>
-    </nav>
 
-    <div class="backToLibrary">
-        <a class="backToLibrary" href="library.html">Back To Library</a>
-    </div>
 
-    <div class="songInfo">
-        
-    </div>
+    <!--Font Awesome-->
+    <script src="https://kit.fontawesome.com/1316822bd3.js" crossorigin="anonymous"></script>
+
+    <!--Javascript-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/searchbar.js"></script>
+    <script src="../js/filter.js"></script>
+
+    </body>
+</html>
