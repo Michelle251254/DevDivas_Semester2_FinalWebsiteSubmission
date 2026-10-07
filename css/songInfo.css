@@ -1,0 +1,71 @@
+.songInfoContainer{
+    margin: 15px 200px
+}
+
+a{
+    text-decoration-line: none;
+}
+
+.backToLibrary, .backToLibrary p{
+    color: white;
+    font-size: 14px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: max-content;
+
+    padding: 5px;
+}
+
+a.backToLibrary:hover{
+    background-color: #d5f570;
+    border-radius: 40px;
+}
+
+a.backToLibrary:hover, a.backToLibrary:hover p{
+    color: black;
+}
+
+.songInfoRow{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 10px;
+}
+
+.twoCol{
+    display: flex;
+    flex-direction: column;
+}
+
+.albumPlaceholder{
+    background-color: #ff4f9a;
+    width: 300px;
+    height: 300px;
+    margin: 6px 0px;
+}
+
+.songMetaRow{
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+    padding: 2px 0px;
+}
+
+.songTags{
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.songTags li{
+    background-color: #d5f570;
+    color: black;
+    padding: 6px 12px;
+    border-radius: 8px;
+}
