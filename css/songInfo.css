@@ -15,16 +15,18 @@ a{
     align-items: center;
     width: max-content;
 
-    padding: 5px;
+    border: 1px solid transparent;
+
+    padding: 4px 6px;
 }
 
 a.backToLibrary:hover{
-    background-color: #d5f570;
-    border-radius: 40px;
-}
+    color: #d5f570;
 
-a.backToLibrary:hover, a.backToLibrary:hover p{
-    color: black;
+    border-style: solid;
+    border-color: #d5f570;
+    border-width: 1px;
+    border-radius: 6px;
 }
 
 .songInfoRow{
@@ -43,6 +45,7 @@ a.backToLibrary:hover, a.backToLibrary:hover p{
 
 .albumPlaceholder{
     background-color: #ff4f9a;
+    border-radius: 12px;
     width: 300px;
     height: 300px;
     margin: 6px 0px;
@@ -57,6 +60,28 @@ a.backToLibrary:hover, a.backToLibrary:hover p{
     gap: 20px;
 }
 
+.songGenre{
+    color: #d5f570;
+
+    font-size: 13px;
+    font-weight: 550;
+
+    margin-bottom: -10px;
+}
+
+.artistDate{
+    margin-top: -10px;
+}
+
+p .artistBold{
+    color: #ff4f9a;
+    font-weight: 700;
+}
+
+.fa-star{
+    color: #d5f570;
+}
+
 .songTags{
     display: flex;
     gap: 12px;
@@ -68,32 +93,110 @@ a.backToLibrary:hover, a.backToLibrary:hover p{
 .songTags li{
     background-color: #d5f570;
     color: black;
+
+    font-weight: 600;
+
     padding: 8px 12px;
-    border-radius: 20px;
+    border-radius: 6px;
 }
 
 .playSaveShare{
+    display: flex;
+    flex-direction: row;
+
+    gap: 12px;
     margin: 10px 0px;
     align-items: center;
 }
 
-.fa-circle-play:hover{
+.playBtn{
+    background: none;
+    border: none;
+    padding-right: -20px;
+}
+
+.fa-circle-play{
     color: #ff4f9a;
+    font-size: 40px;
+}
+
+.fa-circle-play:hover{
+    color: #d5f570;
 }
 
 .favBtn{
     color: black;
-    background-color: #ff4f9a;
-    border: none;
-    box-shadow: 4px 4px #d5f570;
     font-weight: 600;
 
-    padding: 8px 12px;
+    background-color: #d5f570;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 4px 4px #ff4f9a;
+    
+    padding: 12px 14px;
+}
+
+.favBtn:hover{
+    color: black;
+    font-weight: 600;
+
+    background-color: #ff4f9a;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 4px 4px #d5f570;
+    
+    padding: 12px 14px;
 }
 
 .shareBtn{
     color: white;
-    border-color: #d5f570;
-    background-color: black;
+    font-weight: 600;
 
+    background-color: black;
+    border-color: #d5f570;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 6px;
+
+    padding: 10px 14px;
+    margin-left: 12px;
+}
+
+.songDescription{
+    margin-top: 12px;
+}
+
+hr{
+    border: none;
+    height: 0.5px;
+    background-color: #d5f570;
+    opacity: 1;
+
+    margin: 30px 0px;
+}
+
+.suggestedSongs h3{
+    font-family: "Rubik Dirt";
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.suggestedSongs span{
+    color: #ff4f9a;
+}
+
+.placeholders{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 30px;
+}
+
+.suggestedPlaceholder{
+    width: 200px;
+    height: 200px;
+
+    background-color: #ff4f9a;
+    border-radius: 12px;
+    margin: 6px 0px;
 }

@@ -14,11 +14,17 @@
     <link rel="stylesheet" href="../css/card.css">
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/songInfo.css">
+
+    <!-- Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Dirt&display=swap" rel="stylesheet">
 </head>
 
 <html>
 
     <body>
+        <!--michelle vdm nav-->
         <nav class="navbar navbar-expand-lg navbar-replay">
             <div class="container-fluid px-4">
                 <a class="navbar-brand logo" href="index.html">REPLAY</a>
@@ -47,6 +53,7 @@
         </nav>
 
 
+        <!--michelle m-->
         <div class="songInfoContainer">
             <a class="backToLibrary" href="library.html">
                 <p>
@@ -73,7 +80,7 @@
                         <p class="artistDate">By <span class="artistBold">Artist</span> • Released Year</p>
                     </div>
 
-                    <div class="songMetaRow">
+                    <div class="songMetaRow songRatings">
                         <p>
                             <i class="fa-solid fa-star"></i>
                             <i class="fa-solid fa-star"></i>
@@ -93,21 +100,34 @@
                     </div>
 
                     <div class="songMetaRow playSaveShare">
-                        <h2>
+                        <button class="playBtn" onclick="playFunctionPlaceholder">
                             <i class="fa-solid fa-circle-play"></i>
-                        </h2>
+                        </button>
                         <button class="favBtn">+ Save to Favourites</button>
                         <button class="shareBtn">Share</button>
                     </div>
 
-                    <div class="songMetaRow">
+                    <div class="songMetaRow songDescription">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean faucibus enim id placerat elementum. Donec non malesuada lacus. Donec ante felis, aliquam nec feugiat vel, dignissim sed diam. Sed orci massa, elementum eu nibh vitae, tincidunt venenatis ante. Fusce finibus facilisis vehicula. Praesent vitae porta ligula. Nam faucibus dui non purus mattis dictum.</p>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <hr>
+            <hr>
+
+            <div class="suggestions">
+                <div class="suggestedSongs">
+                    <h3>MORE SONGS BY <span class="artistBold">ARTIST</span></h3>
+                </div>
+
+                <div class="placeholders">
+                    <div class="suggestedPlaceholder"></div>
+                    <div class="suggestedPlaceholder"></div>
+                    <div class="suggestedPlaceholder"></div>
+                    <div class="suggestedPlaceholder"></div>
+                </div>
+            </div>
+        </div>
 
 
     <!--Font Awesome-->
