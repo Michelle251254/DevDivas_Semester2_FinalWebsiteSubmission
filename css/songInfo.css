@@ -1,0 +1,204 @@
+.songInfoContainer{
+    margin: 15px 200px
+}
+
+a{
+    text-decoration-line: none;
+}
+
+.backToLibrary, .backToLibrary p{
+    color: white;
+    font-size: 14px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: max-content;
+
+    border: 1px solid transparent;
+
+    padding: 4px 6px;
+}
+
+a.backToLibrary:hover{
+    color: #d5f570;
+
+    border-style: solid;
+    border-color: #d5f570;
+    border-width: 1px;
+    border-radius: 6px;
+}
+
+.songInfoRow{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 10px;
+}
+
+.twoCol{
+    display: flex;
+    flex-direction: column;
+}
+
+.albumPlaceholder{
+    background-color: #ff4f9a;
+    border-radius: 12px;
+    width: 300px;
+    height: 300px;
+    margin: 6px 0px;
+}
+
+.songMetaRow{
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+    padding: 2px 0px;
+    margin: 4px 0px;
+    gap: 20px;
+}
+
+.songGenre{
+    color: #d5f570;
+
+    font-size: 13px;
+    font-weight: 550;
+
+    margin-bottom: -10px;
+}
+
+.artistDate{
+    margin-top: -10px;
+}
+
+p .artistBold{
+    color: #ff4f9a;
+    font-weight: 700;
+}
+
+.fa-star{
+    color: #d5f570;
+}
+
+.songTags{
+    display: flex;
+    gap: 12px;
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.songTags li{
+    background-color: #d5f570;
+    color: black;
+
+    font-weight: 600;
+
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+.playSaveShare{
+    display: flex;
+    flex-direction: row;
+
+    gap: 12px;
+    margin: 10px 0px;
+    align-items: center;
+}
+
+.playBtn{
+    background: none;
+    border: none;
+    padding-right: -20px;
+}
+
+button.playBtn{
+    padding: 0px;
+    margin-right: 2px;
+}
+
+i.fa-solid.fa-circle-play{
+    padding: 0px;
+}
+
+.fa-circle-play{
+    color: #ff4f9a;
+    font-size: 40px;
+}
+
+.fa-circle-play:hover{
+    color: #d5f570;
+}
+
+.favBtn{
+    color: black;
+    font-weight: 600;
+
+    background-color: #d5f570;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 4px 4px #ff4f9a;
+    
+    padding: 12px 14px;
+}
+
+.favBtn:hover{
+    color: black;
+    font-weight: 600;
+
+    background-color: #ff4f9a;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 4px 4px #d5f570;
+    
+    padding: 12px 14px;
+}
+
+.shareBtn{
+    color: white;
+    font-weight: 600;
+
+    background-color: black;
+    border-color: #d5f570;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 6px;
+
+    padding: 10px 14px;
+    margin-left: 12px;
+}
+
+.songDescription{
+    margin-top: 12px;
+}
+
+hr{
+    border: none;
+    height: 0.5px;
+    background-color: #d5f570;
+    opacity: 1;
+
+    margin: 30px 0px;
+}
+
+.suggestedSongs h3{
+    font-family: "Rubik Dirt";
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.suggestedSongs span{
+    color: #ff4f9a;
+}
+
+.suggestedPlaceholder{
+    width: 200px;
+    height: 200px;
+
+    background-color: #ff4f9a;
+    border-radius: 12px;
+    margin: 6px 0px;
+}
