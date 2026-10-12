@@ -115,6 +115,15 @@ p .artistBold{
     padding-right: -20px;
 }
 
+button.playBtn{
+    padding: 0px;
+    margin-right: 2px;
+}
+
+i.fa-solid.fa-circle-play{
+    padding: 0px;
+}
+
 .fa-circle-play{
     color: #ff4f9a;
     font-size: 40px;
@@ -183,13 +192,6 @@ hr{
 
 .suggestedSongs span{
     color: #ff4f9a;
-}
-
-.placeholders{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 30px;
 }
 
 .suggestedPlaceholder{
