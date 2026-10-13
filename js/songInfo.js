@@ -148,3 +148,33 @@ function formatSongDuration(totalSeconds) {
 
     return minutes + ":" + seconds;
 }
+
+
+function displaySongInfo(song) {
+
+    if (song.image !== "") {
+        $(".albumPlaceholder").css("background-image", "url('" + song.image + "')");
+        $(".albumPlaceholder").css("background-size", "cover");
+    }
+
+    $(".songGenre").text(song.genre.toUpperCase() + " \u2022 " + song.mood.toUpperCase());
+
+    $(".songTitle").text(song.title);
+
+    $(".artistDate").html("By <span class='artistBold'>" + song.artist + "</span> \u2022 Released " + song.releaseYear);
+
+    $(".songRatings p").first().html(getSongInfoStars(song.rating));
+    $(".songRatings p").last().text(song.rating + "/5 \u2022 " + song.favourites + " favourites");
+
+    $(".songTags").html(
+        "<li>" + song.mood + "</li>" +
+        "<li>" + song.genre + "</li>" +
+        "<li>" + formatSongDuration(song.duration) + "</li>"
+    );
+
+    $(".songDescription p").text(song.description);
+
+    $(".artistPlaceholder").text(song.artist.toUpperCase());
+
+    updateFavouriteButton(song.id);
+}
