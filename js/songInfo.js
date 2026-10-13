@@ -108,3 +108,39 @@ displaySongInfo(currentSong);
 loadMoreFromArtist(currentSong);
 
 })();
+
+function getSongInfoRating(favourites) {
+    let rating = 3.5 + (favourites / 1000);
+
+    if (rating > 5) {
+        rating = 5;
+    }
+
+    return rating.toFixed(1);
+}
+
+function getSongInfoStars(rating) {
+    let stars = "";
+    let filled = Math.round(rating);
+
+    for (let i = 0; i < 5; i++) {
+        if (i < filled) {
+            stars = stars + "<i class='fa-solid fa-star'></i>";
+        } else {
+            stars = stars + "<i class='fa-regular fa-star'></i>";
+        }
+    }
+
+    return stars;
+}
+
+function formatSongDuration(totaalSeconds) {
+    let minutes = Math.floor(totalSeconds / 60);
+    let seconds = totalSeconds % 60;
+
+    if (seconds < 10) {
+        seconds = "0" + seconds;
+    }
+
+    return minutes + ":" + seconds;
+}
