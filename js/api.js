@@ -116,7 +116,7 @@ function displaySongs(songs) {
       year +
       "</p>" +
       "<div class='songCardButtons'>" +
-      "<a class='songCardView' href='item.html?id=" +
+      "<a class='songCardView' href='songInfo.html?id=" +
       song.id +
       "'>View</a>" +
       "<button class='songCardSave' value='" +

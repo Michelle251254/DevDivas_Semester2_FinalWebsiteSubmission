@@ -26,7 +26,11 @@ const options = {
     method: "GET"
 };
 
-let songId = localStorage.getItem("replayCurrentSong");
+let songId = new URLSearchParams(window.location.search).get("id");
+
+if (!songId) {
+    songId = localStorage.getItem("replayCurrentSong");
+}
 
 if (!songId) {
     let firstUrl = "https://discoveryprovider.audius.co/v1/tracks/search?query=punk&app_name=REPLAY&limit=1";
