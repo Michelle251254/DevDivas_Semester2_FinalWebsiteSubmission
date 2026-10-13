@@ -134,7 +134,7 @@ function getSongInfoStars(rating) {
     return stars;
 }
 
-function formatSongDuration(totaalSeconds) {
+function formatSongDuration(totalSeconds) {
     let minutes = Math.floor(totalSeconds / 60);
     let seconds = totalSeconds % 60;
 
