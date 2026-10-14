@@ -31,10 +31,6 @@ table.playlistTable{
     border-collapse: collapse;
 }
 
-th.blank{
-    
-}
-
 td.albumIcon{
     background-color: #ff4f9a;
     width: 40px;
