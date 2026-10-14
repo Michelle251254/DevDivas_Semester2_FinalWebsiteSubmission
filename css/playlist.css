@@ -7,6 +7,16 @@
     flex-direction: column;
 }
 
+.twoCol.left{
+    width: 30vw;
+    flex-shrink: 0;
+}
+
+.twoCol.right{
+    flex: 1;
+    min-width: 0;
+}
+
 .playlistInfoRow{
     display: flex;
     flex-direction: row;
@@ -26,13 +36,42 @@ table{
 }
 
 table.playlistTable{
-    border: 5px;
-    border-color: #ff4f9a;
+    width: 100%;
+    table-layout: fixed;
     border-collapse: collapse;
+}
+
+.playlistTable th:nth-child(1), .playlist th:nth-child(4), .playlist th:nth-child(6){
+    width: 8%;
+}
+
+.playlistTable th:nth-child(2){
+    width: 48%;
+}
+
+.playlistTable th:nth-child(3){
+    width: 16%;
+}
+
+.playlistTable th:nth-child(5){
+    width: 12%;
+}
+
+th{
+    text-align: left;
+    padding-left: 10px;
+}
+
+tr{
+    height: 40px;
 }
 
 td.albumIcon{
     background-color: #ff4f9a;
     width: 40px;
     height: 40px;
+}
+
+td.removeIcon{
+    text-align: center;
 }
