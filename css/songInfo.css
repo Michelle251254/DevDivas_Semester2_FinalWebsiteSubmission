@@ -202,3 +202,17 @@ hr{
     border-radius: 12px;
     margin: 6px 0px;
 }
+
+
+
+.songInfoRow {
+    justify-content: flex-start;
+}
+
+.twoCol {
+    flex: 1;
+}
+
+.songInfoRow .twoCol:first-child {
+    flex: 0 0 auto;
+}
