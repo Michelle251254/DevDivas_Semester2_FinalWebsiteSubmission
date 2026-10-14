@@ -1,3 +1,42 @@
 .playlistContainer{
     margin: 15px 0px;
 }
+
+.twoCol{
+    display: flex;
+    flex-direction: column;
+}
+
+.playlistInfoRow{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 40px;
+    margin-top: 10px;
+}
+
+.metaStats{
+    font-weight: 200;
+    color: #b3b1b1;
+}
+
+table{
+    width: 100%;
+}
+
+table.playlistTable{
+    border: 5px;
+    border-color: #ff4f9a;
+    border-collapse: collapse;
+}
+
+th.blank{
+    
+}
+
+td.albumIcon{
+    background-color: #ff4f9a;
+    width: 40px;
+    height: 40px;
+}
