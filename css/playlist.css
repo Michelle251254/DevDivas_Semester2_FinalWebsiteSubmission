@@ -8,13 +8,11 @@
 }
 
 .twoCol.left{
-    width: 30vw;
-    flex-shrink: 0;
+    width: 30%;
 }
 
 .twoCol.right{
-    flex: 1;
-    min-width: 0;
+    width: 70%;
 }
 
 .playlistInfoRow{
@@ -29,6 +27,71 @@
 .metaStats{
     font-weight: 200;
     color: #b3b1b1;
+}
+
+.playlistBtns{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+
+.playBtn{
+    background: none;
+    border: none;
+    padding-right: -20px;
+}
+
+.fa-circle-play{
+    color: #ff4f9a;
+    font-size: 40px;
+}
+
+.fa-circle-play:hover{
+    color: #d5f570;
+}
+
+.shuffleBtn{
+    color: #b3b1b1;
+    background: none;
+    border: none;
+}
+
+.fa-shuffle{
+    font-size: 22px;
+}
+
+.fa-shuffle:hover{
+    color: #d5f570;
+}
+
+.downloadBtn{
+    color: #b3b1b1;
+    background: none;
+    border: none;
+}
+
+.fa-circle-down{
+    font-size: 22px;
+}
+
+.fa-circle-down:hover{
+    color: #d5f570;
+}
+
+.shareBtn{
+    border: none;
+    font-weight: 600;
+
+    background-color: none;
+
+    margin-left: 0px;
+}
+
+.fa-share{
+    color: #b3b1b1;
+    font-size: 18px;
 }
 
 table{
