@@ -1,3 +1,19 @@
+
+.dropdown-menu {
+  --bs-dropdown-link-active-bg: var(--pink);
+  --bs-dropdown-link-active-color: #000;
+}
+
+.form-control:focus {
+  border-color: var(--pink);
+  box-shadow: 0 0 0 0.2rem rgba(255, 79, 154, 0.25);
+}
+
+.page-margin {
+  padding-left: var(--side-margin);
+  padding-right: var(--side-margin);
+}
+
 body {
   background-color: var(--black);
   color: #fff;
@@ -32,11 +48,6 @@ p {
 
 .pink {
   color: var(--pink);
-}
-
-.page-margin {
-  padding-left: var(--side-margin);
-  padding-right: var(--side-margin);
 }
 
 .padding {
@@ -113,3 +124,62 @@ p {
   text-decoration: none;
 }
 
+.bg-pink {
+  background-color: var(--pink);
+}
+
+.bg-green {
+  background-color: var(--green);
+}
+
+.search-form .form-control {
+  min-width: 260px;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  font-size: 0.8rem;
+}
+
+.sort-btn {
+  background-color: #161616;
+  border: 1px solid #333;
+  color: #fff;
+}
+
+.sort-btn:hover,
+.sort-btn:focus,
+.sort-btn.show {
+  background-color: #222;
+  border-color: var(--pink);
+  color: #fff;
+}
+
+.cover-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.playlist-cover {
+  transition: transform 0.2s;
+}
+
+.playlist-card:hover .playlist-cover {
+  transform: translateY(-4px);
+}
+
+.add-circle {
+  width: 56%;
+  aspect-ratio: 1 / 1;
+  background-color: #5a5a5a;
+  color: #000;
+  font-size: 2.6rem;
+  transition: background-color 0.2s;
+}
+
+.add-circle:hover {
+  background-color: var(--pink);
+  color: #000;
+}
