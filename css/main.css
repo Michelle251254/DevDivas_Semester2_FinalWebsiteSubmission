@@ -1,0 +1,65 @@
+#song-card {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 0 20px;
+  font-family: "Inter", sans-serif;
+}
+
+#song-image {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  background-color: #000;
+  flex-shrink: 0;
+}
+
+#song-title {
+  font-size: 48px;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1.1;
+  margin: 0 0 10px 0;
+}
+
+#song-artist {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 0 28px 0;
+}
+
+#song-date {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  #song-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  #song-title {
+    font-size: 32px;
+  }
+}
+
+#song-genre {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 0 6px 0;
+}
+
+#song-rating {
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 0 28px 0;
+}
