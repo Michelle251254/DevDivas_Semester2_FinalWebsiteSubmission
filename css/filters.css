@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 15px;
   margin: 25px auto 30px;
 }
 
@@ -14,11 +14,11 @@
   min-width: 170px;
   padding: 12px 42px 12px 16px;
 
-  background-color: #ffffff;
+  background-color: #D5F570;
   color: #171717;
 
-  border: 1px solid #ffd5f7;
-  border-radius: 12px;
+  border: px solid #FF4F9A;
+  border-radius: 15px;
 
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
@@ -28,16 +28,12 @@
 }
 
 .libraryFilters select:hover {
-  border-color: #ff00ff;
-  transform: translateY(-1px);
+ 
+  transform: translateY(-2px);
+  font-weight: 550;
 }
 
-.libraryFilters select:focus {
-  outline: none;
-  border-color: #171717;
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
-}
 
 .libraryFilters select:active {
-  transform: translateY(0);
+  transform: translateY(1);
 }
