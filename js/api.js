@@ -12,6 +12,8 @@ class Song {
 
 let allSongs = [];
 
+//fetching 50 songs
+
 !(async function () {
   const url =
     "https://discoveryprovider.audius.co/v1/tracks/search?query=punk&app_name=REPLAY&limit=50";
@@ -21,9 +23,7 @@ let allSongs = [];
 
   let data = await fetch(url, options)
     .then((response) => response.json())
-    .then((result) => {
-      return result;
-    })
+    .then((result) => {return result;})
     .catch((error) => console.error(error));
 
   console.log(data);
@@ -35,7 +35,8 @@ let allSongs = [];
     return;
   }
 
-  for (let i = 0; i < data.data.length; i++) {
+  //turning the response into objects
+  for (let i = 0; i < data.data.length; i++) { 
     let track = data.data[i];
 
     let image = "";
@@ -76,6 +77,8 @@ let allSongs = [];
   createYearFilter();
 })();
 
+
+//building the cards
 function displaySongs(songs) {
   $("#libraryGrid").empty();
   $("#libraryCount").text(songs.length + " items");
@@ -95,39 +98,34 @@ function displaySongs(songs) {
     }
 
     let card =
-      "<div class='col-12 col-sm-6 col-lg-4 col-xxl-3'>" +
-      "<div class='songCard'>" +
-      "<div class='songCardArt'>" +
-      artwork +
-      "<span class='songCardBadge'>&#9829; " +
-      song.favourites +
-      "</span>" +
-      "</div>" +
-      "<div class='songCardBody'>" +
-      "<p class='songCardGenre'>" +
-      song.genre +
-      "</p>" +
-      "<h3 class='songCardTitle'>" +
-      song.title +
-      "</h3>" +
-      "<p class='songCardMeta'>" +
-      song.artist +
-      ", " +
-      year +
-      "</p>" +
-      "<div class='songCardButtons'>" +
-      "<a class='songCardView' href='songInfo.html?id=" +
-      song.id +
-      "'>View</a>" +
-      "<button class='songCardSave' value='" +
-      song.id +
-      "'>+ Save</button>" +
-      "</div>" +
-      "</div>" +
-      "</div>" +
-      "</div>";
+          //1. outer container 
+          "<div class='col-12 col-sm-6 col-lg-4 col-xxl-3'>" +
+            //2. song card
+            "<div class='songCard'>" +
+              //3. artwork section 
+              "<div class='songCardArt'>" +
+                artwork +
+                //favourites bages
+                "<span class='songCardBadge'>&#9829; " + song.favourites + "</span>" +
+                "</div>" + //closes songCardArt
+                //4. song information section
+                "<div class='songCardBody'>" +
+                //genre + title
+                  "<p class='songCardGenre'>" + song.genre + "</p>" + "<h3 class='songCardTitle'>" + song.title + "</h3>" +
+                  //artist + release year
+                  "<p class='songCardMeta'>" + song.artist + ", " + year + "</p>" +
+                  //5. buttons section
+                  "<div class='songCardButtons'>" +
+                  //view link
+                    "<a class='songCardView' href='songInfo.html?id=" + song.id + "'>View</a>" +
+                    //save button
+                    "<button class='songCardSave' value='" + song.id + "'>+ Save</button>" +
+                  "</div>" +
+                "</div>" +
+              "</div>" +
+            "</div>";
 
-    $("#libraryGrid").append(card);
+    $("#libraryGrid").append(card); //adds the completed card to the page
   }
 
   updateSaveButtons();
