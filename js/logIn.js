@@ -76,6 +76,10 @@ async function handleSignUp(userEmail, userPassword) {
       // We sign them out so they have to log in themselves.
       signOut(auth)
         .then(function () {
+          //remember name from sign up and fill it on the login form
+          let signupName = document.getElementById("username-signup").value;
+          document.getElementById("username-login").value = signupName;
+          
           signupForm.reset();
           showMessage(signupMessage, "", "");
 
