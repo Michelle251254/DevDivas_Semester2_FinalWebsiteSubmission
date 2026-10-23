@@ -293,23 +293,6 @@ $("#createPlaylistBtn").on("click", function () {
 
 
 
-$(document).on("click", ".songCardSave", function () {
-  let songId = $(this).val();
-  let saved = getSavedSongs();
-
-  if (saved.indexOf(songId) === -1) {
-    saved.push(songId);
-    $(this).text("Saved");
-    $(this).addClass("isSaved");
-  } else {
-    saved.splice(saved.indexOf(songId), 1);
-    $(this).text("+ Save");
-    $(this).removeClass("isSaved");
-  }
-
-  localStorage.setItem("replaySaved", JSON.stringify(saved));
-});
-
 //===========================
 // Clarisha testing filters
 //===========================
