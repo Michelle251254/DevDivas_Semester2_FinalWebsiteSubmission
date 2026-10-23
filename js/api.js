@@ -170,6 +170,23 @@ function updateSaveButtons() {
   });
 }
 
+// holds the song the user clicked save on
+let selectedSongId = "";
+let selectedSongTitle = "";
+
+// opens the modal when a save button on a card is clicked
+$(document).on("click", ".songCardSave", function () {
+  selectedSongId = $(this).val();
+
+  for (let i = 0; i < allSongs.length; i++) {
+    if (allSongs[i].id === selectedSongId) {
+      selectedSongTitle = allSongs[i].title;
+    }
+  }
+
+  showPlaylistModal();
+});
+
 $(document).on("click", ".songCardSave", function () {
   let songId = $(this).val();
   let saved = getSavedSongs();
