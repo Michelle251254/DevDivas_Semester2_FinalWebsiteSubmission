@@ -161,3 +161,19 @@ function displaySongRow(container, songs, startRank, columnClass) {
         $(container).append(card);
     }
 }
+
+
+
+//===============================================
+// CLARISHA WELCOME MESSAGE JS
+// gets the username that logIn.js saved in local storage
+// and puts it in the welcome heading on the home page
+
+$(document).ready(function(){
+    let username = localStorage.getItem("replayUsername");
+    if (username){ 
+        $("#welcomeTitle").text("Welcome back, " + username);
+    }
+});
+
+//===============================================
