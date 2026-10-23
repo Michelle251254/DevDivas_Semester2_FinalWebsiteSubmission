@@ -19,25 +19,14 @@
 // The HTML <input> with the ID searchInput connects the JS search functionality to the actual searchbar on the website
 //===============================================================
 
-function searchSongs(searchTerm) {
-  searchTerm = searchTerm.toLowerCase().trim();
 
-  let filteredSongs = allSongs.filter(function (song) {
-    return (
-      song.title.toLowerCase().includes(searchTerm) ||
-      song.artist.toLowerCase().includes(searchTerm) ||
-      song.genre.toLowerCase().includes(searchTerm)
-    );
-  });
-  displaySongs(filteredSongs);
-}
 //===========================================
 //jquery to dynamically display the content
 //===========================================
 $(document).ready(function () {
   $("#searchInput").on("input", function () {
-    let searchTerm = $(this).val();
-
-    searchSongs(searchTerm);
+    if ($("#libraryGrid").length > 0) {
+      applyFilters();
+    }
   });
 });

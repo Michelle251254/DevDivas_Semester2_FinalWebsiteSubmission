@@ -1,5 +1,5 @@
 class Song {
-  constructor(_id, _title, _artist, _releaseDate, _genre, _favourites, _image) {
+  constructor(_id, _title, _artist, _releaseDate, _genre, _favourites, _image, _rating) {
     this.id = _id;
     this.title = _title;
     this.artist = _artist;
@@ -7,18 +7,36 @@ class Song {
     this.genre = _genre;
     this.favourites = _favourites;
     this.image = _image;
+    this.rating = _rating;
   }
 }
+//Clarisha added _rating and the function "getSongRating" to improve the filters
 
 let allSongs = [];
 
+//Clarisha=================================
+   function getSongRating(favourites) {
+     let rating = 3.5 + favourites / 1000;
+
+     if (rating > 5) {
+       rating = 5;
+     }
+
+     // round to 1 decimal
+     return Math.round(rating * 10) / 10;
+   }
+//=========================================
 !(async function () {
   const url =
     "https://discoveryprovider.audius.co/v1/tracks/search?query=punk&app_name=REPLAY&limit=50";
   const options = {
     method: "GET",
   };
-
+ //Clarisha================================
+    if ($("#libraryGrid").length === 0) {
+     return;
+   }
+//=========================================
   let data = await fetch(url, options)
     .then((response) => response.json())
     .then((result) => {
@@ -62,18 +80,25 @@ let allSongs = [];
       track.favorite_count,
       image,
     );
+
+//========================================
+//CLARISHA'S ATTRIBUTION
+   if ($("#libraryGrid").length === 0) {
+     return;
+   }
+//========================================   
     allSongs.push(newSong);
   }
 
   console.log(allSongs);
   console.log(allSongs.length);
 
-  displaySongs(allSongs);
   //=======================================
-  // CLARISHA adding filter
-  //=======================================
+  // CLARISHA ADDING FILTERS
   createGenreFilter();
   createYearFilter();
+  applyFilters();
+  //========================================
 })();
 
 function displaySongs(songs) {
@@ -94,13 +119,21 @@ function displaySongs(songs) {
         "<img src='" + song.image + "' alt='" + song.title + " artwork'>";
     }
 
+    //==========================================
+    // CLARISHA'S ATTRIBUTION
+       if (songs.length === 0) {
+     $("#libraryGrid").html("<p class='libraryMessage'>No songs match your search.</p>");
+     return;
+   }
+   //===========================================
+
     let card =
       "<div class='col-12 col-sm-6 col-lg-4 col-xxl-3'>" +
       "<div class='songCard'>" +
       "<div class='songCardArt'>" +
       artwork +
-      "<span class='songCardBadge'>&#9829; " +
-      song.favourites +
+      "<span class='songCardBadge'>&#9733; " +
+      song.rating+
       "</span>" +
       "</div>" +
       "<div class='songCardBody'>" +
@@ -171,11 +204,3 @@ $(document).on("click", ".songCardSave", function () {
   localStorage.setItem("replaySaved", JSON.stringify(saved));
 });
 
-//===========================
-// Clarisha testing filters
-//===========================
-console.log(allSongs);
-console.log(allSongs.length);
-displaySongs(allSongs);
-createGenreFilter();
-createYearFilter();

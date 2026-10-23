@@ -9,15 +9,13 @@
 }
 
 .libraryFilters select {
-  appearance: none;
-
   min-width: 170px;
   padding: 12px 42px 12px 16px;
 
   background-color: #D5F570;
   color: #171717;
 
-  border: px solid #FF4F9A;
+  border: 2px solid transparent;
   border-radius: 15px;
 
   font-family: "Montserrat", sans-serif;
@@ -27,13 +25,37 @@
   cursor: pointer;
 }
 
-.libraryFilters select:hover {
- 
-  transform: translateY(-2px);
-  font-weight: 550;
-}
+   .libraryFilters select:hover,
+   .libraryFilters select:focus {
+     border-color: #FF4F9A;
+     outline: none;
+   }
 
 
 .libraryFilters select:active {
-  transform: translateY(1);
+  transform: translateY(1px);
 }
+
+   .showAllBtn {
+     padding: 12px 22px;
+     background-color: #FF4F9A;
+     color: #171717;
+     border: none;
+     border-radius: 15px;
+     font-family: "Montserrat", sans-serif;
+     font-size: 14px;
+     font-weight: 700;
+     cursor: pointer;
+   }
+
+   .showAllBtn:hover {
+     background-color: #171717;
+     color: #FF4F9A;
+   }
+
+   @media (max-width: 575px) {
+     .libraryFilters select,
+     .showAllBtn {
+       width: 100%;
+     }
+   }
