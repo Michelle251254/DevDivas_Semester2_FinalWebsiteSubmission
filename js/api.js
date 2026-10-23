@@ -1,13 +1,5 @@
 class Song {
-  constructor(
-    _id,
-    _title,
-    _artist,
-    _releaseDate,
-    _genre,
-    _favourites,
-    _image,
-  ) {
+  constructor(_id, _title, _artist, _releaseDate, _genre, _favourites, _image) {
     this.id = _id;
     this.title = _title;
     this.artist = _artist;
@@ -23,7 +15,6 @@ let allSongs = [];
 !(async function () {
   const url =
     "https://discoveryprovider.audius.co/v1/tracks/search?query=punk&app_name=REPLAY&limit=50";
-
   const options = {
     method: "GET",
   };
@@ -71,7 +62,6 @@ let allSongs = [];
       track.favorite_count,
       image,
     );
-
     allSongs.push(newSong);
   }
 
@@ -79,7 +69,6 @@ let allSongs = [];
   console.log(allSongs.length);
 
   displaySongs(allSongs);
-
   //================================
   // CLARISHA adding filter
   //================================
@@ -144,11 +133,22 @@ function displaySongs(songs) {
   updateSaveButtons();
 }
 
-function getPlaylists() {
-  let stored = localStorage.getItem("replayPlaylists");
+//================================
+// SAVE TO PLAYLIST
+//================================
 
-  if (stored) {
-    return JSON.parse(stored);
+// remembers which song the user clicked save on
+let currentSongId = "";
+let currentSongTitle = "";
+
+// the Bootstrap modal, created the first time it is needed
+let playlistModal = null;
+
+function getPlaylists() {
+  let saved = localStorage.getItem("replayPlaylists");
+
+  if (saved) {
+    return JSON.parse(saved);
   }
 
   return [];
@@ -158,20 +158,34 @@ function savePlaylists(playlists) {
   localStorage.setItem("replayPlaylists", JSON.stringify(playlists));
 }
 
-function updateSaveButtons() {
+// finds a playlist by name and returns its position, or -1 if there is none
+function findPlaylist(playlists, name) {
+  for (let i = 0; i < playlists.length; i++) {
+    if (playlists[i].name === name) {
+      return i;
+    }
+  }
+
+  return -1;
+}
+
+// checks whether a song has been added to any playlist at all
+function isSongSaved(songId) {
   let playlists = getPlaylists();
 
-  $(".songCardSave").each(function () {
-    let songId = $(this).val();
-    let found = false;
-
-    for (let i = 0; i < playlists.length; i++) {
-      if (playlists[i].songs.indexOf(songId) !== -1) {
-        found = true;
-      }
+  for (let i = 0; i < playlists.length; i++) {
+    if (playlists[i].songs.indexOf(songId) !== -1) {
+      return true;
     }
+  }
 
-    if (found) {
+  return false;
+}
+
+// marks every card whose song is already in a playlist
+function updateSaveButtons() {
+  $(".songCardSave").each(function () {
+    if (isSongSaved($(this).val())) {
       $(this).text("Saved");
       $(this).addClass("isSaved");
     } else {
@@ -181,133 +195,112 @@ function updateSaveButtons() {
   });
 }
 
-// holds the song the user clicked save on
-let selectedSongId = "";
-let selectedSongTitle = "";
-
-// opens the modal when a save button on a card is clicked
-$(document).on("click", ".songCardSave", function () {
-  selectedSongId = $(this).val();
-
-  for (let i = 0; i < allSongs.length; i++) {
-    if (allSongs[i].id === selectedSongId) {
-      selectedSongTitle = allSongs[i].title;
-    }
-  }
-
-  showPlaylistModal();
-});
-
-//Clarisha: Building playlist list inside the modal
-// fills the modal in and shows it
-function showPlaylistModal() {
-  $(".playlistSongName").text(selectedSongTitle);
-  $("#newPlaylistName").val("");
-  $(".playlistMessage").text("");
-
-  displayPlaylistOptions();
-
-  let modal = new bootstrap.Modal(document.getElementById("playlistModal"));
-  modal.show();
-}
-
-// builds one row for every playlist the user has made
-function displayPlaylistOptions() {
+// builds the list of playlists inside the modal
+function displayPlaylists() {
   let playlists = getPlaylists();
 
   $("#playlistList").empty();
 
   if (playlists.length === 0) {
     $("#playlistList").html(
-      "<p class='playlistEmpty'>You have no playlists yet. Create your first one below.</p>",
+      "<p class='playlistEmpty'>You have no playlists yet. Create one below.</p>",
     );
     return;
   }
 
   for (let i = 0; i < playlists.length; i++) {
-    let playlist = playlists[i];
-    let already = playlist.songs.indexOf(selectedSongId) !== -1;
-
-    let row = "";
-
-    if (already) {
-      row =
-        "<div class='playlistRow playlistAlready'>" +
-        "<span class='playlistRowName'>" +
-        playlist.name +
-        "</span>" +
-        "<span class='playlistRowCount'>Already added</span>" +
-        "</div>";
-    } else {
-      row =
-        "<div class='playlistRow' data-index='" +
-        i +
-        "'>" +
-        "<span class='playlistRowName'>" +
-        playlist.name +
-        "</span>" +
-        "<span class='playlistRowCount'>" +
-        playlist.songs.length +
-        " songs</span>" +
-        "</div>";
+    let alreadyIn = "";
+    if (playlists[i].songs.indexOf(currentSongId) !== -1) {
+      alreadyIn = "<span class='playlistAlready'>Added</span>";
     }
+
+    let row =
+      "<button type='button' class='playlistRow' value='" +
+      i +
+      "'>" +
+      "<span class='playlistRowName'>" +
+      playlists[i].name +
+      "</span>" +
+      "<span class='playlistRowCount'>" +
+      playlists[i].songs.length +
+      " songs</span>" +
+      alreadyIn +
+      "</button>";
 
     $("#playlistList").append(row);
   }
 }
+// opens the modal when a save button on a card is clicked
+$(document).on("click", ".songCardSave", function () {
+  currentSongId = $(this).val();
 
-//================================
-//clarisha: save song into existing playlist
+  // reach up to the card this button belongs to, then back down to its title
+  currentSongTitle = $(this).closest(".songCard").find(".songCardTitle").text();
+
+  $("#playlistSongName").text(currentSongTitle);
+  $("#playlistMessage").text("");
+  $("#newPlaylistName").val("");
+
+  displayPlaylists();
+
+  if (playlistModal === null) {
+    playlistModal = new bootstrap.Modal(
+      document.getElementById("playlistModal"),
+    );
+  }
+
+  playlistModal.show();
+});
+
+// adds the chosen song to the playlist that was clicked
 $(document).on("click", ".playlistRow", function () {
-  if ($(this).hasClass("playlistAlready")) {
+  let position = Number($(this).val());
+  let playlists = getPlaylists();
+
+  if (playlists[position].songs.indexOf(currentSongId) !== -1) {
+    $("#playlistMessage").text(
+      "That song is already in " + playlists[position].name + ".",
+    );
     return;
   }
 
-  let index = $(this).attr("data-index");
-  let playlists = getPlaylists();
-
-  playlists[index].songs.push(selectedSongId);
+  playlists[position].songs.push(currentSongId);
   savePlaylists(playlists);
 
-  $(".playlistMessage").text("Added to " + playlists[index].name + ".");
+  $("#playlistMessage").text(
+    currentSongTitle + " added to " + playlists[position].name + ".",
+  );
 
-  displayPlaylistOptions();
+  displayPlaylists();
   updateSaveButtons();
 });
-//================================
-//create new playlist from modal
+
+// creates a new empty playlist
 $(document).on("click", "#createPlaylistBtn", function () {
-  let name = $("#newPlaylistName").val();
+  let name = $("#newPlaylistName").val().trim();
 
   if (name === "") {
-    $(".playlistMessage").text("Please give your playlist a name.");
+    $("#playlistMessage").text("Please type a playlist name.");
     return;
   }
 
   let playlists = getPlaylists();
 
-  for (let i = 0; i < playlists.length; i++) {
-    if (playlists[i].name === name) {
-      $(".playlistMessage").text("You already have a playlist called " + name + ".");
-      return;
-    }
+  if (findPlaylist(playlists, name) !== -1) {
+    $("#playlistMessage").text(
+      "You already have a playlist called " + name + ".",
+    );
+    return;
   }
 
-  let newPlaylist = {
-    name: name,
-    songs: [selectedSongId],
-  };
-
-  playlists.push(newPlaylist);
+  playlists.push({ name: name, songs: [] });
   savePlaylists(playlists);
 
   $("#newPlaylistName").val("");
-  $(".playlistMessage").text("Created " + name + " and added the song.");
+  $("#playlistMessage").text("Playlist " + name + " created.");
 
-  displayPlaylistOptions();
-  updateSaveButtons();
+  displayPlaylists();
 });
-//================================
 
 //================================
 // Clarisha testing filters
