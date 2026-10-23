@@ -10,11 +10,21 @@ class Song {
     this.rating = _rating;
   }
 }
+//================================================================================
 //Clarisha added _rating and the function "getSongRating" to improve the filters
+//================================================================================
 
 let allSongs = [];
 
-//Clarisha=================================
+
+
+
+
+
+
+
+//================================================================================
+//Clarisha
    function getSongRating(favourites) {
      let rating = 3.5 + favourites / 1000;
 
@@ -25,18 +35,35 @@ let allSongs = [];
      // round to 1 decimal
      return Math.round(rating * 10) / 10;
    }
-//=========================================
+//================================================================================
+
+
+
+
+
 !(async function () {
   const url =
     "https://discoveryprovider.audius.co/v1/tracks/search?query=punk&app_name=REPLAY&limit=50";
   const options = {
     method: "GET",
   };
- //Clarisha================================
+
+
+
+
+//================================================================================
+// CLARISHA
     if ($("#libraryGrid").length === 0) {
      return;
    }
-//=========================================
+//================================================================================
+
+
+
+
+
+
+
   let data = await fetch(url, options)
     .then((response) => response.json())
     .then((result) => {
@@ -89,25 +116,43 @@ let allSongs = [];
   console.log(allSongs);
   console.log(allSongs.length);
 
-  //=======================================
+
+
+
+
+
+  //================================================================================
   // CLARISHA ADDING FILTERS
   createGenreFilter();
   createYearFilter();
   applyFilters();
-  //========================================
+  //================================================================================
+
+
+
+
+
 })();
 
 function displaySongs(songs) {
   $("#libraryGrid").empty();
   $("#libraryCount").text(songs.length + " items");
 
-   //==========================================
-    // CLARISHA'S ATTRIBUTION
+
+
+
+
+
+
+
+//================================================================================
+// CLARISHA'S ATTRIBUTION
        if (songs.length === 0) {
      $("#libraryGrid").html("<p class='libraryMessage'>No songs match your search.</p>");
      return;
    }
-   //===========================================
+//================================================================================
+
 
   for (let i = 0; i < songs.length; i++) {
     let song = songs[i];

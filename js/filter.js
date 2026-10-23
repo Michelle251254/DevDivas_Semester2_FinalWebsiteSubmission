@@ -21,27 +21,25 @@ function applyFilters() {
   let selectedRating = $("#ratingFilter").val();
   let selectedSort = $("#sortFilter").val();
 
-
-
   // STEP 2: .filter() checks every song one by one
   // a song is only kept if the function below returns true for it
   let filteredSongs = allSongs.filter(function (song) {
-  // SEARCH: true if the title, artist OR genre contains the search word
-  // (an empty search box matches every song)
+    // SEARCH: true if the title, artist OR genre contains the search word
+    // (an empty search box matches every song)
     let searchMatch =
       song.title.toLowerCase().includes(searchTerm) ||
       song.artist.toLowerCase().includes(searchTerm) ||
       song.genre.toLowerCase().includes(searchTerm);
 
-  // GENRE (category): true if "All Genres" is picked OR the song's genre is the one picked
+    // GENRE (category): true if "All Genres" is picked OR the song's genre is the one picked
     let genreMatch = selectedGenre === "all" || song.genre === selectedGenre;
-  // RELEASE DATE: true if "All Years" is picked OR the song's date starts with the picked year
-  // e.g. "2024-03-01" starts with "2024"
+    // RELEASE DATE: true if "All Years" is picked OR the song's date starts with the picked year
+    // e.g. "2024-03-01" starts with "2024"
     let yearMatch =
       selectedYear === "all" || song.releaseDate.startsWith(selectedYear);
 
-  // RATING: true if "All Ratings" is picked OR the song's rating is the same or higher
-  // Number() turns the dropdown value (text like "4.5") into a number so we can compare
+    // RATING: true if "All Ratings" is picked OR the song's rating is the same or higher
+    // Number() turns the dropdown value (text like "4.5") into a number so we can compare
 
     let ratingMatch =
       selectedRating === "all" || song.rating >= Number(selectedRating);
@@ -49,14 +47,11 @@ function applyFilters() {
     // && means the song must pass ALL four checks to stay in the list
     return searchMatch && genreMatch && yearMatch && ratingMatch;
   });
-    // STEP 3: put the filtered songs in the order the user picked
+  // STEP 3: put the filtered songs in the order the user picked
   sortSongs(filteredSongs, selectedSort);
-    // STEP 4: show the filtered and sorted songs as cards on the page (function is in api.js)
+  // STEP 4: show the filtered and sorted songs as cards on the page (function is in api.js)
   displaySongs(filteredSongs);
 }
-
-
-
 
 //============================================================
 // GENRE DROPDOWN
@@ -64,30 +59,26 @@ function applyFilters() {
 // The API gives each song a genre, so I build the dropdown options from allSongs
 // instead of typing them out by hand.
 function createGenreFilter() {
-    // empty array to collect each genre once
+  // empty array to collect each genre once
   let genres = [];
 
-
-
- // go through every song and add its genre if it is not in the list yet (no duplicates)
+  // go through every song and add its genre if it is not in the list yet (no duplicates)
   allSongs.forEach(function (song) {
     if (!genres.includes(song.genre)) {
       genres.push(song.genre);
     }
   });
 
-
-   // put the genres in alphabetical order
+  // put the genres in alphabetical order
   genres.sort();
 
-   // add one <option> to the genre dropdown for each genre
+  // add one <option> to the genre dropdown for each genre
   for (let i = 0; i < genres.length; i++) {
     $("#genreFilter").append(
       "<option value='" + genres[i] + "'>" + genres[i] + "</option>",
     );
   }
 }
-
 
 //============================================================
 // YEAR DROPDOWN
@@ -100,34 +91,26 @@ function createYearFilter() {
   allSongs.forEach(function (song) {
     //skip songs that has no release date
     if (song.releaseDate !== "") {
-    //.slice takes the first 4 characters of the date
+      //.slice takes the first 4 characters of the date
       let year = song.releaseDate.slice(0, 4);
 
-
-
-//only add the year if its not in the list yet so theres no duplicates
+      //only add the year if its not in the list yet so theres no duplicates
       if (!years.includes(year)) {
         years.push(year);
       }
     }
   });
 
-
   // sorts the years , then reverses them so the newest year is first
   years.sort().reverse();
 
-
-  // add one <option> to the year dropdown for each year 
+  // add one <option> to the year dropdown for each year
   for (let i = 0; i < years.length; i++) {
     $("#yearFilter").append(
       "<option value='" + years[i] + "'>" + years[i] + "</option>",
     );
   }
 }
-
-
-
-
 
 //============================================================
 // SORT
@@ -136,17 +119,13 @@ function createYearFilter() {
 // .sort() compares two songs (a and b) at a time to decide which comes first.
 // If "Sort By" is picked, none of the ifs run and the songs stay in the API's order.
 
-
 function sortSongs(songs, selectedSort) {
-    // A-Z by song title (localeCompare compares text alphabetically)
+  // A-Z by song title (localeCompare compares text alphabetically)
   if (selectedSort === "titleAZ") {
     songs.sort(function (a, b) {
       return a.title.localeCompare(b.title);
     });
   }
-
-
-
 
   // A-Z by artist name
   if (selectedSort === "artistAZ") {
@@ -155,8 +134,7 @@ function sortSongs(songs, selectedSort) {
     });
   }
 
-
-    // newest first: new Date() turns the date text into a real date so they can be subtracted
+  // newest first: new Date() turns the date text into a real date so they can be subtracted
   if (selectedSort === "newest") {
     songs.sort(function (a, b) {
       return new Date(b.releaseDate) - new Date(a.releaseDate);
@@ -176,9 +154,6 @@ function sortSongs(songs, selectedSort) {
   }
 }
 
-
-
-
 //============================================================
 // SHOW ALL BUTTON
 //============================================================
@@ -193,8 +168,6 @@ function showAllSongs() {
 
   applyFilters();
 }
-
-
 
 //============================================================
 // EVENTS
