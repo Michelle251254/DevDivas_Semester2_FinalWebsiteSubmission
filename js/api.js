@@ -133,23 +133,39 @@ function displaySongs(songs) {
   updateSaveButtons();
 }
 
-function getSavedSongs() {
-  let saved = localStorage.getItem("replaySaved");
+function getPlaylists() {
+  let stored = localStorage.getItem("replayPlaylists");
 
-  if (saved) {
-    return JSON.parse(saved);
+  if (stored) {
+    return JSON.parse(stored);
   }
 
   return [];
 }
 
+function savePlaylists(playlists) {
+  localStorage.setItem("replayPlaylists", JSON.stringify(playlists));
+}
+
 function updateSaveButtons() {
-  let saved = getSavedSongs();
+  let playlists = getPlaylists();
 
   $(".songCardSave").each(function () {
-    if (saved.indexOf($(this).val()) !== -1) {
+    let songId = $(this).val();
+    let found = false;
+
+    for (let i = 0; i < playlists.length; i++) {
+      if (playlists[i].songs.indexOf(songId) !== -1) {
+        found = true;
+      }
+    }
+
+    if (found) {
       $(this).text("Saved");
       $(this).addClass("isSaved");
+    } else {
+      $(this).text("+ Save");
+      $(this).removeClass("isSaved");
     }
   });
 }
