@@ -1,5 +1,13 @@
 class Song {
-  constructor(_id, _title, _artist, _releaseDate, _genre, _favourites, _image) {
+  constructor(
+    _id,
+    _title,
+    _artist,
+    _releaseDate,
+    _genre,
+    _favourites,
+    _image,
+  ) {
     this.id = _id;
     this.title = _title;
     this.artist = _artist;
@@ -15,6 +23,7 @@ let allSongs = [];
 !(async function () {
   const url =
     "https://discoveryprovider.audius.co/v1/tracks/search?query=punk&app_name=REPLAY&limit=50";
+
   const options = {
     method: "GET",
   };
@@ -62,6 +71,7 @@ let allSongs = [];
       track.favorite_count,
       image,
     );
+
     allSongs.push(newSong);
   }
 
@@ -69,9 +79,10 @@ let allSongs = [];
   console.log(allSongs.length);
 
   displaySongs(allSongs);
-  //=======================================
+
+  //================================
   // CLARISHA adding filter
-  //=======================================
+  //================================
   createGenreFilter();
   createYearFilter();
 })();
@@ -187,7 +198,7 @@ $(document).on("click", ".songCardSave", function () {
   showPlaylistModal();
 });
 
-//Clarisha:Building playlist list inside the modal
+//Clarisha: Building playlist list inside the modal
 // fills the modal in and shows it
 function showPlaylistModal() {
   $(".playlistSongName").text(selectedSongTitle);
@@ -208,7 +219,7 @@ function displayPlaylistOptions() {
 
   if (playlists.length === 0) {
     $("#playlistList").html(
-      "<p class='playlistEmpty'>You have no playlists yet. Create your first one below.</p>"
+      "<p class='playlistEmpty'>You have no playlists yet. Create your first one below.</p>",
     );
     return;
   }
@@ -222,14 +233,22 @@ function displayPlaylistOptions() {
     if (already) {
       row =
         "<div class='playlistRow playlistAlready'>" +
-          "<span class='playlistRowName'>" + playlist.name + "</span>" +
-          "<span class='playlistRowCount'>Already added</span>" +
+        "<span class='playlistRowName'>" +
+        playlist.name +
+        "</span>" +
+        "<span class='playlistRowCount'>Already added</span>" +
         "</div>";
     } else {
       row =
-        "<div class='playlistRow' data-index='" + i + "'>" +
-          "<span class='playlistRowName'>" + playlist.name + "</span>" +
-          "<span class='playlistRowCount'>" + playlist.songs.length + " songs</span>" +
+        "<div class='playlistRow' data-index='" +
+        i +
+        "'>" +
+        "<span class='playlistRowName'>" +
+        playlist.name +
+        "</span>" +
+        "<span class='playlistRowCount'>" +
+        playlist.songs.length +
+        " songs</span>" +
         "</div>";
     }
 
@@ -237,9 +256,8 @@ function displayPlaylistOptions() {
   }
 }
 
-//============================================================
-
-//clarisha: save song into existing playlist:
+//================================
+//clarisha: save song into existing playlist
 $(document).on("click", ".playlistRow", function () {
   if ($(this).hasClass("playlistAlready")) {
     return;
@@ -256,9 +274,9 @@ $(document).on("click", ".playlistRow", function () {
   displayPlaylistOptions();
   updateSaveButtons();
 });
-//=============================================================
+//================================
 //create new playlist from modal
-$("#createPlaylistBtn").on("click", function () {
+$(document).on("click", "#createPlaylistBtn", function () {
   let name = $("#newPlaylistName").val();
 
   if (name === "") {
@@ -289,13 +307,11 @@ $("#createPlaylistBtn").on("click", function () {
   displayPlaylistOptions();
   updateSaveButtons();
 });
-//=============================================================
+//================================
 
-
-
-//===========================
+//================================
 // Clarisha testing filters
-//===========================
+//================================
 console.log(allSongs);
 console.log(allSongs.length);
 displaySongs(allSongs);

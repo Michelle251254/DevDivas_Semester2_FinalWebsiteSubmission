@@ -242,156 +242,86 @@ p {
 
 
 
-
+/*================================
+  PLAYLIST MODAL
+================================*/
 
 .playlistModal {
-    background-color: var(--black);
-    color: #FFFFFF;
-    border-radius: 18px;
-    border: 2px solid var(--pink);
+  background-color: var(--black);
+  color: #FFFFFF;
+  border-radius: 18px;
+  border: 2px solid var(--pink);
 }
 
 .playlistModalHeader {
-    border-bottom: 1px solid #333333;
+  border-bottom: 1px solid #333333;
 }
 
 .playlistModalTitle {
-    font-size: 1.4rem;
-    text-transform: uppercase;
+  font-size: 1.4rem;
+  text-transform: uppercase;
 }
 
 .playlistSongName {
-    color: var(--green);
-    font-weight: 700;
-    margin-bottom: 18px;
-}
-
-.playlistRow {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    width: 100%;
-    text-align: left;
-    background-color: #1B1B1B;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 10px;
-    font-family: inherit;
-    font-size: 1rem;
-    font-weight: 700;
-    padding: 14px 16px;
-    margin-bottom: 8px;
-    cursor: pointer;
-}
-
-.playlistRow:hover {
-    background-color: var(--pink);
-    color: var(--black);
-}
-
-.playlistRowName {
-    flex: 1 1 auto;
-}
-
-.playlistRowCount {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #9A9A9A;
-}
-
-.playlistRow:hover .playlistRowCount {
-    color: var(--black);
-}
-
-.playlistAlready {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--green);
-}
-
-.playlistEmpty {
-    color: #9A9A9A;
-    font-size: 0.9rem;
-    margin-bottom: 8px;
+  color: var(--green);
+  font-weight: 700;
+  margin-bottom: 18px;
 }
 
 .playlistLabel {
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #9A9A9A;
-    margin: 24px 0 8px 0;
-}
-
-.playlistCreateRow {
-    display: flex;
-    gap: 10px;
-}
-
-.playlistInput {
-    flex: 1 1 auto;
-    background-color: transparent;
-    border: 1px solid #555555;
-    border-radius: 10px;
-    color: #FFFFFF;
-    font-family: inherit;
-    font-size: 1rem;
-    padding: 12px 16px;
-}
-
-.playlistInput:focus {
-    outline: none;
-    border-color: var(--pink);
-}
-
-.playlistCreateBtn {
-    background-color: var(--green);
-    color: var(--black);
-    border: none;
-    border-radius: 10px;
-    font-family: inherit;
-    font-weight: 700;
-    font-size: 1rem;
-    padding: 12px 22px;
-    cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #9A9A9A;
+  margin: 24px 0 8px 0;
 }
 
 .playlistMessage {
-    color: var(--green);
-    font-size: 0.85rem;
-    font-weight: 600;
-    min-height: 20px;
-    margin: 14px 0 0 0;
+  color: var(--green);
+  font-size: 0.85rem;
+  font-weight: 600;
+  min-height: 20px;
+  margin: 14px 0 0 0;
 }
-/* Clarisha CSS Style playlist rows and create input*/ 
+
+/* Clarisha CSS Style playlist rows and create input */
+
 .playlistRow {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 12px 14px;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  background-color: #1B1B1B;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 14px 16px;
   margin-bottom: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: pointer;
 }
 
 .playlistRow:hover {
   background-color: var(--pink);
-  border-color: var(--pink);
+  color: var(--black);
 }
 
 .playlistRowName {
-  font-size: 0.95rem;
+  flex: 1 1 auto;
 }
 
 .playlistRowCount {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+  color: #9A9A9A;
 }
 
 .playlistRow:hover .playlistRowCount {
-  color: #ffffff;
+  color: var(--black);
 }
 
 .playlistAlready {
@@ -400,47 +330,54 @@ p {
 }
 
 .playlistAlready:hover {
-  background-color: transparent;
-  border-color: rgba(255, 255, 255, 0.2);
+  background-color: #1B1B1B;
+  color: #FFFFFF;
+}
+
+.playlistAlready:hover .playlistRowCount {
+  color: #9A9A9A;
 }
 
 .playlistEmpty {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
-  margin: 0;
+  color: #9A9A9A;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
 }
 
 .playlistCreateRow {
   display: flex;
-  gap: 8px;
+  gap: 10px;
 }
 
 .playlistInput {
-  flex: 1;
-  padding: 10px 12px;
+  flex: 1 1 auto;
   background-color: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #ffffff;
-  font-size: 0.9rem;
+  border: 1px solid #555555;
+  border-radius: 10px;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 12px 16px;
 }
 
 .playlistInput:focus {
   outline: none;
-  border-color: var(--green);
+  border-color: var(--pink);
 }
 
 .playlistCreateBtn {
-  padding: 10px 18px;
   background-color: var(--green);
-  border: none;
   color: var(--black);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  border: none;
+  border-radius: 10px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 12px 22px;
   cursor: pointer;
 }
 
 .playlistCreateBtn:hover {
   background-color: var(--pink);
-  color: #ffffff;
+  color: #FFFFFF;
 }
