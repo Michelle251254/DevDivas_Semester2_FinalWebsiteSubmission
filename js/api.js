@@ -239,7 +239,24 @@ function displayPlaylistOptions() {
 
 //============================================================
 
+//clarisha: save song into existing playlist:
+$(document).on("click", ".playlistRow", function () {
+  if ($(this).hasClass("playlistAlready")) {
+    return;
+  }
 
+  let index = $(this).attr("data-index");
+  let playlists = getPlaylists();
+
+  playlists[index].songs.push(selectedSongId);
+  savePlaylists(playlists);
+
+  $(".playlistMessage").text("Added to " + playlists[index].name + ".");
+
+  displayPlaylistOptions();
+  updateSaveButtons();
+});
+//=============================================================
 
 
 
