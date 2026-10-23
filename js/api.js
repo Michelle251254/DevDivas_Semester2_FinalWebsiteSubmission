@@ -187,6 +187,63 @@ $(document).on("click", ".songCardSave", function () {
   showPlaylistModal();
 });
 
+//Clarisha:Building playlist list inside the modal
+// fills the modal in and shows it
+function showPlaylistModal() {
+  $(".playlistSongName").text(selectedSongTitle);
+  $("#newPlaylistName").val("");
+  $(".playlistMessage").text("");
+
+  displayPlaylistOptions();
+
+  let modal = new bootstrap.Modal(document.getElementById("playlistModal"));
+  modal.show();
+}
+
+// builds one row for every playlist the user has made
+function displayPlaylistOptions() {
+  let playlists = getPlaylists();
+
+  $("#playlistList").empty();
+
+  if (playlists.length === 0) {
+    $("#playlistList").html(
+      "<p class='playlistEmpty'>You have no playlists yet. Create your first one below.</p>"
+    );
+    return;
+  }
+
+  for (let i = 0; i < playlists.length; i++) {
+    let playlist = playlists[i];
+    let already = playlist.songs.indexOf(selectedSongId) !== -1;
+
+    let row = "";
+
+    if (already) {
+      row =
+        "<div class='playlistRow playlistAlready'>" +
+          "<span class='playlistRowName'>" + playlist.name + "</span>" +
+          "<span class='playlistRowCount'>Already added</span>" +
+        "</div>";
+    } else {
+      row =
+        "<div class='playlistRow' data-index='" + i + "'>" +
+          "<span class='playlistRowName'>" + playlist.name + "</span>" +
+          "<span class='playlistRowCount'>" + playlist.songs.length + " songs</span>" +
+        "</div>";
+    }
+
+    $("#playlistList").append(row);
+  }
+}
+
+//============================================================
+
+
+
+
+
+
 $(document).on("click", ".songCardSave", function () {
   let songId = $(this).val();
   let saved = getSavedSongs();
