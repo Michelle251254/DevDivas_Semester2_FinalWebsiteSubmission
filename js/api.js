@@ -257,7 +257,39 @@ $(document).on("click", ".playlistRow", function () {
   updateSaveButtons();
 });
 //=============================================================
+//create new playlist from modal
+$("#createPlaylistBtn").on("click", function () {
+  let name = $("#newPlaylistName").val();
 
+  if (name === "") {
+    $(".playlistMessage").text("Please give your playlist a name.");
+    return;
+  }
+
+  let playlists = getPlaylists();
+
+  for (let i = 0; i < playlists.length; i++) {
+    if (playlists[i].name === name) {
+      $(".playlistMessage").text("You already have a playlist called " + name + ".");
+      return;
+    }
+  }
+
+  let newPlaylist = {
+    name: name,
+    songs: [selectedSongId],
+  };
+
+  playlists.push(newPlaylist);
+  savePlaylists(playlists);
+
+  $("#newPlaylistName").val("");
+  $(".playlistMessage").text("Created " + name + " and added the song.");
+
+  displayPlaylistOptions();
+  updateSaveButtons();
+});
+//=============================================================
 
 
 
