@@ -33,7 +33,7 @@ $("#genreFilter").on("change", function () {
 
 //Connecting the year dropdown
 
-$("yearFilter").on("change", function () {
+$("#yearFilter").on("change", function () {
   filterSongs();
 });
 //============================================================

@@ -302,11 +302,3 @@ $(document).on("click", "#createPlaylistBtn", function () {
   displayPlaylists();
 });
 
-//================================
-// Clarisha testing filters
-//================================
-console.log(allSongs);
-console.log(allSongs.length);
-displaySongs(allSongs);
-createGenreFilter();
-createYearFilter();
