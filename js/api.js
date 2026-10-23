@@ -79,14 +79,10 @@ let allSongs = [];
       genre,
       track.favorite_count,
       image,
+      getSongRating(track.favorite_count),
     );
 
-//========================================
-//CLARISHA'S ATTRIBUTION
-   if ($("#libraryGrid").length === 0) {
-     return;
-   }
-//========================================   
+
     allSongs.push(newSong);
   }
 
@@ -105,6 +101,14 @@ function displaySongs(songs) {
   $("#libraryGrid").empty();
   $("#libraryCount").text(songs.length + " items");
 
+   //==========================================
+    // CLARISHA'S ATTRIBUTION
+       if (songs.length === 0) {
+     $("#libraryGrid").html("<p class='libraryMessage'>No songs match your search.</p>");
+     return;
+   }
+   //===========================================
+
   for (let i = 0; i < songs.length; i++) {
     let song = songs[i];
 
@@ -119,13 +123,7 @@ function displaySongs(songs) {
         "<img src='" + song.image + "' alt='" + song.title + " artwork'>";
     }
 
-    //==========================================
-    // CLARISHA'S ATTRIBUTION
-       if (songs.length === 0) {
-     $("#libraryGrid").html("<p class='libraryMessage'>No songs match your search.</p>");
-     return;
-   }
-   //===========================================
+   
 
     let card =
       "<div class='col-12 col-sm-6 col-lg-4 col-xxl-3'>" +
