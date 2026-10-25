@@ -236,3 +236,38 @@ p {
   text-decoration: none;
 }
 
+.savedModal {
+  background-color: var(--nav-bg);
+  border: 2px solid var(--pink);
+  border-radius: 14px;
+  color: #ffffff;
+  text-align: center;
+  padding: 14px 10px;
+}
+
+.savedModalText {
+  font-family: var(--h);
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 6px 0 22px 0;
+}
+
+.savedModalBtn {
+  background-color: var(--green);
+  color: var(--black);
+  font-family: var(--sH);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 28px;
+  cursor: pointer;
+}
+
+.savedModalBtn:hover {
+  background-color: var(--pink);
+  color: #ffffff;
+}
