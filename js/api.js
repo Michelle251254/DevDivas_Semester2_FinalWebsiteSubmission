@@ -1,3 +1,4 @@
+//creating the song class
 class Song {
   constructor(_id, _title, _artist, _releaseDate, _genre, _favourites, _image) {
     this.id = _id;
@@ -9,42 +10,55 @@ class Song {
     this.image = _image;
   }
 }
-
+//creating the song list
 let allSongs = [];
 
 //fetching 50 songs
 
 !(async function () {
-  const url =
+  const url = //the api url (search for punk songs and return up to 50 tracks)
     "https://discoveryprovider.audius.co/v1/tracks/search?query=punk&app_name=REPLAY&limit=50";
   const options = {
     method: "GET",
   };
 
+  //FETCHING THE MUSIC
+  //sends request to Audius. await waits for its result + result is stored in data
   let data = await fetch(url, options)
+<<<<<<< Updated upstream
     .then((response) => response.json())
     .then((result) => {return result;})
+=======
+    .then((response) => response.json()) //reads respons as json + converts into js data
+    .then((result) => {return result; //starts function that receives the result + passes it along
+    })
+>>>>>>> Stashed changes
     .catch((error) => console.error(error));
 
   console.log(data);
 
   if (!data || !data.data) {
-    $("#libraryGrid").html(
+    $("#libraryGrid").html( //find the html element with the id + replaces content
       "<p class='libraryMessage'>Could not load the music library. Please try again later.</p>",
     );
     return;
   }
 
+<<<<<<< Updated upstream
   //turning the response into objects
   for (let i = 0; i < data.data.length; i++) { 
+=======
+  //starting the loop: start at the first item in Audius's list, then process each song one at a time until you've reached the end
+  for (let i = 0; i < data.data.length; i++) {
+>>>>>>> Stashed changes
     let track = data.data[i];
 
-    let image = "";
+    let image = ""; 
     if (track.artwork) {
-      image = track.artwork["480x480"];
+      image = track.artwork["480x480"]; //if it has an artwork, it gets its 480x480 img
     }
 
-    let genre = "Unknown";
+    let genre = "Unknown"; 
     if (track.genre) {
       genre = track.genre;
     }
@@ -54,6 +68,7 @@ let allSongs = [];
       releaseDate = track.release_date.slice(0, 10);
     }
 
+    //CREATING A NEW SONG
     let newSong = new Song(
       track.id,
       track.title,
@@ -63,7 +78,12 @@ let allSongs = [];
       track.favorite_count,
       image,
     );
+<<<<<<< Updated upstream
     allSongs.push(newSong);
+=======
+
+    allSongs.push(newSong); //adds the newly created song object to the end of the all songs array
+>>>>>>> Stashed changes
   }
 
   console.log(allSongs);
