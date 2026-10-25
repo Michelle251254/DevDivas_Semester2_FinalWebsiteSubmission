@@ -173,6 +173,9 @@ $(document).on("click", ".songCardSave", function () {
     saved.push(songId);
     $(this).text("Saved");
     $(this).addClass("isSaved");
+
+    let savedModal = new bootstrap.Modal(document.getElementById("savedModal"));
+    savedModal.show();
   } else {
     saved.splice(saved.indexOf(songId), 1);
     $(this).text("+ Save");
