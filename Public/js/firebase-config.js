@@ -18,5 +18,5 @@ let app = initializeApp(firebaseConfig);
 //Get the Authentication service for our app
 let auth = getAuth(app);
 
-// Step 5: Export "auth" so logIn.js and home.js can use it
+// Step 5: Export "auth" so logIn.js can use it
 export { auth };
