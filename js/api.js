@@ -1,6 +1,6 @@
 //==CREATING THE SONG CARDS==//
 class Song {
-  constructor(_id, _title, _artist, _releaseDate, _genre, _favourites, _image) {
+  constructor(_id, _title, _artist, _releaseDate, _genre, _favourites, _image, _rating) {
     this.id = _id;
     this.title = _title;
     this.artist = _artist;
@@ -8,11 +8,29 @@ class Song {
     this.genre = _genre;
     this.favourites = _favourites;
     this.image = _image;
+
   } //constructor receives 7 values and stores them as properties using .this
-}
+
+
+
+//================================================================================
+//Clarisha added _rating and the function "getSongRating" to improve the filters
+//================================================================================
 
 //==STARTING THE FUNCTION AND PREPARING THE API REQUEST==//
 let allSongs = []; //empty array to store the object songs
+
+
+
+
+
+
+
+
+
+
+
+
 
 !(async function () {
   //allows code to use await when asking for information
@@ -23,9 +41,22 @@ let allSongs = []; //empty array to store the object songs
     method: "GET", //data is being received
   };
 
+
   //==FETCHING DATA FROM AUDIUS==//
   let data = await fetch(url, options) //sends request and waits
     .then((response) => response.json()) //json converts response body into js data
+
+
+
+
+
+
+
+
+
+  let data = await fetch(url, options)
+    .then((response) => response.json())
+
     .then((result) => {
       return result;
     })
@@ -68,13 +99,16 @@ let allSongs = []; //empty array to store the object songs
       genre,
       track.favorite_count,
       image,
+      getSongRating(track.favorite_count),
     );
+
 
     allSongs.push(newSong);
   }
 
   console.log(allSongs);
   console.log(allSongs.length);
+
 
   displaySongs(allSongs);
 
@@ -83,12 +117,25 @@ let allSongs = []; //empty array to store the object songs
   //================================
   createGenreFilter();
   createYearFilter();
+
+
+
 })();
 
 //==PREPARING INFORMATION FOR THE SONG CARDS==//
 function displaySongs(songs) {
   $("#libraryGrid").empty();
   $("#libraryCount").text(songs.length + " items");
+
+
+
+
+
+
+
+
+
+
 
   for (let i = 0; i < songs.length; i++) {
     let song = songs[i];
@@ -104,14 +151,19 @@ function displaySongs(songs) {
         "<img src='" + song.image + "' alt='" + song.title + " artwork'>";
     }
 
+
     //==DYNAMICALLY CREATING THE HTML SONG CARDS==//
+
+   
+
+
     let card =
       "<div class='col-12 col-sm-6 col-lg-4 col-xxl-3'>" +
       "<div class='songCard'>" +
       "<div class='songCardArt'>" +
       artwork +
-      "<span class='songCardBadge'>&#9829; " +
-      song.favourites +
+      "<span class='songCardBadge'>&#9733; " +
+      song.rating+
       "</span>" +
       "</div>" +
       "<div class='songCardBody'>" +
@@ -281,6 +333,7 @@ $(document).on("click", ".songCardSave", function () {
   playlistModal.show();
 });
 
+
 // adds the chosen song to the playlist that was clicked
 $(document).on("click", ".playlistRow", function () {
   let position = Number($(this).val());
@@ -330,3 +383,4 @@ $(document).on("click", "#createPlaylistBtn", function () {
 
   displayPlaylists();
 });
+
