@@ -23,19 +23,6 @@ let allSongs = [];
 
 
 
-//================================================================================
-//Clarisha
-   function getSongRating(favourites) {
-     let rating = 3.5 + favourites / 1000;
-
-     if (rating > 5) {
-       rating = 5;
-     }
-
-     // round to 1 decimal
-     return Math.round(rating * 10) / 10;
-   }
-//================================================================================
 
 
 
@@ -49,14 +36,6 @@ let allSongs = [];
   };
 
 
-
-
-//================================================================================
-// CLARISHA
-    if ($("#libraryGrid").length === 0) {
-     return;
-   }
-//================================================================================
 
 
 
@@ -121,13 +100,6 @@ let allSongs = [];
 
 
 
-  //================================================================================
-  // CLARISHA ADDING FILTERS
-  createGenreFilter();
-  createYearFilter();
-  applyFilters();
-  //================================================================================
-
 
 
 
@@ -145,13 +117,7 @@ function displaySongs(songs) {
 
 
 
-//================================================================================
-// CLARISHA'S ATTRIBUTION
-       if (songs.length === 0) {
-     $("#libraryGrid").html("<p class='libraryMessage'>No songs match your search.</p>");
-     return;
-   }
-//================================================================================
+
 
 
   for (let i = 0; i < songs.length; i++) {
