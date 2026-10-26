@@ -8,7 +8,7 @@
     <meta name="keywords" content="music, replay, playlist, streaming" />
     <meta name="author" content="Michelle Meyer 21100093" />
 
-    <title>Playlist</title>
+    <title>Saved Songs</title>
 
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +33,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-replay">
         <div class="container-fluid page-margin">
-            <a class="navbar-brand logo" href="index.html">REPLAY</a>
+            <a class="navbar-brand logo" href="landingP.html">REPLAY</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
                 aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,9 +42,9 @@
 
             <div class="collapse navbar-collapse" id="navMenu">
                 <ul class="navbar-nav mx-auto gap-lg-5">
-                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../pages/explore.html">Explore</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/pages/playlist.html">Library</a></li>
+                    <li class="nav-item"><a class="nav-link" href="landingP.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="explore.html">Explore</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="playlist.html">Library</a></li>
                 </ul>
 
                 <form class="search-form d-flex align-items-center me-lg-3 my-3 my-lg-0" role="search">
@@ -58,11 +58,11 @@
     </nav>
 
     <div class="container-fluid page-margin playlistContainer">
-        <a class="backToLibrary" href="../pages/landingP.html">
+        <a class="backToLibrary" href="../pages/explore.html">
             <p>
                 <i class="fa-solid fa-arrow-left"></i>
             </p>
-            <p class="backToLibraryText">Back To Library</p>
+            <p class="backToLibraryText">Back To Explore</p>
         </a>
 
         <div class="playlistInfoRow">
@@ -72,20 +72,17 @@
                 </div>
 
                 <div class="playlistMetaRow">
-                    <h2 class="songTitle">PLAYLIST TITLE</h2>
+                    <h2 class="songTitle">SAVED SONGS</h2>
                 </div>
 
                 <div class="playlistMetaRow">
-                    <p class="playlistSubtitle">Created by User</p>
+                    <p class="playlistSubtitle">Your saved songs</p>
                 </div>
 
-                <div class="playlistMetaRow">
-                    <p class="metaStats">Playlist • <span class="accessStatus">Private</span> • Last added <span
-                            class="playlistEditedDate">YYYY</span></p>
-                </div>
+             
 
                 <div class="playlistMetaRow">
-                    <p class="metaStats">X tracks, ZZ minutes</p>
+                                       <p class="metaStats"><span id="savedCount">0 songs</span></p>
                 </div>
 
                 <div class="playlistMetaRow playlistBtns">
@@ -105,26 +102,21 @@
             </div>
 
             <div class="twoCol right">
-                <table class="playlistTable">
-                    <tr class="tableHeadings">
-                        <th aria-label="blankTableHeader"></th>
-                        <th>TITLE</th>
-                        <th>GENRE</th>
-                        <th>YEAR</th>
-                        <th>RATING</th>
-                        <th aria-label="blankTableHeader"></th>
-                    </tr>
+                                <table class="playlistTable">
+                    <thead>
+                        <tr class="tableHeadings">
+                            <th aria-label="Artwork"></th>
+                            <th>TITLE</th>
+                            <th>GENRE</th>
+                            <th>YEAR</th>
+                            <th>RATING</th>
+                            <th aria-label="Remove"></th>
+                        </tr>
+                    </thead>
 
-                    <tr class="tableItem">
-                        <td class="albumIcon"></td>
-                        <td class="tableTitle"></td>
-                        <td class="tableGenre"></td>
-                        <td class="tableYear"></td>
-                        <td class="tableRating"></td>
-                        <td class="removeIcon"><i class="fa-regular fa-circle-xmark"></i></td>
-                    </tr>
+                    <!-- CLARISHA: saved.js fills this with one row per saved song -->
+                    <tbody id="savedSongsList"></tbody>
                 </table>
-
             </div>
         </div>
     </div>
@@ -139,11 +131,7 @@
     <!--Font Awesome-->
     <script src="https://kit.fontawesome.com/1316822bd3.js" crossorigin="anonymous"></script>
 
-    <!--Javascript-->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="../js/api.js"></script>
-    <script src="../js/searchbar.js"></script>
-    <!--<script src="../js/filter.js"></script>-->
+        <script src="../js/saved.js"></script>
 </body>
 
 </html>

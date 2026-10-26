@@ -1,3 +1,4 @@
+//==IMPORT FIREBASE FUNCTIONS==//
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -5,10 +6,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 import { auth } from "./firebase-config.js";
 
-/* ====================== *
- *  Toggle Between        *
- *  Sign Up / Login       *
- * ====================== */
+//==TOGGLE BETWEEN SIGN UP AND LOG IN==//
 $(document).ready(function () {
   $("#goRight").on("click", function () {
     $("#slideBox").animate({
@@ -28,26 +26,19 @@ $(document).ready(function () {
   });
 });
 
-//================================
-//Get the HTML elements we need
-//================================
+//==GET THE HTML ELEMENTS==//
 let loginForm = document.getElementById("form-login");
 let signupForm = document.getElementById("form-signup");
 let loginMessage = document.getElementById("loginMessage");
 let signupMessage = document.getElementById("signupMessage");
 
-//================================
-//Show a message under a form
-//================================
-// messageType is "success" (green) or "error" (pink)
+//==SHOW A MESSAGE UNDER A FORM ("success" or "error")==//
 function showMessage(messageElement, messageContent, messageType) {
   messageElement.textContent = messageContent;
   messageElement.className = "formMessage " + messageType;
 }
 
-//================================
-//Turn Firebase's error codes into messages a person understands
-//================================
+//==TURN FIREBASE ERROR CODES INTO FRIENDLY MESSAGES==//
 function getFriendlyErrorMessage(errorCode) {
   let friendlyMessage = "Something went wrong. Please try again.";
 
@@ -64,26 +55,19 @@ function getFriendlyErrorMessage(errorCode) {
   return friendlyMessage;
 }
 
-//================================
-//Create a new account
-//================================
+//==SIGN UP: CREATE A NEW ACCOUNT==//
 async function handleSignUp(userEmail, userPassword) {
   createUserWithEmailAndPassword(auth, userEmail, userPassword)
     .then(function (userCredential) {
       console.log("New account created for: " + userCredential.user.email);
 
-      // Firebase signs a new user in automatically.
-      // We sign them out so they have to log in themselves.
+      // sign the new user out, so they have to log in themselves
       signOut(auth)
         .then(function () {
-          //remember name from sign up and fill it on the login form
-          let signupName = document.getElementById("username-signup").value;
-          document.getElementById("username-login").value = signupName;
-          
           signupForm.reset();
           showMessage(signupMessage, "", "");
 
-          // slide across to the Log In form (same as clicking the "Log In" button)
+          // slide across to the Log In form
           $("#goLeft").trigger("click");
           showMessage(loginMessage, "Account created! Please log in.", "success");
         });
@@ -95,19 +79,16 @@ async function handleSignUp(userEmail, userPassword) {
     });
 }
 
-//================================
-//Log in to an existing account
-//================================
+//==LOG IN TO AN EXISTING ACCOUNT==//
 async function handleLogin(username, userEmail, userPassword) {
   signInWithEmailAndPassword(auth, userEmail, userPassword)
     .then(function (userCredential) {
       console.log("Logged in as: " + userCredential.user.email);
 
-      // save the username so the home page can welcome the user (brief requirement)
+      // save the username for the home page welcome message
       localStorage.setItem("replayUsername", username);
 
-      // This line ONLY runs if Firebase says the login worked.
-      window.location.href = "../index.html";
+      window.location.href = "pages/landingP.html";
     })
     .catch(function (error) {
       console.log("Login error: " + error.code);
@@ -116,12 +97,9 @@ async function handleLogin(username, userEmail, userPassword) {
     });
 }
 
-//================================
-//Runs when each form is submitted
-//================================
+//==WHEN EACH FORM IS SUBMITTED==//
 function handleLoginSubmit(event) {
-  // Stop the form from refreshing the page
-  event.preventDefault();
+  event.preventDefault(); // stops the page from refreshing
 
   let username = document.getElementById("username-login").value;
   let userEmail = document.getElementById("email-login").value;
@@ -139,8 +117,6 @@ function handleSignupSubmit(event) {
   handleSignUp(userEmail, userPassword);
 }
 
-//================================
-//Connect the functions to the page
-//================================
+//==CONNECT THE FUNCTIONS TO THE FORMS==//
 loginForm.addEventListener("submit", handleLoginSubmit);
 signupForm.addEventListener("submit", handleSignupSubmit);

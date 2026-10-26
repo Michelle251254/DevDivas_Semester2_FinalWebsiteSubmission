@@ -104,12 +104,16 @@ table.playlistTable{
     border-collapse: collapse;
 }
 
-.playlistTable th:nth-child(1), .playlist th:nth-child(4), .playlist th:nth-child(6){
+.playlistTable th:nth-child(1), .playlistTable th:nth-child(6){
     width: 8%;
 }
 
+.playlistTable th:nth-child(4){
+    width: 10%;
+}
+
 .playlistTable th:nth-child(2){
-    width: 48%;
+    width: 46%;
 }
 
 .playlistTable th:nth-child(3){
@@ -137,4 +141,81 @@ td.albumIcon{
 
 td.removeIcon{
     text-align: center;
+}
+
+
+
+ /*==================
+    CLARISHA: SAVED SONGS TABLE
+ =================== */
+.playlistTable td {
+    padding: 8px 10px;
+    vertical-align: middle;
+}
+
+tr.tableItem {
+    border-bottom: 1px solid #333333;
+}
+
+/* keeps the artwork small instead of full size */
+td.albumIcon img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    display: block;
+}
+
+.tableTitle a {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.tableTitle a:hover {
+    color: #ff4f9a;
+}
+
+/* puts the artist on its own line under the title */
+.tableArtist {
+    display: block;
+    color: #b3b1b1;
+    font-size: 0.85rem;
+}
+
+.removeBtn {
+    background: none;
+    border: none;
+    color: #b3b1b1;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.removeBtn:hover {
+    color: #ff4f9a;
+}
+
+.savedEmpty {
+    color: #b3b1b1;
+    padding: 20px 10px;
+}
+
+/* phones: put the info above the table */
+@media (max-width: 767px) {
+    .playlistInfoRow {
+        flex-direction: column;
+    }
+
+    .twoCol.left,
+    .twoCol.right {
+        width: 100%;
+    }
+}
+
+
+td.albumIcon {
+    background-color: transparent;
+}
+
+td.albumIcon img {
+    background-color: #ff4f9a;
+    border-radius: 4px;
 }
