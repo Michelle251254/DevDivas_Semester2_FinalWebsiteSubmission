@@ -1,128 +1,128 @@
 .libraryContainer {
-    padding-top: 40px;
-    padding-bottom: 60px;
+  padding-top: 40px;
+  padding-bottom: 60px;
 }
 
 .libraryCount {
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: 0.5px;
-    margin-bottom: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
 }
 
 .libraryMessage {
-    padding: 40px 12px;
-    font-weight: 600;
+  padding: 40px 12px;
+  font-weight: 600;
 }
 
 .songCard {
-    background-color: #111111;
-    border-radius: 18px;
-    overflow: hidden;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+  background-color: #111111;
+  border-radius: 18px;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .songCardArt {
-    position: relative;
-    background-color: #D6EF6B;
-    aspect-ratio: 16 / 11;
+  position: relative;
+  background-color: #d6ef6b;
+  aspect-ratio: 16 / 11;
 }
 
 .songCardArt img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .songCardBadge {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background-color: #111111;
-    color: #FFFFFF;
-    font-size: 13px;
-    font-weight: 700;
-    padding: 6px 14px;
-    border-radius: 999px;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: #111111;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 999px;
 }
 
 .songCardBody {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .songCardGenre {
-    color: #EE5C9E;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin: 0 0 8px 0;
+  color: #ee5c9e;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px 0;
 }
 
 .songCardTitle {
-    color: #FFFFFF;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 1.2;
-    margin: 0 0 6px 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0 0 6px 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .songCardMeta {
-    color: #9A9A9A;
-    font-size: 15px;
-    margin: 0 0 18px 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  color: #9a9a9a;
+  font-size: 15px;
+  margin: 0 0 18px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .songCardButtons {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
 }
 
 .songCardView {
-    flex: 1 1 auto;
-    background-color: #EE5C9E;
-    color: #111111;
-    font-weight: 700;
-    font-size: 16px;
-    text-align: center;
-    text-decoration: none;
-    padding: 12px 18px;
-    border-radius: 10px;
+  flex: 1 1 auto;
+  background-color: #ee5c9e;
+  color: #111111;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 10px;
 }
 
 .songCardView:hover {
-    background-color: #E84A92;
-    color: #111111;
+  background-color: #e84a92;
+  color: #111111;
 }
 
 .songCardSave {
-    background: none;
-    border: none;
-    color: #FFFFFF;
-    font-weight: 700;
-    font-size: 16px;
-    padding: 12px 6px;
-    cursor: pointer;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 12px 6px;
+  cursor: pointer;
 }
 
 .songCardSave.isSaved {
-    color: #D6EF6B;
+  color: #d6ef6b;
 }
 
 /*michelle VDM*/
@@ -236,129 +236,160 @@ p {
   text-decoration: none;
 }
 
-
-
-
-
-
 .playlistModal {
-    background-color: var(--black);
-    color: #FFFFFF;
-    border-radius: 18px;
-    border: 2px solid var(--pink);
+  background-color: var(--black);
+  color: #ffffff;
+  border-radius: 18px;
+  border: 2px solid var(--pink);
 }
 
 .playlistModalHeader {
-    border-bottom: 1px solid #333333;
+  border-bottom: 1px solid #333333;
 }
 
 .playlistModalTitle {
-    font-size: 1.4rem;
-    text-transform: uppercase;
+  font-size: 1.4rem;
+  text-transform: uppercase;
 }
 
 .playlistSongName {
-    color: var(--green);
-    font-weight: 700;
-    margin-bottom: 18px;
+  color: var(--green);
+  font-weight: 700;
+  margin-bottom: 18px;
 }
 
 .playlistRow {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    width: 100%;
-    text-align: left;
-    background-color: #1B1B1B;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 10px;
-    font-family: inherit;
-    font-size: 1rem;
-    font-weight: 700;
-    padding: 14px 16px;
-    margin-bottom: 8px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  text-align: left;
+  background-color: #1b1b1b;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  cursor: pointer;
 }
 
 .playlistRow:hover {
-    background-color: var(--pink);
-    color: var(--black);
+  background-color: var(--pink);
+  color: var(--black);
 }
 
 .playlistRowName {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
 }
 
 .playlistRowCount {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: #9A9A9A;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #9a9a9a;
 }
 
 .playlistRow:hover .playlistRowCount {
-    color: var(--black);
+  color: var(--black);
 }
 
 .playlistAlready {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: var(--green);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--green);
 }
 
 .playlistEmpty {
-    color: #9A9A9A;
-    font-size: 0.9rem;
-    margin-bottom: 8px;
+  color: #9a9a9a;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
 }
 
 .playlistLabel {
-    font-size: 0.8rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #9A9A9A;
-    margin: 24px 0 8px 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #9a9a9a;
+  margin: 24px 0 8px 0;
 }
 
 .playlistCreateRow {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .playlistInput {
-    flex: 1 1 auto;
-    background-color: transparent;
-    border: 1px solid #555555;
-    border-radius: 10px;
-    color: #FFFFFF;
-    font-family: inherit;
-    font-size: 1rem;
-    padding: 12px 16px;
+  flex: 1 1 auto;
+  background-color: transparent;
+  border: 1px solid #555555;
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 12px 16px;
 }
 
 .playlistInput:focus {
-    outline: none;
-    border-color: var(--pink);
+  outline: none;
+  border-color: var(--pink);
 }
 
 .playlistCreateBtn {
-    background-color: var(--green);
-    color: var(--black);
-    border: none;
-    border-radius: 10px;
-    font-family: inherit;
-    font-weight: 700;
-    font-size: 1rem;
-    padding: 12px 22px;
-    cursor: pointer;
+  background-color: var(--green);
+  color: var(--black);
+  border: none;
+  border-radius: 10px;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 12px 22px;
+  cursor: pointer;
 }
 
 .playlistMessage {
-    color: var(--green);
-    font-size: 0.85rem;
-    font-weight: 600;
-    min-height: 20px;
-    margin: 14px 0 0 0;
+  color: var(--green);
+  font-size: 0.85rem;
+  font-weight: 600;
+  min-height: 20px;
+  margin: 14px 0 0 0;
+}
+
+.savedModal {
+  background-color: var(--nav-bg);
+  border: 2px solid var(--pink);
+  border-radius: 14px;
+  color: #ffffff;
+  text-align: center;
+  padding: 14px 10px;
+}
+
+.savedModalText {
+  font-family: var(--h);
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 6px 0 22px 0;
+}
+
+.savedModalBtn {
+  background-color: var(--green);
+  color: var(--black);
+  font-family: var(--sH);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 28px;
+  cursor: pointer;
+}
+
+.savedModalBtn:hover {
+  background-color: var(--pink);
+  color: #ffffff;
 }
