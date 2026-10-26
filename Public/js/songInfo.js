@@ -1,3 +1,4 @@
+//==CREATING THE SONG INFO CLASS==//
 class SongInfo {
     constructor(_id, _title, _artist, _genre, _mood, _releaseYear, _duration, _favourites, _description, _image, _rating) {
         this.id = _id;
@@ -11,13 +12,15 @@ class SongInfo {
         this.description = _description;
         this.image = _image;
         this.rating = _rating;
-    }
+    } //constructor receives 11 values and stores them as properties using .this
 }
 
 
-!(async function () {
+//==STARTING THE FUNCTION AND SETTING UP THE API REQUEST==//
+!(async function () { //allows code to use await when asking for information
 
-if ($(".songInfoContainer").length === 0) {
+//checking which page your on
+if ($(".songInfoContainer").length === 0) {   //.length counts matching elements 
     return;
 }
 
@@ -25,22 +28,25 @@ const options = {
     method: "GET"
 };
 
-let songId = new URLSearchParams(window.location.search).get("id");
+//FINDING OUT WHICH SONG THE VISITOR SELECTED 
+let songId = new URLSearchParams(window.location.search).get("id"); 
+//finds the id of the selected song using urlsearchparams
 
 if (!songId) {
-    songId = localStorage.getItem("replayCurrentSong");
+    songId = localStorage.getItem("replayCurrentSong"); //if no id try finding in local storage
 }
 
+//==FETCHING A FALLBACK SONG==//
 if (!songId) {
-    let firstUrl = "https://discoveryprovider.audius.co/v1/tracks/search?query=punk&app_name=REPLAY&limit=1";
+    let firstUrl = "https://discoveryprovider.audius.co/v1/tracks/search?query=punk&app_name=REPLAY&limit=1"; //searches for 1
 
     let firstData = await fetch(firstUrl, options)
         .then((response) => response.json())
         .then((result) => { return result })
         .catch((error) => console.error(error));
 
-    if (firstData && firstData.data && firstData.data.length > 0) {
-        songId = firstData.data[0].id;
+    if (firstData && firstData.data && firstData.data.length > 0) { //check if theres a response, if theres a data list and if that list isnt empty 
+        songId = firstData.data[0].id; //get the id of the first returned song
     }
 }
 
@@ -49,11 +55,14 @@ if (!songId) {
     return;
 }
 
+//FETCHING THE SELECTED SONG
 const url = "https://discoveryprovider.audius.co/v1/tracks/" + songId + "?app_name=REPLAY";
+//gets the information for the track with the specific id
+//creates an api url containing the selected songs id
 
-let data = await fetch(url, options)
-    .then((response) => response.json())
-    .then((result) => { return result })
+let data = await fetch(url, options) //sends request and waits for response 
+    .then((response) => response.json()) //convert api response body from json to js data
+    .then((result) => { return result }) //return data so it can be stored in data 
     .catch((error) => console.error(error));
 
 console.log(data);
@@ -62,9 +71,10 @@ if (!data || !data.data) {
     console.log("This song could not be loaded.");
     return;
 }
-
+//STORES THE SELECTED SONGS INFO IN TRACK 
 let track = data.data;
 
+//==PREPARING THE SONG DATA==//
 let image = "";
 if (track.artwork) {
     image = track.artwork["1000x1000"];
@@ -90,6 +100,7 @@ if (track.description) {
     description = track.description;
 }
 
+//CREATING THE SONG INFO OBJECT - info got prepared and is now being put into the object
 let currentSong = new SongInfo(
     track.id,
     track.title,
@@ -106,12 +117,13 @@ let currentSong = new SongInfo(
 
 console.log(currentSong);
 
-displaySongInfo(currentSong);
-loadSimilarSongs(currentSong);
+displaySongInfo(currentSong); //fills info on webpage
+loadSimilarSongs(currentSong); //use songs info + find similar songs
 
 })();
 
 
+//==CALCULATING THE RATING==//
 function getSongInfoRating(favourites) {
     let rating = 3.5 + (favourites / 1000);
 
@@ -122,6 +134,7 @@ function getSongInfoRating(favourites) {
     return rating.toFixed(1);
 }
 
+//==GENERATING THE STAR ICONS==//
 function getSongInfoStars(rating) {
     let stars = "";
     let filled = Math.round(rating);
@@ -137,27 +150,33 @@ function getSongInfoStars(rating) {
     return stars;
 }
 
+//==FORMATTING THE SONG DURATION==//
 function formatSongDuration(totalSeconds) {
-    let minutes = Math.floor(totalSeconds / 60);
+    let minutes = Math.floor(totalSeconds / 60); 
     let seconds = totalSeconds % 60;
-
+//divides the duration by 60 to work out how many whole minutes it contains 
+//math.floor rounds down the nearest whole number
+//% gives the remainder after dividing by 60
     if (seconds < 10) {
-        seconds = "0" + seconds;
+        seconds = "0" + seconds; 
     }
 
     return minutes + ":" + seconds;
 }
 
+
+//DISPLAYING THE SONG INFORMATION 
 function displaySongInfo(song) {
 
 
     if (song.image !== "") {
-        $(".albumPlaceholder").css("background-image", "url('" + song.image + "')");
+        $(".albumPlaceholder").css("background-image", "url('" + song.image + "')"); 
         $(".albumPlaceholder").css("background-size", "cover");
         $(".albumPlaceholder").css("background-position", "center");
     }
+    //finds html element, changes its css property, setting bg img to songs artword
 
-    $(".songGenre").text(song.genre.toUpperCase() + " \u2022 " + song.mood.toUpperCase());
+    $(".songGenre").text(song.genre.toUpperCase() + " \u2022 " + song.mood.toUpperCase()); // updates text bullet
 
     $(".songTitle").text(song.title);
 
@@ -170,27 +189,36 @@ function displaySongInfo(song) {
         "<li>" + song.mood + "</li>" +
         "<li>" + song.genre + "</li>" +
         "<li>" + formatSongDuration(song.duration) + "</li>"
-    );
+    ); //li means list item
 
     $(".songDescription p").text(song.description);
 
     updateFavouriteButton(song.id);
 }
-async function loadSimilarSongs(song) {
 
-    let searchTerm = song.genre;
-    if (searchTerm === "Unknown") {
+//==FINDING SIMILAR SONGS==//
+async function loadSimilarSongs(song) { //parameter that contains selected songs info
+
+    let searchTerm = song.genre; //variable that stores selected songs genre
+    if (searchTerm === "Unknown") { //conditional statement 
         searchTerm = "punk";
     }
 
+    //creates another api url
+    //searching for song using the selected track genre
+    //encodeURIComponent(searchTerm) converts the search term into a format thats safe to include in a url
     const url = "https://discoveryprovider.audius.co/v1/tracks/search?query=" + encodeURIComponent(searchTerm) + "&app_name=REPLAY&limit=10";
     const options = {
         method: "GET"
     };
 
+//==FETCHING RECOMMEND SONGS - ACTUAL API REQUEST==//
     let data = await fetch(url, options)
+    //fetch sends request
+    //await waits for the promise chain to settle
+    //data stores final result
         .then((response) => response.json())
-        .then((result) => { return result })
+        .then((result) => { return result }) //returns converted result
         .catch((error) => console.error(error));
 
     console.log(data);
@@ -201,7 +229,7 @@ async function loadSimilarSongs(song) {
 
     $(".discover .song-scroll").empty();
 
-    let rank = 1;
+    let rank = 1; //number displayed on suggested songs
 
     for (let i = 0; i < data.data.length; i++) {
         let track = data.data[i];
@@ -210,10 +238,14 @@ async function loadSimilarSongs(song) {
         if (track.id === song.id) {
             continue;
         }
+       //continue skips current track + moves to the next track
+       //used when the song is already being viewed 
 
         if (rank > 6) {
             break;
         }
+        //break stops the entire loop
+        //used after 6 recommended songs have been added
 
         let image = "";
         if (track.artwork) {
@@ -224,12 +256,14 @@ async function loadSimilarSongs(song) {
         if (image !== "") {
             artwork = "<img src='" + image + "' alt='Album artwork'>";
         }
+         //checks if the artwork exists, if it does it creates an html img tag using the imgs url
 
         let colour = "bg-green";
-        if (rank % 2 === 1) {
+        if (rank % 2 === 1) { //checks if the loop position is odd, if it is...
             colour = "bg-pink";
         }
 
+        //==CREATING AND DISPLAYING SIMILAR SONG CARDS==//
         let card =
             "<div class='col col-6 col-lg-3 col-xl-2'>" +
                 "<a href='songInfo.html?id=" + track.id + "' class='song-card'>" +
@@ -242,19 +276,21 @@ async function loadSimilarSongs(song) {
                     "<p class='song-artist'>" + track.user.name + "</p>" +
                 "</a>" +
             "</div>";
+            //this section dynamically creates the html for the song card
+            //+ joins the html strings with variables
 
         $(".discover .song-scroll").append(card);
 
-        rank = rank + 1;
+        rank = rank + 1; //increases rank for next song
     }
 }
 
-
+//==GETTING THE SAVED SONGS==//
 function getFavouriteSongs() {
     let saved = localStorage.getItem("replayFavourites");
 
     if (saved) {
-        return JSON.parse(saved);
+        return JSON.parse(saved); //converts saved text back into an array
     }
 
     return [];
@@ -263,22 +299,22 @@ function getFavouriteSongs() {
 function updateFavouriteButton(songId) {
     let favourites = getFavouriteSongs();
 
-    $(".favBtn").val(songId);
+    $(".favBtn").val(songId); //sets the buttons value to the songs id
 
-    if (favourites.indexOf(songId) !== -1) {
-        $(".favBtn").text("Saved to Favourites");
+    if (favourites.indexOf(songId) !== -1) { //checks if the current song is already in the array
+        $(".favBtn").text("Saved to Favourites");//if the value is saved update text
     }
 }
 
 $(document).on("click", ".favBtn", function () {
     let songId = $(this).val();
-    let favourites = getFavouriteSongs();
+    let favourites = getFavouriteSongs(); //gets the songs id + existing saved list
 
-    if (favourites.indexOf(songId) === -1) {
-        favourites.push(songId);
+    if (favourites.indexOf(songId) === -1) { 
+        favourites.push(songId); //if the songs isn't saved pushed adds it
         $(this).text("Saved to Favourites");
     } else {
-        favourites.splice(favourites.indexOf(songId), 1);
+        favourites.splice(favourites.indexOf(songId), 1); //if it is already saved, splice removes it
         $(this).text("+ Save to Favourites");
     }
 

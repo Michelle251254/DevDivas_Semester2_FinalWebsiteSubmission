@@ -1,3 +1,4 @@
+//==CREATING THE SONG CLASS AND ARRAY==//
 class Song {
     constructor(_id, _title, _artist, _image, _rating) {
         this.id = _id;
@@ -8,13 +9,13 @@ class Song {
     }
 }
 
-let allSongs = [];
+let allSongs = [];//empty array where the song objects will be stored
 
-
-!(async function () {
+//==STARTING THE FUNCTION AND SENDING THE API REQUEST==//
+!(async function () { //allows code to use await when asking for information 
 
 if ($("#featuredCarousel").length === 0) {
-    return;
+    return; //checks if the carousel exist
 }
 
 const url = "https://discoveryprovider.audius.co/v1/tracks/search?query=punk&app_name=REPLAY&limit=50";
@@ -22,6 +23,7 @@ const options = {
     method: "GET"
 };
 
+//==FETCHING MUSIC AND CHECKING THE RESPONSE==//
 let data = await fetch(url, options)
     .then((response) => response.json())
     .then((result) => { return result })
@@ -33,8 +35,10 @@ if (!data || !data.data) {
     console.log("The music could not be loaded.");
     return;
 }
-for (let i = 0; i < data.data.length; i++) {
-    let track = data.data[i];
+
+//==PROCESSING TRACKS INTO SONG OBJECTS==//
+for (let i = 0; i < data.data.length; i++) { 
+    let track = data.data[i]; //selects the current track
 
     let image = "";
     if (track.artwork) {
@@ -42,23 +46,27 @@ for (let i = 0; i < data.data.length; i++) {
     }
 
     let newSong = new Song(track.id, track.title, track.user.name, image, getRating(track.favorite_count));
-    allSongs.push(newSong);
+    allSongs.push(newSong);//new song creates an object, push adds the new song to the all songs array
 }
 
 console.log(allSongs);
 console.log(allSongs.length);
 
 
-displayFeatured(allSongs.slice(0, 4));
+//==DIVIDING SONGS BETWEEN HOME PAGE SECTIONS==//
+displayFeatured(allSongs.slice(0, 4)); //selects 4 songs for carousel 
+//creates carousel cards
 
 displaySongRow(".trending .song-scroll", allSongs.slice(4, 10), 1, "col col-6 col-lg-3 col-xl-2");
 displaySongRow("#trendingMore .row", allSongs.slice(10, 16), 7, "col");
-
+//creates the trending and discover cards
 displaySongRow(".discover .song-scroll", allSongs.slice(16, 22), 1, "col col-6 col-lg-3 col-xl-2");
 displaySongRow("#discoverMore .row", allSongs.slice(22, 28), 7, "col");
 
 })();
 
+
+//==CALCULATING SONG RATING==//
 function getRating(favourites) {
     let rating = 3.5 + (favourites / 1000);
 
@@ -70,7 +78,7 @@ function getRating(favourites) {
 }
 
 
-
+//==GENERATING STAR ICONS==//
 function getStars(rating) {
     let stars = "";
     let filled = Math.round(rating);
@@ -86,6 +94,8 @@ function getStars(rating) {
     return stars;
 }
 
+
+//==PREPARING THE FEATURED CAROUSEL==//
 function displayFeatured(songs) {
     $("#featuredCarousel .carousel-inner").empty();
 
@@ -93,20 +103,23 @@ function displayFeatured(songs) {
         let song = songs[i];
 
         let activeClass = "";
-        if (i === 0) {
-            activeClass = " active";
+        if (i === 0) { 
+            activeClass = " active"; //stores the bootstrap class "active" for the first slide
         }
 
+        //==PREPARING CAROUSEL COLORS AND ARTWORKS==//
         let colour = "bg-green";
-        if (i % 2 === 1) {
+        if (i % 2 === 1) { //checks if the loop position is odd, if it is...
             colour = "bg-pink";
         }
 
         let artwork = "";
         if (song.image !== "") {
             artwork = "<img src='" + song.image + "' alt='Album artwork'>";
-        }
+        } 
+        //checks if the artwork exists, if it does it creates an html img tag using the imgs url
 
+        //==CREATING THE FEATURED CAROUSEL SLIDES==//
         let slide =
             "<div class='carousel-item" + activeClass + "' data-bs-interval='5000'>" +
                 "<div class='featured-content d-flex align-items-center flex-wrap gap-4'>" +
@@ -123,20 +136,24 @@ function displayFeatured(songs) {
                     "</div>" +
                 "</div>" +
             "</div>";
+            //this section dynamically creates the html for each featured carousel slide
+            //+ joins the html strings with variables 
 
-        $("#featuredCarousel .carousel-inner").append(slide);
+        $("#featuredCarousel .carousel-inner").append(slide);//inserts each completed slide into carousel 
     }
 }
 
+
+//==PREPARING THE TRENDING AND DISCOVER NOW ROWS==//
 function displaySongRow(container, songs, startRank, columnClass) {
     $(container).empty();
 
     for (let i = 0; i < songs.length; i++) {
         let song = songs[i];
-        let rank = startRank + i;
+        let rank = startRank + i; //calculates the rank 
 
         let colour = "bg-green";
-        if (rank % 2 === 1) {
+        if (rank % 2 === 1) { //checks if the loop position is odd, if it is...
             colour = "bg-pink";
         }
 
@@ -144,7 +161,10 @@ function displaySongRow(container, songs, startRank, columnClass) {
         if (song.image !== "") {
             artwork = "<img src='" + song.image + "' alt='Album artwork'>";
         }
+        //checks if the artwork exists, if it does it creates an html img tag using the imgs url
 
+
+        //==CREATING AND DISPLAYING THE SONG CARDS==//
         let card =
             "<div class='" + columnClass + "'>" +
                 "<a href='#' class='song-card'>" +
@@ -157,7 +177,28 @@ function displaySongRow(container, songs, startRank, columnClass) {
                     "<p class='song-artist'>" + song.artist + "</p>" +
                 "</a>" +
             "</div>";
+            //this section dynamically creates the html for each trending/discover song card
+            //+ joins the html strings with variables
 
-        $(container).append(card);
+        $(container).append(card);//inserts completed song in the selected section
     }
 }
+
+
+
+//===============================================
+// CLARISHA WELCOME MESSAGE JS
+// gets the username that logIn.js saved in local storage
+// and puts it in the welcome heading on the home page
+
+$(document).ready(function(){
+    let username = localStorage.getItem("replayUsername");
+    if (username){ 
+        $("#welcomeTitle").text("Welcome back, " + username);
+    }
+});
+
+//===============================================
+
+
+

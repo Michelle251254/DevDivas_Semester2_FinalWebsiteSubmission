@@ -7,6 +7,7 @@ Michelle M - Tables: https://www.w3schools.com/html/html_tables.asp
 
 Michelle M - flex-shrink: https://www.w3schools.com/cssref/css3_pr_flex-shrink.php
 
+
 (Michelle vdm
 Navbar:  https://getbootstrap.com/docs/5.3/components/navbar/
 Grid: https://getbootstrap.com/docs/5.3/layout/grid/ 
@@ -14,3 +15,70 @@ Carousel: https://getbootstrap.com/docs/5.3/components/carousel/
 Cards: https://getbootstrap.com/docs/5.3/components/card/
 Dropdown: https://getbootstrap.com/docs/5.3/components/dropdowns/ 
 Bootstrap: https://icons.getbootstrap.com/)
+
+
+
+
+Clarisha Scheepers 
+References:
+
+SEARCHING AND FILTERING AN ARRAY
+"Code Commerce" Video: JavaScript Array Filter Method - Basic examples & Real Project example 
+https://youtu.be/2lgiV1urWQs?si=WomMLzPlY42k2cUA 
+
+
+"All Things JavaScript, LLC" Video: JavaScript Fundamentals: Filtering an Array 
+ https://youtu.be/D6LTvTsgnhI?si=jIdfl-ofDH38BOb6 
+
+Reference: MDN-Array.prototype.filter()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter 
+
+Reference: MDN- Array.prototype.sort() 
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort 
+
+Reference: W3Schools - JavaScript Filter(). 
+https://www.w3schools.com/jsref/jsref_filter.asp 
+
+
+JQUERY EVENTS AND VALUES
+Reference: jQuery API - .on() 
+https://api.jquery.com/on/ 
+
+Reference: jQuery API - .val()
+https://api.jquery.com/val/ 
+
+
+LOCAL STORAGE (SAVING AND READING)
+Video: LocalStorage for beginners (HTML and Javascript) 
+https://youtu.be/rVyTjFofok0?si=AqNfC2UsJwSLMtSu 
+
+Video: 
+JavaScript LocalStorage Tutorial - setItem(), getItem(), removeItem() clear() and key() Example: https://youtu.be/cELVC0LMC5w?si=J5VO1acews9wkfej 
+
+Reference: MDN - Window.localStorage
+https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage 
+
+
+
+FIREBASE AUTHENTICATION SIGN UP LOG IN LOG OUT
+
+Video: Getting Started with Firebase 9#1 - Intro & What's New
+https://youtu.be/9zdvmgGsww0?si=LbfgZfKNhLcN9yfy 
+
+Video: Getting Started with Firebase 9#1 - Setting Up FireBase Auth 
+https://youtu.be/n-kUZw97-lA?si=YhslatEJ4VxmXzGs 
+
+Reference: Get Started with Firebase Authentication on websites 
+https://firebase.google.com/docs/auth/web/start 
+
+Reference: Authenticate with Firebase using Password-Based Accounts using Javascript 
+https://firebase.google.com/docs/auth/web/password-auth 
+
+
+
+IMPORT EXPORT AND TYPE MODULE
+Reference: MDN - JavaScript Modules https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules 
+
+
+FIREBASE HOSTING
+
