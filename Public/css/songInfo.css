@@ -17,7 +17,7 @@ a{
 
     border: 1px solid transparent;
 
-    padding: 4px 6px;
+    padding: 4px 8px;
 }
 
 a.backToLibrary:hover{
@@ -26,7 +26,7 @@ a.backToLibrary:hover{
     border-style: solid;
     border-color: #d5f570;
     border-width: 1px;
-    border-radius: 6px;
+    border-radius: 20px;
 }
 
 .songInfoRow{
@@ -73,7 +73,7 @@ a.backToLibrary:hover{
     margin-top: -10px;
 }
 
-p .artistBold{
+p.artistBold{
     color: #ff4f9a;
     font-weight: 700;
 }

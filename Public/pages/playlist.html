@@ -65,8 +65,8 @@
             <p class="backToLibraryText">Back To Library</p>
         </a>
 
-        <div class="playlistInfoRow">
-            <div class="twoCol left">
+        <div class="row g-4 playlistInfoRow">
+            <div class="col-12 col-xl-4 playlistCol left">
                 <div class="playlistMetaRow">
                     <div class="albumPlaceholder"></div>
                 </div>
@@ -104,13 +104,13 @@
                 </div>
             </div>
 
-            <div class="twoCol right">
+            <div class="col-12 col-xl-8 playlistCol right">
                 <div class="playlistTable" role="table">
                     <div class="playlistTableHeader" role="row">
                         <div role="columnheader"><span class="visually-hidden">album cover</span></div>
                         <div role="columnheader">TITLE</div>
-                        <div role="columnheader">GENRE</div>
-                        <div role="columnheader">YEAR</div>
+                        <div class= "d-none d-md-block" role="columnheader">GENRE</div>
+                        <div class= "d-none d-md-block"  role="columnheader">YEAR</div>
                         <div role="columnheader">RATING</div>
                         <div role="columnheader"><span class="visually-hidden">remove icon</span></div>
                     </div>
@@ -126,16 +126,205 @@
                                 <div class="songArtist">artist</div>
                             </div>
 
-                            <div class="tableGenre" role="cell">
+                            <div class="tableGenre d-none d-md-block" role="cell">
                                 <div class="songTableGenre">genre</div>
                             </div>
 
-                            <div class="tableYear" role="cell">
+                            <div class="tableYear d-none d-md-block" role="cell">
                                 <div class="songYear">2024</div>
                             </div>
 
                             <div class="tableRating" role="cell">
-                                <div class="songRating">4.8</div>
+                                <div class="songRating"><i class="fa-solid fa-star"></i>4.8</div>
+                            </div>
+
+                            <div class="tableRemove" role="cell">
+                                <button class="removeBtn"><i class="fa-regular fa-circle-xmark"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="playlistTableRow" role="row">
+                            <div class="tableAlbum" role="cell">
+                                <div class="albumIcon"></div>
+                            </div>
+
+                            <div class="tableTitle" role="cell">
+                                <div class="songTitle">song title</div>
+                                <div class="songArtist">artist</div>
+                            </div>
+
+                            <div class="tableGenre d-none d-md-block" role="cell">
+                                <div class="songTableGenre">genre</div>
+                            </div>
+
+                            <div class="tableYear d-none d-md-block" role="cell">
+                                <div class="songYear">2024</div>
+                            </div>
+
+                            <div class="tableRating" role="cell">
+                                <div class="songRating"><i class="fa-solid fa-star"></i>4.8</div>
+                            </div>
+
+                            <div class="tableRemove" role="cell">
+                                <button class="removeBtn"><i class="fa-regular fa-circle-xmark"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="playlistTableRow" role="row">
+                            <div class="tableAlbum" role="cell">
+                                <div class="albumIcon"></div>
+                            </div>
+
+                            <div class="tableTitle" role="cell">
+                                <div class="songTitle">song title</div>
+                                <div class="songArtist">artist</div>
+                            </div>
+
+                            <div class="tableGenre d-none d-md-block" role="cell">
+                                <div class="songTableGenre">genre</div>
+                            </div>
+
+                            <div class="tableYear d-none d-md-block" role="cell">
+                                <div class="songYear">2024</div>
+                            </div>
+
+                            <div class="tableRating" role="cell">
+                                <div class="songRating"><i class="fa-solid fa-star"></i>4.8</div>
+                            </div>
+
+                            <div class="tableRemove" role="cell">
+                                <button class="removeBtn"><i class="fa-regular fa-circle-xmark"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="playlistTableRow" role="row">
+                            <div class="tableAlbum" role="cell">
+                                <div class="albumIcon"></div>
+                            </div>
+
+                            <div class="tableTitle" role="cell">
+                                <div class="songTitle">song title</div>
+                                <div class="songArtist">artist</div>
+                            </div>
+
+                            <div class="tableGenre d-none d-md-block" role="cell">
+                                <div class="songTableGenre">genre</div>
+                            </div>
+
+                            <div class="tableYear d-none d-md-block" role="cell">
+                                <div class="songYear">2024</div>
+                            </div>
+
+                            <div class="tableRating" role="cell">
+                                <div class="songRating"><i class="fa-solid fa-star"></i>4.8</div>
+                            </div>
+
+                            <div class="tableRemove" role="cell">
+                                <button class="removeBtn"><i class="fa-regular fa-circle-xmark"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="playlistTableRow" role="row">
+                            <div class="tableAlbum" role="cell">
+                                <div class="albumIcon"></div>
+                            </div>
+
+                            <div class="tableTitle" role="cell">
+                                <div class="songTitle">song title</div>
+                                <div class="songArtist">artist</div>
+                            </div>
+
+                            <div class="tableGenre d-none d-md-block" role="cell">
+                                <div class="songTableGenre">genre</div>
+                            </div>
+
+                            <div class="tableYear d-none d-md-block" role="cell">
+                                <div class="songYear">2024</div>
+                            </div>
+
+                            <div class="tableRating" role="cell">
+                                <div class="songRating"><i class="fa-solid fa-star"></i>4.8</div>
+                            </div>
+
+                            <div class="tableRemove" role="cell">
+                                <button class="removeBtn"><i class="fa-regular fa-circle-xmark"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="playlistTableRow" role="row">
+                            <div class="tableAlbum" role="cell">
+                                <div class="albumIcon"></div>
+                            </div>
+
+                            <div class="tableTitle" role="cell">
+                                <div class="songTitle">song title</div>
+                                <div class="songArtist">artist</div>
+                            </div>
+
+                            <div class="tableGenre d-none d-md-block" role="cell">
+                                <div class="songTableGenre">genre</div>
+                            </div>
+
+                            <div class="tableYear d-none d-md-block" role="cell">
+                                <div class="songYear">2024</div>
+                            </div>
+
+                            <div class="tableRating" role="cell">
+                                <div class="songRating"><i class="fa-solid fa-star"></i>4.8</div>
+                            </div>
+
+                            <div class="tableRemove" role="cell">
+                                <button class="removeBtn"><i class="fa-regular fa-circle-xmark"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="playlistTableRow" role="row">
+                            <div class="tableAlbum" role="cell">
+                                <div class="albumIcon"></div>
+                            </div>
+
+                            <div class="tableTitle" role="cell">
+                                <div class="songTitle">song title</div>
+                                <div class="songArtist">artist</div>
+                            </div>
+
+                            <div class="tableGenre d-none d-md-block" role="cell">
+                                <div class="songTableGenre">genre</div>
+                            </div>
+
+                            <div class="tableYear d-none d-md-block" role="cell">
+                                <div class="songYear">2024</div>
+                            </div>
+
+                            <div class="tableRating" role="cell">
+                                <div class="songRating"><i class="fa-solid fa-star"></i>4.8</div>
+                            </div>
+
+                            <div class="tableRemove" role="cell">
+                                <button class="removeBtn"><i class="fa-regular fa-circle-xmark"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="playlistTableRow" role="row">
+                            <div class="tableAlbum" role="cell">
+                                <div class="albumIcon"></div>
+                            </div>
+
+                            <div class="tableTitle" role="cell">
+                                <div class="songTitle">song title</div>
+                                <div class="songArtist">artist</div>
+                            </div>
+
+                            <div class="tableGenre d-none d-md-block" role="cell">
+                                <div class="songTableGenre">genre</div>
+                            </div>
+
+                            <div class="tableYear d-none d-md-block" role="cell">
+                                <div class="songYear">2024</div>
+                            </div>
+
+                            <div class="tableRating" role="cell">
+                                <div class="songRating"><i class="fa-solid fa-star"></i>4.8</div>
                             </div>
 
                             <div class="tableRemove" role="cell">
@@ -145,27 +334,6 @@
                     </div>
                 </div>
             </div>
-
-                <!--- <table class="playlistTable">
-                    <tr class="tableHeadings">
-                        <th aria-label="blankTableHeader"></th>
-                        <th>TITLE</th>
-                        <th>GENRE</th>
-                        <th>YEAR</th>
-                        <th>RATING</th>
-                        <th aria-label="blankTableHeader"></th>
-                    </tr>
-
-                    <tr class="tableItem">
-                        <td class="albumIcon"></td>
-                        <td class="tableTitle"></td>
-                        <td class="tableGenre"></td>
-                        <td class="tableYear"></td>
-                        <td class="tableRating"></td>
-                        <td class="removeIcon"><i class="fa-regular fa-circle-xmark"></i></td>
-                    </tr>
-                </table>--->
-
         </div>
     </div>
 
