@@ -33,8 +33,7 @@ function applyFilters() {
 
     let genreMatch = selectedGenre === "all" || song.genre === selectedGenre;
 
-    let yearMatch =
-      selectedYear === "all" || song.releaseDate.startsWith(selectedYear);
+    let yearMatch = selectedYear === "all" || song.releaseDate.startsWith(selectedYear);
 
     let ratingMatch =
       selectedRating === "all" ||
