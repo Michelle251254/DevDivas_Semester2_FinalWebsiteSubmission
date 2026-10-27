@@ -81,3 +81,132 @@ Reference: MDN - JavaScript Modules https://developer.mozilla.org/en-US/docs/Web
 
 
 FIREBASE HOSTING
+
+
+DANYA VAN MEYEREN 
+References:
+
+1. Fetch an API, then show it on the page
+The Coding Train – "Working with Data and APIs in JavaScript" (course outline). https://github.com/CodingTrain/Intro-to-Data-APIs-JS
+
+The Coding Train – "1.1: fetch() – Working With Data & APIs in JavaScript" (video). https://www.youtube.com/watch?v=tc8DU14qX6I
+
+The Coding Train – "1.4: JSON – Working with Data and APIs in JavaScript" (video). https://www.youtube.com/watch?v=uxf0--uiX0I
+
+"GET Data from API & Display in HTML with JavaScript Fetch API" (video). https://www.youtube.com/watch?v=zUcc4vW-jsI
+
+
+2. fetch(), async/await, .then() and .catch()
+Web Dev Simplified – "Learn Fetch API In 6 Minutes" (video). https://www.youtube.com/watch?v=cuEtnrL9-H0
+
+Traversy Media – "Fetch API Introduction" (video). https://www.youtube.com/watch?v=Oive66jrwBs
+
+"Callbacks, Promises, Async Await" (video). https://www.youtube.com/watch?v=VmQ6dHvnKIM
+
+freeCodeCamp – Async/Await JavaScript Tutorial (video course). https://www.classcentral.com/course/freecodecamp-async-await-javascript-tutorial-57864
+
+Geeky Shows – "Fetch API Complete in One Video" (video, in Hindi). https://www.youtube.com/watch?v=a8tsXX6nvw4
+
+Master Asynchronous JavaScript + Pokémon project (article with video). https://dev.to/ebereplenty/master-asynchronous-javascript-promises-asyncawait-fetch-api-pokemon-project-41gn
+
+JavaScriptTutorial.net – Fetch API (written). https://javascripttutorial.net/javascript-fetch-api
+
+JavaScriptTutorial.net – async/await (written). https://javascripttutorial.net/javascript-async-await
+
+W3Schools – async and await (written, with "Try it" examples). https://www.w3schools.com/Js/js_async_await.asp
+
+MDN – Using the Fetch API (official documentation). https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
+MDN – async function (official documentation). https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+
+
+3. The async wrapper (IIFE)
+freeCodeCamp – "Immediately Invoked Function Expression – Beau teaches JavaScript" (video). https://www.youtube.com/watch?v=3cbiZV4H22c
+
+JavaScriptTutorial.net – IIFE (written). https://www.javascripttutorial.net/javascript-immediately-invoked-function-expression/
+
+
+4. Classes and constructors
+The Net Ninja – Object Oriented JavaScript playlist (videos). https://www.classcentral.com/classroom/youtube-object-oriented-javascript-45779
+
+freeCodeCamp – JavaScript Classes Tutorial. https://www.freecodecamp.org/news/javascript-classes-tutorial/
+
+Bro Code – "Learn JavaScript CLASSES in 6 minutes!" (video). https://www.youtube.com/watch?v=U2vxAEiaVRY
+
+The Coding Train – "6.2: Classes in JavaScript with ES6" (video). https://www.youtube.com/watch?v=T-HGdc8L-7w
+
+Medium – Understanding JavaScript Classes (beginner article). https://medium.com/@rahaaathossain/understanding-javascript-classes-with-examples-for-beginners-e9a75e320545
+
+MDN – Classes (official documentation). https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes
+
+
+5. jQuery: $("#libraryGrid").empty(), .append(), .html(), .text(), .css(), .each(), .val(), .addClass()
+The Net Ninja – jQuery Tutorial for Beginners (video playlist). https://www.classcentral.com/classroom/youtube-jquery-tutorials-for-beginners-45747
+
+"jQuery Tutorial for Beginners: Nothing But the Goods" (written). https://www.impressivewebs.com/?p=1369
+
+"jQuery Tutorial for Beginners – 15 – Append and prepend" (video). https://www.youtube.com/watch?v=FKqO9S78vLE
+
+
+6. $(document).on("click", ".songCardSave", ...) (event delegation)
+DEV – "Bind to Dynamically Added Elements with jQuery" (written). https://dev.to/nightwolfdev/bind-to-dynamically-added-elements-with-jquery-5ig
+
+GeeksforGeeks – jQuery code not working on dynamic content (written). https://geeksforgeeks.org/why-jquery-code-doesnt-work-on-dynamic-content-loaded-with-ajax-and-how-to-fix-it
+
+Tutorial Republic – bind click to dynamically created elements (written, runnable example). https://www.tutorialrepublic.com/faq/how-to-bind-click-event-to-dynamically-added-elements-in-jquery.php
+
+jQuery official docs – .on(). https://api.jquery.com/on/
+
+"Event Binding On Dynamically Created Elements In jQuery" (video). https://www.youtube.com/watch?v=_3FAlJBwh1c
+
+
+7. localStorage + JSON.stringify / JSON.parse (Save and Favourites)
+Kirupa – Storing and Retrieving an Array from Local Storage (written). https://www.kirupa.com/html5/storing_and_retrieving_an_array_from_local_storage.htm
+
+Bobby Hadz – Store an Array or Object in localStorage (written). https://bobbyhadz.com/blog/store-array-or-object-in-localstorage-using-javascript
+
+JavaScriptTutorial.net – localStorage (written). https://javascripttutorial.net/web-apis/javascript-localstorage
+
+CodeWithHarry – Working with JSON (written). https://www.codewithharry.com/tutorial/working-with-json
+
+LogRocket – Storing objects in localStorage (written, more depth). https://blog.logrocket.com/?p=73952
+
+"Storing Objects with Local Storage in JavaScript" (video). https://www.youtube.com/watch?v=AUOzvFzdIk4
+
+MDN – localStorage (official documentation). https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+
+
+8. new URLSearchParams(window.location.search).get("id") (songInfo.js line 28)
+David Walsh – Get Query String Parameters with JavaScript (written). https://davidwalsh.name/query-string-javascript
+
+JavaScriptTutorial.net – URLSearchParams (written). https://www.javascripttutorial.net/?p=85098
+
+"How URLSearchParams work in JS (+ window.location.search)" (video). https://www.youtube.com/watch?v=Cuozw4F0c-8
+
+MDN – URLSearchParams (official documentation). https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+
+MDN – encodeURIComponent (official documentation). Used in loadSimilarSongs. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
+
+
+9. Smaller pieces used inside the loops
+for loops – looping through data.data: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
+
+.slice() – allSongs.slice(0, 4) and releaseDate.slice(0, 4) for the year: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+
+.push() – adding songs to allSongs: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
+
+.indexOf() – checking if a song is already saved (!== -1): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
+
+.splice() – removing a song from saved or favourites: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+
+.toFixed() – the rating, e.g. "4.2": https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed
+
+Math.round / Math.floor – stars and the duration minutes: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round
+
+% (remainder) – alternating bg-green / bg-pink and seconds in formatSongDuration: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder
+
+continue / break – used in loadSimilarSongs: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/continue
+
+HTML entities – https://developer.mozilla.org/en-US/docs/Glossary/Character_reference
+
+Font Awesome icons – fa-solid fa-star / fa-regular fa-star in songInfo.js: https://docs.fontawesome.com/web/add-icons/how-to
