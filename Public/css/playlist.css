@@ -7,14 +7,6 @@
     flex-direction: column;
 }
 
-.twoCol.left{
-    width: 30%;
-}
-
-.twoCol.right{
-    width: 70%;
-}
-
 .playlistInfoRow{
     display: flex;
     flex-direction: row;
@@ -22,6 +14,20 @@
     justify-content: flex-start;
     gap: 40px;
     margin-top: 10px;
+}
+
+.playlistTitle{
+    font-size: 40px;
+    padding-top: 10px;
+}
+
+p.playlistSubtitle{
+    padding-bottom: 7px;
+}
+
+.userBold{
+    color: #d5f570;
+    font-weight: 700;
 }
 
 .metaStats{
@@ -35,6 +41,7 @@
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
+    padding-top: 12px;
 }
 
 .playBtn{
@@ -86,15 +93,26 @@
 
     background-color: none;
 
-    margin-left: 0px;
+    margin-left: -8px;
 }
 
 .fa-share{
     color: #b3b1b1;
     font-size: 18px;
 }
+.fa-share:hover{
+    color: #d5f570;
+}
 
-table{
+.playlistTableHeader, .playlistTableRow{
+    display: grid;
+    grid-template-columns: 80px 1fr 160px 100px 120px 70px;
+    align-items: center;
+}
+
+
+
+/*table{
     width: 100%;
 }
 
@@ -138,3 +156,4 @@ td.albumIcon{
 td.removeIcon{
     text-align: center;
 }
+*/
