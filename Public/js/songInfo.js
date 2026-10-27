@@ -280,7 +280,7 @@ async function loadSimilarSongs(song) { //receives the currently selected song i
                     "<p class='song-artist'>" + track.user.name + "</p>" +
                 "</a>" +
             "</div>";
-            //this section contains the html structure for 1 recommendation 
+            // html structure for 1 recommendation 
             //it inserts the songs artwork, calculated rating, rank, title and artist into structure
             //+ joins the html strings with variables
 
