@@ -196,10 +196,11 @@ function displaySongInfo(song) {
     updateFavouriteButton(song.id);
 }
 
-//==FINDING SIMILAR SONGS==//
-async function loadSimilarSongs(song) { //parameter that contains selected songs info
+//==LOAD SIMILAR SONGS==//
+//genre based song recommendations 
+async function loadSimilarSongs(song) { //receives the currently selected song info object as a parameter
 
-    let searchTerm = song.genre; //variable that stores selected songs genre
+    let searchTerm = song.genre; //variable that stores the selected songs genre
     if (searchTerm === "Unknown") { //conditional statement 
         searchTerm = "punk";
     }
@@ -209,7 +210,7 @@ async function loadSimilarSongs(song) { //parameter that contains selected songs
     //encodeURIComponent(searchTerm) converts the search term into a format thats safe to include in a url
     const url = "https://discoveryprovider.audius.co/v1/tracks/search?query=" + encodeURIComponent(searchTerm) + "&app_name=REPLAY&limit=10";
     const options = {
-        method: "GET"
+        method: "GET" //specify method 
     };
 
 //==FETCHING RECOMMEND SONGS - ACTUAL API REQUEST==//
