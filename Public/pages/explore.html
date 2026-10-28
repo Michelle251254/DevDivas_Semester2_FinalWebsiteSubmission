@@ -64,103 +64,107 @@
     </div>
 
     <!==============CLARISHA'S HTML FOR FILTERS======================>
-    <div class="libraryFilters page-margin">
-        <select id="genreFilter">
-            <option value="all">All Genres</option>
-        </select>
+        <div class="libraryFilters page-margin">
+            <select id="genreFilter">
+                <option value="all">All Genres</option>
+            </select>
 
-        <select id="yearFilter">
-            <option value="all">All Years</option>
-        </select>
+            <select id="yearFilter">
+                <option value="all">All Years</option>
+            </select>
 
-        <select id="ratingFilter">
-            <option value="all">All Ratings</option>
-            <option value="5">&#9733; 5 only</option>
-            <option value="4.5">&#9733; 4.5 &amp; up</option>
-            <option value="4">&#9733; 4 &amp; up</option>
-        </select>
+            <select id="ratingFilter">
+                <option value="all">All Ratings</option>
+                <option value="5">&#9733; 5 only</option>
+                <option value="4.5">&#9733; 4.5 &amp; up</option>
+                <option value="4">&#9733; 4 &amp; up</option>
+            </select>
 
-        <select id="sortFilter">
-            <option value="default">Sort By</option>
-            <option value="titleAZ">Title A-Z</option>
-            <option value="artistAZ">Artist A-Z</option>
-            <option value="newest">Newest</option>
-            <option value="oldest">Oldest</option>
-            <option value="rating">Highest Rated</option>
-        </select>
+            <select id="sortFilter">
+                <option value="default">Sort By</option>
+                <option value="titleAZ">Title A-Z</option>
+                <option value="artistAZ">Artist A-Z</option>
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+                <option value="rating">Highest Rated</option>
+            </select>
 
-        <button type="button" id="showAllBtn" class="showAllBtn">Show All</button>
-    </div>
-    <!==============CLARISHA'S HTML FOR FILTERS======================>
+            <button type="button" id="showAllBtn" class="showAllBtn">Show All</button>
+        </div>
+        <!==============CLARISHA'S HTML FOR FILTERS======================>
 
-    <!-- Song cards (filled by api.js) -->
-    <div class="container libraryContainer">
-        <p id="libraryCount" class="libraryCount"></p>
-        <div class="row g-4" id="libraryGrid"></div>
-    </div>
+            <!-- Song cards (filled by api.js) -->
+            <div class="container libraryContainer">
+                <p id="libraryCount" class="libraryCount"></p>
+                <div class="row g-4" id="libraryGrid"></div>
+            </div>
 
-    <!-- Popup: save to playlist -->
-    <div class="modal fade" id="playlistModal" tabindex="-1" aria-labelledby="playlistModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content playlistModal">
+            <!-- Popup: save to playlist -->
+            <div class="modal fade" id="playlistModal" tabindex="-1" aria-labelledby="playlistModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content playlistModal">
 
-                <div class="modal-header playlistModalHeader">
-                    <h2 class="modal-title playlistModalTitle" id="playlistModalLabel">Save to playlist</h2>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
+                        <div class="modal-header playlistModalHeader">
+                            <h2 class="modal-title playlistModalTitle" id="playlistModalLabel">Save to playlist</h2>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                        </div>
 
-                <div class="modal-body">
-                    <p class="playlistSongName" id="playlistSongName"></p>
+                        <div class="modal-body">
+                            <p class="playlistSongName" id="playlistSongName"></p>
 
-                    <div id="playlistList"></div>
+                            <div id="playlistList"></div>
 
-                    <p class="playlistLabel">Create a new playlist</p>
+                            <p class="playlistLabel">Create a new playlist</p>
 
-                    <div class="playlistCreateRow">
-                        <input type="text" id="newPlaylistName" class="playlistInput" placeholder="Playlist name"
-                            maxlength="40">
-                        <button type="button" id="createPlaylistBtn" class="playlistCreateBtn">Create</button>
+                            <div class="playlistCreateRow">
+                                <input type="text" id="newPlaylistName" class="playlistInput"
+                                    placeholder="Playlist name" maxlength="40">
+                                <button type="button" id="createPlaylistBtn" class="playlistCreateBtn">Create</button>
+                            </div>
+
+                            <p class="playlistMessage" id="playlistMessage"></p>
+                        </div>
+
                     </div>
-
-                    <p class="playlistMessage" id="playlistMessage"></p>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <!-- Popup: "Your song has been saved" -->
-    <div class="modal fade" id="savedModal" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-sm">
-            <div class="modal-content savedModal">
-                <div class="modal-body">
-                    <p class="savedModalText">Your song has been saved</p>
-                    <button type="button" class="savedModalBtn" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
-        </div>
-    </div>
 
-    
-<!--Michelle vdm-->
-<footer class="site-footer">
-    <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-center text-center gap-1">
-        <span class="footer-brand">REPLAY</span>
-        <p class="footer-copy mb-0">
-            © 2026 Replay. Made with <span class="footer-heart">♥</span> by Dev Divas.
-        </p>
-    </div>
-</footer>
-    <!-- Scripts: jQuery and Bootstrap first, then our files -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- Popup: "Your song has been saved" -->
+            <div class="modal fade" id="savedModal" tabindex="-1">
+                <div class="modal-dialog modal-dialog-centered modal-sm">
+                    <div class="modal-content savedModal">
+                        <div class="modal-body">
+                            <p class="savedModalText">Your song has been saved</p>
+                            <button type="button" class="savedModalBtn" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <!-- filter.js must load before api.js, and saveSong.js must load last -->
-    <script src="../js/filter.js"></script>
-    <script src="../js/api.js"></script>
-    <script src="../js/searchbar.js"></script>
-    <script src="../js/saveSong.js"></script>
+
+
+            <!--Michelle vdm-->
+            <footer class="site-footer">
+                <div
+                    class="d-flex flex-column flex-md-row justify-content-md-between align-items-center text-center gap-1">
+                    <span class="footer-brand">REPLAY</span>
+                    <p class="footer-copy mb-0">
+                        © 2026 Replay. Made with <span class="footer-heart">♥</span> by Dev Divas.
+                    </p>
+                </div>
+            </footer>
+
+            <!-- Scripts: jQuery and Bootstrap first, then our files -->
+            <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+            <!-- filter.js must load before api.js, and saveSong.js must load last -->
+            <script src="../js/filter.js"></script>
+            <script src="../js/api.js"></script>
+            <script src="../js/searchbar.js"></script>
+            <script src="../js/saveSong.js"></script>
 </body>
 
 </html>

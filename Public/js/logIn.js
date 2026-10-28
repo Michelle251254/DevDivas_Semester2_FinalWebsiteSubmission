@@ -1,3 +1,4 @@
+
 //==IMPORT FIREBASE FUNCTIONS==
 // At the top of logIn.js, I import the three Firebase functions I need: createUserWithEmailAndPassword for signing up, signInWithEmailAndPassword for logging in, and signOut. I also import auth from my config file.//
 
@@ -8,6 +9,7 @@ import {
   signOut
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
 import { auth } from "./firebase-config.js";
+
 
 //==TOGGLE BETWEEN SIGN UP AND LOG IN==//
 $(document).ready(function () {

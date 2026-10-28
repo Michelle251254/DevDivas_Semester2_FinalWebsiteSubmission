@@ -25,9 +25,9 @@ p.playlistSubtitle {
   font-weight: 700;
 }
 
-.metaStats {
-  font-weight: 200;
-  color: #b3b1b1;
+.userBold {
+  color: #d5f570;
+  font-weight: 700;
 }
 
 .playlistBtns {
@@ -37,6 +37,12 @@ p.playlistSubtitle {
   align-items: center;
   gap: 10px;
   padding-top: 12px;
+}
+
+.playBtn {
+  background: none;
+  border: none;
+  padding: 0px;
 }
 
 .playBtn {
@@ -78,8 +84,9 @@ p.playlistSubtitle {
   font-size: 22px;
 }
 
-.fa-circle-down:hover {
-  color: #d5f570;
+.songRating {
+  display: flex;
+  flex-direction: row;
 }
 
 .shareBtn {
@@ -155,9 +162,6 @@ p.playlistSubtitle {
 
 .playlistTableRow:nth-child(odd) {
   --accent: #ff4f9a;
-}
-
-.songTableGenre {
 }
 
 .albumIcon {
@@ -256,22 +260,4 @@ p.playlistSubtitle {
 .savedEmpty {
   padding: 30px 20px;
   color: #b3b1b1;
-}
-
-/*Michelle vdm*/
-.footer-brand {
-  font-family: var(--h);
-  font-size: 1.6rem;
-  line-height: 1;
-  color: var(--pink);
-  text-transform: uppercase;
-}
-
-.footer-copy {
-  font-size: 0.7rem;
-  color: var(--pink);
-}
-
-.footer-heart {
-  color: var(--error);
 }

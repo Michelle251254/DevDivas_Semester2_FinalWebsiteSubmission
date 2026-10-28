@@ -186,11 +186,3 @@ $(document).on("click", ".songCardSave", function () {
   localStorage.setItem("replaySaved", JSON.stringify(saved));
 });
 
-//================================
-// Clarisha testing filters
-//================================
-console.log(allSongs);
-console.log(allSongs.length);
-displaySongs(allSongs);
-createGenreFilter();
-createYearFilter();
