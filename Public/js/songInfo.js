@@ -72,7 +72,7 @@ if (!data || !data.data) {
     return;
 }
 //STORES THE SELECTED SONGS INFO IN TRACK 
-let track = data.data;
+let track = data.data;//
 
 //==PREPARING THE SONG DATA==//
 let image = "";
@@ -196,20 +196,21 @@ function displaySongInfo(song) {
     updateFavouriteButton(song.id);
 }
 
-//==FINDING SIMILAR SONGS==//
-async function loadSimilarSongs(song) { //parameter that contains selected songs info
+//==LOAD SIMILAR SONGS==//
+//genre based song recommendations 
+async function loadSimilarSongs(song) { //receives the currently selected song info object as a parameter
 
-    let searchTerm = song.genre; //variable that stores selected songs genre
+    let searchTerm = song.genre; //variable that stores the selected songs genre
     if (searchTerm === "Unknown") { //conditional statement 
         searchTerm = "punk";
     }
 
     //creates another api url
-    //searching for song using the selected track genre
+    //searches for songs using the selected track genre
     //encodeURIComponent(searchTerm) converts the search term into a format thats safe to include in a url
     const url = "https://discoveryprovider.audius.co/v1/tracks/search?query=" + encodeURIComponent(searchTerm) + "&app_name=REPLAY&limit=10";
     const options = {
-        method: "GET"
+        method: "GET" //specify method 
     };
 
 //==FETCHING RECOMMEND SONGS - ACTUAL API REQUEST==//
@@ -227,11 +228,11 @@ async function loadSimilarSongs(song) { //parameter that contains selected songs
         return;
     }
 
-    $(".discover .song-scroll").empty();
+    $(".discover .song-scroll").empty(); //clear existing recommendations using j query find method 
 
     let rank = 1; //number displayed on suggested songs
 
-    for (let i = 0; i < data.data.length; i++) {
+    for (let i = 0; i < data.data.length; i++) { //for loop starts to go through each track
         let track = data.data[i];
 
 
@@ -247,6 +248,7 @@ async function loadSimilarSongs(song) { //parameter that contains selected songs
         //break stops the entire loop
         //used after 6 recommended songs have been added
 
+        //PREPARE THE ARTWORK FOR EACH RECOMMEND SONG
         let image = "";
         if (track.artwork) {
             image = track.artwork["480x480"];
@@ -259,14 +261,16 @@ async function loadSimilarSongs(song) { //parameter that contains selected songs
          //checks if the artwork exists, if it does it creates an html img tag using the imgs url
 
         let colour = "bg-green";
-        if (rank % 2 === 1) { //checks if the loop position is odd, if it is...
+        if (rank % 2 === 1) { //checks if the loop position is odd, if it is...(modulus operator)
             colour = "bg-pink";
         }
 
         //==CREATING AND DISPLAYING SIMILAR SONG CARDS==//
         let card =
-            "<div class='col col-6 col-lg-3 col-xl-2'>" +
+            "<div class='col col-6 col-lg-3 col-xl-2'>" + //bootstrap classes 
                 "<a href='songInfo.html?id=" + track.id + "' class='song-card'>" +
+                //created a link containing the recommended songs unique id, allowing the user 
+                //to click on it and open that songs info page
                     "<div class='song-cover " + colour + "'>" +
                         artwork +
                         "<span class='rating-badge'>&#9733; " + getSongInfoRating(track.favorite_count) + "</span>" +
@@ -276,12 +280,14 @@ async function loadSimilarSongs(song) { //parameter that contains selected songs
                     "<p class='song-artist'>" + track.user.name + "</p>" +
                 "</a>" +
             "</div>";
-            //this section dynamically creates the html for the song card
+            // html structure for 1 recommendation 
+            //it inserts the songs artwork, calculated rating, rank, title and artist into structure
             //+ joins the html strings with variables
 
-        $(".discover .song-scroll").append(card);
+        $(".discover .song-scroll").append(card);//j query s append method to insert the completed card
 
-        rank = rank + 1; //increases rank for next song
+        rank = rank + 1; //increases rank by 1
+        //this process repeats until 6 recommendation songs have been added
     }
 }
 
