@@ -390,41 +390,31 @@ hr {
 }
 
 /*Michelle vdm*/
-.footer-brand {
-  font-family: var(--h);
-  font-size: 1.6rem;
-  line-height: 1;
-  color: var(--pink);
-  text-transform: uppercase;
-}
-
-.footer-copy {
-  font-size: 0.7rem;
-  color: var(--pink);
-  margin: 10px;
-}
-
-.footer-heart {
-  color: var(--error);
-}
-
-.site-footer {
-  background-color: var(--green);
-  padding: 20px 0;
-}
-
 .site-footer {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   z-index: 1030;
-  background-color: var(--green);
-  padding: 0.5rem var(--side-margin);
-  font-family: var(--sH);
+  background-color: var(--green, #d5f570);
+  padding: 0.5rem var(--side-margin, 1.5rem);
+  font-family: var(--sH, "Montserrat", sans-serif);
+}
+
+.footer-brand {
+  font-family: var(--h, "Rubik Dirt", sans-serif);
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--pink, #ff4f9a);
+  text-transform: uppercase;
 }
 
 .footer-copy {
   font-size: 0.7rem;
-  color: var(--black);
+  color: var(--black, #000000);
+  margin: 0;
+}
+
+.footer-heart {
+  color: var(--error, #d9534f);
 }
