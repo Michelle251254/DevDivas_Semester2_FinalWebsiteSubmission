@@ -193,12 +193,12 @@ function displaySongRow(container, songs, startRank, columnClass) {
 //On the home page, $(document).ready waits until the page has loaded. Then localStorage.getItem reads the username that was saved when the user logged in. The if statement checks that a username actually exists, so the page never says 'Welcome back, null'. If it does, jQuery's .text() changes the heading to 'Welcome back' plus the username, joining them with the plus sign. That's string concatenation.
 
 
-//$(document).ready(function(){
-    //let username = localStorage.getItem("replayUsername");
-    //if (username){ 
-       // $("#welcomeTitle").text("Welcome back, " + username);
-  //  }
-//});
+$(document).ready(function(){
+    let username = localStorage.getItem("replayUsername");
+    if (username){ 
+        $("#welcomeTitle").text("Welcome back, " + username);
+    }
+});
 
 //===============================================
 
