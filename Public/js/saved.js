@@ -50,10 +50,7 @@ function displaySavedSongs() {
 
   // first saved song's artwork becomes the big cover
   if (saved[0].image !== "") {
-    $(".albumPlaceholder").css(
-      "background-image",
-      "url('" + saved[0].image + "')",
-    );
+    $(".albumPlaceholder").css("background-image", "url('" + saved[0].image + "')");
     $(".albumPlaceholder").css("background-size", "cover");
     $(".albumPlaceholder").css("background-position", "center");
   }
@@ -69,48 +66,29 @@ function displaySavedSongs() {
 
     let artwork = "";
     if (song.image !== "") {
-      artwork =
-        "<img src='" + song.image + "' alt='" + song.title + " artwork'>";
+      artwork = "<img src='" + song.image + "' alt='" + song.title + " artwork'>";
     }
 
     let row =
       "<div class='playlistTableRow' role='row'>" +
       "<div class='tableAlbum' role='cell'>" +
-      "<div class='albumIcon'>" +
-      artwork +
-      "</div>" +
+      "<div class='albumIcon'>" + artwork + "</div>" +
       "</div>" +
       "<div class='tableTitle' role='cell'>" +
-      "<div class='songTitle'><a href='songInfo.html?id=" +
-      song.id +
-      "'>" +
-      song.title +
-      "</a></div>" +
-      "<div class='songArtist'>" +
-      song.artist +
-      "</div>" +
+      "<div class='songTitle'><a href='songInfo.html?id=" + song.id + "'>" + song.title + "</a></div>" +
+      "<div class='songArtist'>" + song.artist + "</div>" +
       "</div>" +
       "<div class='tableGenre d-none d-md-block' role='cell'>" +
-      "<div class='songTableGenre'>" +
-      song.genre +
-      "</div>" +
+      "<div class='songTableGenre'>" + song.genre + "</div>" +
       "</div>" +
       "<div class='tableYear d-none d-md-block' role='cell'>" +
-      "<div class='songYear'>" +
-      year +
-      "</div>" +
+      "<div class='songYear'>" + year + "</div>" +
       "</div>" +
       "<div class='tableRating' role='cell'>" +
-      "<div class='songRating'><i class='fa-solid fa-star'></i>" +
-      getSavedRating(song.favourites) +
-      "</div>" +
+      "<div class='songRating'><i class='fa-solid fa-star'></i>" + getSavedRating(song.favourites) + "</div>" +
       "</div>" +
       "<div class='tableRemove' role='cell'>" +
-      "<button class='removeBtn' value='" +
-      song.id +
-      "' aria-label='Remove " +
-      song.title +
-      "'>" +
+      "<button class='removeBtn' value='" + song.id + "' aria-label='Remove " + song.title + "'>" +
       "<i class='fa-regular fa-circle-xmark'></i>" +
       "</button>" +
       "</div>" +
