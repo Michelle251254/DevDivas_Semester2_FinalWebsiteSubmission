@@ -15,7 +15,8 @@ function getSongRating(favourites) {
   return Math.round(rating * 10) / 10; // round to 1 decimal
 }
 
-//==APPLY THE SEARCH AND ALL FILTERS TOGETHER==//
+//==APPLY THE SEARCH AND ALL FILTERS TOGETHER==
+// The main function is applyFilters. Every dropdown and the search bar call this same function, so the search and all the filters always work together.//
 function applyFilters() {
   // get what the user typed and picked
   let searchTerm = $("#searchInput").val().toLowerCase().trim();
@@ -43,6 +44,7 @@ function applyFilters() {
   });
 
   // sort and show the songs (displaySongs is in api.js)
+  //After filtering, the songs are passed to my sortSongs function, and then to Danya's displaySongs function, which builds the song cards on the page. If no songs match, the user sees a message saying 'No songs match your search', so the page is never just empty.//
   sortSongs(filteredSongs, selectedSort);
   displaySongs(filteredSongs);
 
@@ -141,6 +143,7 @@ function showAllSongs() {
 }
 
 //==EVENTS (the search bar's event is in searchbar.js)==//
+//When the user changes any dropdown, the change event runs applyFilters. The search bar uses the input event in searchbar.js, so the results update as you type, without reloading the page
 $(document).on("change", "#genreFilter", function () {
   applyFilters();
 });
@@ -156,7 +159,7 @@ $(document).on("change", "#ratingFilter", function () {
 $(document).on("change", "#sortFilter", function () {
   applyFilters();
 });
-
+//The Show All button resets the search bar and every dropdown back to 'All', then runs applyFilters again, so all the songs show
 $(document).on("click", "#showAllBtn", function () {
   showAllSongs();
 });
