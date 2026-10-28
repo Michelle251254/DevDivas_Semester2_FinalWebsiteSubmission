@@ -355,3 +355,37 @@ p {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-footer {
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: 0;
+  background-color: var(--green);
+  padding: 0.5rem var(--side-margin);
+  font-family: var(--sH);
+}
+
+/*Michelle vdm*/
+.footer-brand {
+  font-family: var(--h);
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--pink);
+  text-transform: uppercase;
+}
+
+.footer-copy {
+  font-size: 0.7rem;
+  color: var(--pink);
+}
+
+.footer-heart {
+  color: var(--error);
+}

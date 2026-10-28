@@ -1,140 +1,160 @@
-.playlistContainer{
-    margin: 15px 0px;
+.playlistContainer {
+  margin: 15px 0px;
 }
 
-.twoCol{
-    display: flex;
-    flex-direction: column;
+.twoCol {
+  display: flex;
+  flex-direction: column;
 }
 
-.twoCol.left{
-    width: 30%;
+.twoCol.left {
+  width: 30%;
 }
 
-.twoCol.right{
-    width: 70%;
+.twoCol.right {
+  width: 70%;
 }
 
-.playlistInfoRow{
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 40px;
-    margin-top: 10px;
+.playlistInfoRow {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 40px;
+  margin-top: 10px;
 }
 
-.metaStats{
-    font-weight: 200;
-    color: #b3b1b1;
+.metaStats {
+  font-weight: 200;
+  color: #b3b1b1;
 }
 
-.playlistBtns{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 10px;
+.playlistBtns {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
 }
 
-.playBtn{
-    background: none;
-    border: none;
-    padding-right: -20px;
+.playBtn {
+  background: none;
+  border: none;
+  padding-right: -20px;
 }
 
-.fa-circle-play{
-    color: #ff4f9a;
-    font-size: 40px;
+.fa-circle-play {
+  color: #ff4f9a;
+  font-size: 40px;
 }
 
-.fa-circle-play:hover{
-    color: #d5f570;
+.fa-circle-play:hover {
+  color: #d5f570;
 }
 
-.shuffleBtn{
-    color: #b3b1b1;
-    background: none;
-    border: none;
+.shuffleBtn {
+  color: #b3b1b1;
+  background: none;
+  border: none;
 }
 
-.fa-shuffle{
-    font-size: 22px;
+.fa-shuffle {
+  font-size: 22px;
 }
 
-.fa-shuffle:hover{
-    color: #d5f570;
+.fa-shuffle:hover {
+  color: #d5f570;
 }
 
-.downloadBtn{
-    color: #b3b1b1;
-    background: none;
-    border: none;
+.downloadBtn {
+  color: #b3b1b1;
+  background: none;
+  border: none;
 }
 
-.fa-circle-down{
-    font-size: 22px;
+.fa-circle-down {
+  font-size: 22px;
 }
 
-.fa-circle-down:hover{
-    color: #d5f570;
+.fa-circle-down:hover {
+  color: #d5f570;
 }
 
-.shareBtn{
-    border: none;
-    font-weight: 600;
+.shareBtn {
+  border: none;
+  font-weight: 600;
 
-    background-color: none;
+  background-color: none;
 
-    margin-left: 0px;
+  margin-left: 0px;
 }
 
-.fa-share{
-    color: #b3b1b1;
-    font-size: 18px;
+.fa-share {
+  color: #b3b1b1;
+  font-size: 18px;
 }
 
-table{
-    width: 100%;
+table {
+  width: 100%;
 }
 
-table.playlistTable{
-    width: 100%;
-    table-layout: fixed;
-    border-collapse: collapse;
+table.playlistTable {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
 }
 
-.playlistTable th:nth-child(1), .playlist th:nth-child(4), .playlist th:nth-child(6){
-    width: 8%;
+.playlistTable th:nth-child(1),
+.playlist th:nth-child(4),
+.playlist th:nth-child(6) {
+  width: 8%;
 }
 
-.playlistTable th:nth-child(2){
-    width: 48%;
+.playlistTable th:nth-child(2) {
+  width: 48%;
 }
 
-.playlistTable th:nth-child(3){
-    width: 16%;
+.playlistTable th:nth-child(3) {
+  width: 16%;
 }
 
-.playlistTable th:nth-child(5){
-    width: 12%;
+.playlistTable th:nth-child(5) {
+  width: 12%;
 }
 
-th{
-    text-align: left;
-    padding-left: 10px;
+th {
+  text-align: left;
+  padding-left: 10px;
 }
 
-tr{
-    height: 40px;
+tr {
+  height: 40px;
 }
 
-td.albumIcon{
-    background-color: #ff4f9a;
-    width: 40px;
-    height: 40px;
+td.albumIcon {
+  background-color: #ff4f9a;
+  width: 40px;
+  height: 40px;
 }
 
-td.removeIcon{
-    text-align: center;
+td.removeIcon {
+  text-align: center;
+}
+
+/*Michelle vdm*/
+.footer-brand {
+  font-family: var(--h);
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--pink);
+  text-transform: uppercase;
+}
+
+.footer-copy {
+  font-size: 0.7rem;
+  color: var(--pink);
+}
+
+.footer-heart {
+  color: var(--error);
 }
