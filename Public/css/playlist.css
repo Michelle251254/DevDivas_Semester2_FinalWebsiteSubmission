@@ -2,26 +2,27 @@
   margin: 15px 0px;
 }
 
-.twoCol {
+.playlistCol {
   display: flex;
   flex-direction: column;
 }
 
-.twoCol.left {
-  width: 30%;
-}
-
-.twoCol.right {
-  width: 70%;
-}
-
 .playlistInfoRow {
-  display: flex;
-  flex-direction: row;
   align-items: flex-start;
-  justify-content: flex-start;
-  gap: 40px;
-  margin-top: 10px;
+}
+
+.playlistTitle {
+  font-size: 40px;
+  padding-top: 10px;
+}
+
+p.playlistSubtitle {
+  padding-bottom: 7px;
+}
+
+.userBold {
+  color: #d5f570;
+  font-weight: 700;
 }
 
 .metaStats {
@@ -35,12 +36,13 @@
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
+  padding-top: 12px;
 }
 
 .playBtn {
   background: none;
   border: none;
-  padding-right: -20px;
+  padding: 0px;
 }
 
 .fa-circle-play {
@@ -84,77 +86,145 @@
   border: none;
   font-weight: 600;
 
-  background-color: none;
+  background: none;
 
-  margin-left: 0px;
+  margin-left: -8px;
 }
 
 .fa-share {
   color: #b3b1b1;
+  font-size: 22px;
+}
+.fa-share:hover {
+  color: #d5f570;
+}
+
+.playlistTable {
+  width: 100%;
+  background: #141414;
+  border-radius: 16px;
+  overflow: hidden;
+
+  font-size: 14px;
+}
+
+.playlistTableHeader,
+.playlistTableRow {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) 70px 40px;
+  align-items: center;
+  column-gap: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+@media (min-width: 768px) {
+  .playlistTableHeader,
+  .playlistTableRow {
+    grid-template-columns: 56px minmax(0, 1fr) 80px 80px 80px 40px;
+    column-gap: 14px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+.playlistTableHeader {
+  background: #222;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  color: #d5f570;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.playlistTableRow {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #383838;
+}
+
+.playlistTableRow:last-child {
+  border-bottom: none;
+}
+
+.playlistTableRow {
+  --accent: #d5f570;
+}
+
+.playlistTableRow:nth-child(odd) {
+  --accent: #ff4f9a;
+}
+
+.albumIcon {
+  width: 56px;
+  height: 56px;
+  background-color: var(--accent);
+  border-radius: 10px;
+  padding-right: 7px;
+}
+
+.tableTitle {
+  min-width: 0;
+}
+
+.songTitle,
+.songArtist {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.songTitle {
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+.songArtist {
+  text-transform: capitalize;
+  font-weight: 200;
+  color: #b3b1b1;
+}
+
+.songTableGenre {
+  color: var(--accent);
+  text-transform: capitalize;
+  background: none;
+  border: 1px solid var(--accent);
+  padding: 2px 10px;
+  width: min-content;
+  border-radius: 20px;
+}
+
+.songRating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+
+  background-color: #383838;
+  width: min-content;
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+
+.songRating .fa-star {
+  font-size: 9px;
+}
+
+.removeBtn {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.fa-circle-xmark {
+  color: white;
   font-size: 18px;
+  font-weight: 100;
 }
 
-table {
-  width: 100%;
-}
-
-table.playlistTable {
-  width: 100%;
-  table-layout: fixed;
-  border-collapse: collapse;
-}
-
-.playlistTable th:nth-child(1),
-.playlist th:nth-child(4),
-.playlist th:nth-child(6) {
-  width: 8%;
-}
-
-.playlistTable th:nth-child(2) {
-  width: 48%;
-}
-
-.playlistTable th:nth-child(3) {
-  width: 16%;
-}
-
-.playlistTable th:nth-child(5) {
-  width: 12%;
-}
-
-th {
-  text-align: left;
-  padding-left: 10px;
-}
-
-tr {
-  height: 40px;
-}
-
-td.albumIcon {
-  background-color: #ff4f9a;
-  width: 40px;
-  height: 40px;
-}
-
-td.removeIcon {
-  text-align: center;
-}
-
-/*Michelle vdm*/
-.footer-brand {
-  font-family: var(--h);
-  font-size: 1.6rem;
-  line-height: 1;
-  color: var(--pink);
-  text-transform: uppercase;
-}
-
-.footer-copy {
-  font-size: 0.7rem;
-  color: var(--pink);
-}
-
-.footer-heart {
-  color: var(--error);
+.fa-circle-xmark:hover {
+  color: var(--accent);
 }
