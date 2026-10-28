@@ -1,0 +1,273 @@
+.libraryContainer {
+    padding-top: 40px;
+    padding-bottom: 60px;
+}
+
+.libraryCount {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+}
+
+.libraryMessage {
+    padding: 40px 12px;
+    font-weight: 600;
+}
+
+.songCard {
+    background-color: #111111;
+    border-radius: 18px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.songCardArt {
+    position: relative;
+    background-color: #D6EF6B;
+    aspect-ratio: 16 / 11;
+}
+
+.songCardArt img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.songCardBadge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: #111111;
+    color: #FFFFFF;
+    font-size: 13px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+}
+
+.songCardBody {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.songCardGenre {
+    color: #EE5C9E;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 8px 0;
+}
+
+.songCardTitle {
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 6px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.songCardMeta {
+    color: #9A9A9A;
+    font-size: 15px;
+    margin: 0 0 18px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.songCardButtons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.songCardView {
+    flex: 1 1 auto;
+    background-color: #EE5C9E;
+    color: #111111;
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+}
+
+.songCardView:hover {
+    background-color: #E84A92;
+    color: #111111;
+}
+
+.songCardSave {
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 12px 6px;
+    cursor: pointer;
+}
+
+.songCardSave.isSaved {
+    color: #D6EF6B;
+}
+
+/*michelle VDM*/
+body {
+  background-color: var(--black);
+  color: #fff;
+  font-family: var(--sH);
+}
+
+h1 {
+  font-family: var(--h);
+  font-size: var(--hSize);
+}
+
+h2 {
+  font-family: var(--h);
+  font-size: var(--sSize);
+}
+
+h3 {
+  font-family: var(--sH);
+  font-size: var(--sSize);
+}
+
+h4 {
+  font-family: var(--sH);
+  font-size: 15pt;
+}
+
+p {
+  font-family: var(--sH);
+  font-size: 1rem;
+  margin: 0;
+}
+
+.pink {
+  color: var(--pink);
+}
+
+.padding {
+  padding: 10px;
+}
+
+.navbar-replay {
+  background-color: var(--nav-bg);
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.logo {
+  font-family: var(--h);
+  font-size: 2rem;
+  color: var(--pink);
+  letter-spacing: 1px;
+}
+
+.logo:hover {
+  color: var(--pink);
+}
+
+.navbar-replay .nav-link {
+  color: #fff;
+  font-size: 1.05rem;
+}
+
+.navbar-replay .nav-link:hover {
+  color: var(--pink);
+}
+
+.navbar-replay .nav-link.active {
+  color: var(--pink);
+  font-weight: 700;
+}
+
+.navbar-replay .navbar-toggler {
+  border-color: var(--pink);
+  filter: invert(1);
+}
+
+.search-form .form-control {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 50px;
+  padding: 8px 20px;
+  min-width: 260px;
+}
+
+.search-form .form-control::placeholder {
+  color: #bbb;
+}
+
+.search-form .form-control:focus {
+  background-color: transparent;
+  color: #fff;
+  border-color: var(--pink);
+  box-shadow: 0 0 0 0.2rem rgba(255, 79, 154, 0.25);
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background-color: var(--pink);
+  color: var(--black);
+  font-weight: 800;
+  font-size: 0.8rem;
+  text-decoration: none;
+}
+
+.savedModal {
+  background-color: var(--nav-bg);
+  border: 2px solid var(--pink);
+  border-radius: 14px;
+  color: #ffffff;
+  text-align: center;
+  padding: 14px 10px;
+}
+
+.savedModalText {
+  font-family: var(--h);
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 6px 0 22px 0;
+}
+
+.savedModalBtn {
+  background-color: var(--green);
+  color: var(--black);
+  font-family: var(--sH);
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 28px;
+  cursor: pointer;
+}
+
+.savedModalBtn:hover {
+  background-color: var(--pink);
+  color: #ffffff;
+}
