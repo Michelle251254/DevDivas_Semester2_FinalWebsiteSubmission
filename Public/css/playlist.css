@@ -157,6 +157,9 @@ p.playlistSubtitle {
   --accent: #ff4f9a;
 }
 
+.songTableGenre {
+}
+
 .albumIcon {
   width: 56px;
   height: 56px;
@@ -229,32 +232,46 @@ p.playlistSubtitle {
   color: var(--accent);
 }
 
-/*Michelle vdm*/
-.site-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1030;
-  background-color: var(--green, #d5f570);
-  padding: 0.5rem var(--side-margin, 1.5rem);
-  font-family: var(--sH, "Montserrat", sans-serif);
+/*==CLARISHA: SAVED SONGS EXTRAS==*/
+.albumIcon {
+  overflow: hidden;
 }
 
+.albumIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.songTitle a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.songTitle a:hover {
+  color: var(--accent);
+}
+
+.savedEmpty {
+  padding: 30px 20px;
+  color: #b3b1b1;
+}
+
+/*Michelle vdm*/
 .footer-brand {
-  font-family: var(--h, "Rubik Dirt", sans-serif);
+  font-family: var(--h);
   font-size: 1.6rem;
   line-height: 1;
-  color: var(--pink, #ff4f9a);
+  color: var(--pink);
   text-transform: uppercase;
 }
 
 .footer-copy {
   font-size: 0.7rem;
-  color: var(--black, #000000);
-  margin: 0;
+  color: var(--pink);
 }
 
 .footer-heart {
-  color: var(--error, #d9534f);
+  color: var(--error);
 }

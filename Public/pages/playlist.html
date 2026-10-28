@@ -8,7 +8,7 @@
     <meta name="keywords" content="music, replay, playlist, streaming" />
     <meta name="author" content="Michelle Meyer 21100093" />
 
-    <title>Playlist</title>
+    <title>SAVED SONGS</title>
 
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +33,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-replay">
         <div class="container-fluid page-margin">
-            <a class="navbar-brand logo" href="index.html">REPLAY</a>
+            <a class="navbar-brand logo" href="landingP.html">REPLAY</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
                 aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,7 +44,7 @@
                 <ul class="navbar-nav mx-auto gap-lg-5">
                     <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="../pages/explore.html">Explore</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="/pages/playlist.html">Library</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/pages/playlist.html">Saved</a></li>
                 </ul>
 
                 <form class="search-form d-flex align-items-center me-lg-3 my-3 my-lg-0" role="search">
@@ -58,11 +58,11 @@
     </nav>
 
     <div class="container-fluid page-margin playlistContainer">
-        <a class="backToLibrary" href="../pages/landingP.html">
+        <a class="backToLibrary" href="explore.html">
             <p>
                 <i class="fa-solid fa-arrow-left"></i>
             </p>
-            <p class="backToLibraryText">Back To Library</p>
+            <p class="backToLibraryText">Back To Explore</p>
         </a>
 
         <div class="row g-4 playlistInfoRow">
@@ -71,22 +71,21 @@
                     <div class="albumPlaceholder"></div>
                 </div>
 
-                <div class="playlistMetaRow">
-                    <h2 class="playlistTitle">PLAYLIST TITLE</h2>
-                </div>
+               <div class="playlistMetaRow">
+    <h2 class="playlistTitle">SAVED SONGS</h2>
+</div>
 
-                <div class="playlistMetaRow">
-                    <p class="playlistSubtitle">Created by <span class="userBold">USER</span></p>
-                </div>
+<div class="playlistMetaRow">
+    <p class="playlistSubtitle">Saved by <span class="userBold" id="savedUser">you</span></p>
+</div>
 
-                <div class="playlistMetaRow">
-                    <p class="metaStats">Playlist • <span class="accessStatus">Private</span> • Last added <span
-                            class="playlistEditedDate">YYYY</span></p>
-                </div>
+<div class="playlistMetaRow">
+    <p class="metaStats">Saved songs • <span class="accessStatus">Private</span></p>
+</div>
 
-                <div class="playlistMetaRow">
-                    <p class="metaStats">X tracks, ZZ minutes</p>
-                </div>
+<div class="playlistMetaRow">
+    <p class="metaStats" id="savedCount">0 tracks</p>
+</div>
 
                 <div class="playlistMetaRow playlistBtns">
                     <button class="playBtn" onclick="playFunctionPlaceholder">
@@ -109,259 +108,40 @@
                     <div class="playlistTableHeader" role="row">
                         <div role="columnheader"><span class="visually-hidden">album cover</span></div>
                         <div role="columnheader">TITLE</div>
-                        <div class= "d-none d-md-block" role="columnheader">GENRE</div>
-                        <div class= "d-none d-md-block"  role="columnheader">YEAR</div>
+                        <div class="d-none d-md-block" role="columnheader">GENRE</div>
+                        <div class="d-none d-md-block" role="columnheader">YEAR</div>
                         <div role="columnheader">RATING</div>
                         <div role="columnheader"><span class="visually-hidden">remove icon</span></div>
                     </div>
 
-                    <div class="playlistTableBody" role="rowgroup">
-                        <div class="playlistTableRow" role="row">
-                            <div class="tableAlbum" role="cell">
-                                <div class="albumIcon"></div>
-                            </div>
-
-                            <div class="tableTitle" role="cell">
-                                <div class="songTitle">song title</div>
-                                <div class="songArtist">artist</div>
-                            </div>
-
-                            <div class="tableGenre d-none d-md-block" role="cell">
-                                <div class="songTableGenre">genre</div>
-                            </div>
-
-                            <div class="tableYear d-none d-md-block" role="cell">
-                                <div class="songYear">2024</div>
-                            </div>
-
-                            <div class="tableRating" role="cell">
-                                <div class="songRating"><i class="fa-solid fa-star"></i>4.8</div>
-                            </div>
-
-                            <div class="tableRemove" role="cell">
-                                <button class="removeBtn"><i class="fa-regular fa-circle-xmark"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="playlistTableRow" role="row">
-                            <div class="tableAlbum" role="cell">
-                                <div class="albumIcon"></div>
-                            </div>
-
-                            <div class="tableTitle" role="cell">
-                                <div class="songTitle">song title</div>
-                                <div class="songArtist">artist</div>
-                            </div>
-
-                            <div class="tableGenre d-none d-md-block" role="cell">
-                                <div class="songTableGenre">genre</div>
-                            </div>
-
-                            <div class="tableYear d-none d-md-block" role="cell">
-                                <div class="songYear">2024</div>
-                            </div>
-
-                            <div class="tableRating" role="cell">
-                                <div class="songRating"><i class="fa-solid fa-star"></i>4.8</div>
-                            </div>
-
-                            <div class="tableRemove" role="cell">
-                                <button class="removeBtn"><i class="fa-regular fa-circle-xmark"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="playlistTableRow" role="row">
-                            <div class="tableAlbum" role="cell">
-                                <div class="albumIcon"></div>
-                            </div>
-
-                            <div class="tableTitle" role="cell">
-                                <div class="songTitle">song title</div>
-                                <div class="songArtist">artist</div>
-                            </div>
-
-                            <div class="tableGenre d-none d-md-block" role="cell">
-                                <div class="songTableGenre">genre</div>
-                            </div>
-
-                            <div class="tableYear d-none d-md-block" role="cell">
-                                <div class="songYear">2024</div>
-                            </div>
-
-                            <div class="tableRating" role="cell">
-                                <div class="songRating"><i class="fa-solid fa-star"></i>4.8</div>
-                            </div>
-
-                            <div class="tableRemove" role="cell">
-                                <button class="removeBtn"><i class="fa-regular fa-circle-xmark"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="playlistTableRow" role="row">
-                            <div class="tableAlbum" role="cell">
-                                <div class="albumIcon"></div>
-                            </div>
-
-                            <div class="tableTitle" role="cell">
-                                <div class="songTitle">song title</div>
-                                <div class="songArtist">artist</div>
-                            </div>
-
-                            <div class="tableGenre d-none d-md-block" role="cell">
-                                <div class="songTableGenre">genre</div>
-                            </div>
-
-                            <div class="tableYear d-none d-md-block" role="cell">
-                                <div class="songYear">2024</div>
-                            </div>
-
-                            <div class="tableRating" role="cell">
-                                <div class="songRating"><i class="fa-solid fa-star"></i>4.8</div>
-                            </div>
-
-                            <div class="tableRemove" role="cell">
-                                <button class="removeBtn"><i class="fa-regular fa-circle-xmark"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="playlistTableRow" role="row">
-                            <div class="tableAlbum" role="cell">
-                                <div class="albumIcon"></div>
-                            </div>
-
-                            <div class="tableTitle" role="cell">
-                                <div class="songTitle">song title</div>
-                                <div class="songArtist">artist</div>
-                            </div>
-
-                            <div class="tableGenre d-none d-md-block" role="cell">
-                                <div class="songTableGenre">genre</div>
-                            </div>
-
-                            <div class="tableYear d-none d-md-block" role="cell">
-                                <div class="songYear">2024</div>
-                            </div>
-
-                            <div class="tableRating" role="cell">
-                                <div class="songRating"><i class="fa-solid fa-star"></i>4.8</div>
-                            </div>
-
-                            <div class="tableRemove" role="cell">
-                                <button class="removeBtn"><i class="fa-regular fa-circle-xmark"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="playlistTableRow" role="row">
-                            <div class="tableAlbum" role="cell">
-                                <div class="albumIcon"></div>
-                            </div>
-
-                            <div class="tableTitle" role="cell">
-                                <div class="songTitle">song title</div>
-                                <div class="songArtist">artist</div>
-                            </div>
-
-                            <div class="tableGenre d-none d-md-block" role="cell">
-                                <div class="songTableGenre">genre</div>
-                            </div>
-
-                            <div class="tableYear d-none d-md-block" role="cell">
-                                <div class="songYear">2024</div>
-                            </div>
-
-                            <div class="tableRating" role="cell">
-                                <div class="songRating"><i class="fa-solid fa-star"></i>4.8</div>
-                            </div>
-
-                            <div class="tableRemove" role="cell">
-                                <button class="removeBtn"><i class="fa-regular fa-circle-xmark"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="playlistTableRow" role="row">
-                            <div class="tableAlbum" role="cell">
-                                <div class="albumIcon"></div>
-                            </div>
-
-                            <div class="tableTitle" role="cell">
-                                <div class="songTitle">song title</div>
-                                <div class="songArtist">artist</div>
-                            </div>
-
-                            <div class="tableGenre d-none d-md-block" role="cell">
-                                <div class="songTableGenre">genre</div>
-                            </div>
-
-                            <div class="tableYear d-none d-md-block" role="cell">
-                                <div class="songYear">2024</div>
-                            </div>
-
-                            <div class="tableRating" role="cell">
-                                <div class="songRating"><i class="fa-solid fa-star"></i>4.8</div>
-                            </div>
-
-                            <div class="tableRemove" role="cell">
-                                <button class="removeBtn"><i class="fa-regular fa-circle-xmark"></i></button>
-                            </div>
-                        </div>
-
-                        <div class="playlistTableRow" role="row">
-                            <div class="tableAlbum" role="cell">
-                                <div class="albumIcon"></div>
-                            </div>
-
-                            <div class="tableTitle" role="cell">
-                                <div class="songTitle">song title</div>
-                                <div class="songArtist">artist</div>
-                            </div>
-
-                            <div class="tableGenre d-none d-md-block" role="cell">
-                                <div class="songTableGenre">genre</div>
-                            </div>
-
-                            <div class="tableYear d-none d-md-block" role="cell">
-                                <div class="songYear">2024</div>
-                            </div>
-
-                            <div class="tableRating" role="cell">
-                                <div class="songRating"><i class="fa-solid fa-star"></i>4.8</div>
-                            </div>
-
-                            <div class="tableRemove" role="cell">
-                                <button class="removeBtn"><i class="fa-regular fa-circle-xmark"></i></button>
-                            </div>
-                        </div>
-                    </div>
+               <div class="playlistTableBody" id="savedSongsList" role="rowgroup"></div>
                 </div>
             </div>
         </div>
     </div>
-    <!--Michelle vdm-->
-    <footer class="site-footer">
-        <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-center text-center gap-1">
-            <span class="footer-brand">REPLAY</span>
-            <p class="footer-copy mb-0">
-                © 2026 Replay. Made with <span class="footer-heart">♥</span> by Dev Divas.
-            </p>
-        </div>
-    </footer>
+   <!--Michelle vdm-->
+            <footer class="site-footer">
+                <div
+                    class="d-flex flex-column flex-md-row justify-content-md-between align-items-center text-center gap-1">
+                    <span class="footer-brand">REPLAY</span>
+                    <p class="footer-copy mb-0">
+                        © 2026 Replay. Made with <span class="footer-heart">♥</span> by Dev Divas.
+                    </p>
+                </div>
+            </footer>
 
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-4.0.0.js"
-        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
 
-    <!--Font Awesome-->
-    <script src="https://kit.fontawesome.com/1316822bd3.js" crossorigin="anonymous"></script>
+<!--Font Awesome-->
+<script src="https://kit.fontawesome.com/1316822bd3.js" crossorigin="anonymous"></script>
 
-    <!--Javascript-->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="../js/api.js"></script>
-    <script src="../js/searchbar.js"></script>
-    <!--<script src="../js/filter.js"></script>-->
+<!--Javascript-->
+<script src="../js/saved.js"></script>
 </body>
 
 </html>

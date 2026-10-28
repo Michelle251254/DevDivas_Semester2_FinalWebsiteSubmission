@@ -326,5 +326,3 @@ $(document).on("click", ".favBtn", function () {
 
     localStorage.setItem("replayFavourites", JSON.stringify(favourites));
 });
-
-
