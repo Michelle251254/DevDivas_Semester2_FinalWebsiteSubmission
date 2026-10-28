@@ -2,26 +2,27 @@
     margin: 15px 0px;
 }
 
-.twoCol{
+.playlistCol{
     display: flex;
     flex-direction: column;
 }
 
-.twoCol.left{
-    width: 30%;
-}
-
-.twoCol.right{
-    width: 70%;
-}
-
 .playlistInfoRow{
-    display: flex;
-    flex-direction: row;
     align-items: flex-start;
-    justify-content: flex-start;
-    gap: 40px;
-    margin-top: 10px;
+}
+
+.playlistTitle{
+    font-size: 40px;
+    padding-top: 10px;
+}
+
+p.playlistSubtitle{
+    padding-bottom: 7px;
+}
+
+.userBold{
+    color: #d5f570;
+    font-weight: 700;
 }
 
 .metaStats{
@@ -35,12 +36,13 @@
     justify-content: flex-start;
     align-items: center;
     gap: 10px;
+    padding-top: 12px;
 }
 
 .playBtn{
     background: none;
     border: none;
-    padding-right: -20px;
+    padding: 0px;
 }
 
 .fa-circle-play{
@@ -84,138 +86,174 @@
     border: none;
     font-weight: 600;
 
-    background-color: none;
+    background: none;
 
-    margin-left: 0px;
+    margin-left: -8px;
 }
 
 .fa-share{
     color: #b3b1b1;
+    font-size: 22px;
+}
+.fa-share:hover{
+    color: #d5f570;
+}
+
+.playlistTable{
+    width: 100%;
+    background: #141414;
+    border-radius: 16px;
+    overflow: hidden;
+
+    font-size: 14px;
+}
+
+.playlistTableHeader, .playlistTableRow{
+    display: grid;
+    grid-template-columns: 56px minmax(0,1fr) 70px 40px;
+    align-items: center;
+    column-gap: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+@media (min-width: 768px){
+    .playlistTableHeader, .playlistTableRow{
+        grid-template-columns: 56px minmax(0, 1fr) 80px 80px 80px 40px;
+        column-gap: 14px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+.playlistTableHeader{
+    background: #222;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    color: #d5f570;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.playlistTableRow{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #383838;
+}
+
+.playlistTableRow:last-child{
+    border-bottom: none;
+}
+
+.playlistTableRow{
+    --accent: #d5f570;
+}
+
+.playlistTableRow:nth-child(odd){
+    --accent: #ff4f9a;
+}
+
+.songTableGenre{
+    
+}
+
+.albumIcon{
+    width: 56px;
+    height: 56px;
+    background-color: var(--accent);
+    border-radius: 10px;
+    padding-right: 7px;
+}
+
+.tableTitle{
+    min-width: 0;
+}
+
+.songTitle, .songArtist{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.songTitle{
+    text-transform: capitalize;
+    font-weight: 700;
+}
+
+.songArtist{
+    text-transform: capitalize;
+    font-weight: 200;
+    color: #b3b1b1;
+}
+
+.songTableGenre{
+    color: var(--accent);
+    text-transform: capitalize;
+    background: none;
+    border: 1px solid var(--accent);
+    padding: 2px 10px;
+    width: min-content;
+    border-radius: 20px;
+}
+
+.songRating{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+
+    background-color: #383838;
+    width: min-content;
+    padding: 2px 10px;
+    border-radius: 20px;
+}
+
+.songRating .fa-star{
+    font-size: 9px;
+}
+
+.removeBtn{
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.fa-circle-xmark{
+    color: white;
     font-size: 18px;
+    font-weight: 100;
 }
 
-table{
+.fa-circle-xmark:hover{
+    color: var(--accent);
+}
+
+
+
+/*==CLARISHA: SAVED SONGS EXTRAS==*/
+.albumIcon {
+    overflow: hidden;
+}
+
+.albumIcon img {
     width: 100%;
-}
-
-table.playlistTable{
-    width: 100%;
-    table-layout: fixed;
-    border-collapse: collapse;
-}
-
-.playlistTable th:nth-child(1), .playlistTable th:nth-child(6){
-    width: 8%;
-}
-
-.playlistTable th:nth-child(4){
-    width: 10%;
-}
-
-.playlistTable th:nth-child(2){
-    width: 46%;
-}
-
-.playlistTable th:nth-child(3){
-    width: 16%;
-}
-
-.playlistTable th:nth-child(5){
-    width: 12%;
-}
-
-th{
-    text-align: left;
-    padding-left: 10px;
-}
-
-tr{
-    height: 40px;
-}
-
-td.albumIcon{
-    background-color: #ff4f9a;
-    width: 40px;
-    height: 40px;
-}
-
-td.removeIcon{
-    text-align: center;
-}
-
-
-
- /*==================
-    CLARISHA: SAVED SONGS TABLE
- =================== */
-.playlistTable td {
-    padding: 8px 10px;
-    vertical-align: middle;
-}
-
-tr.tableItem {
-    border-bottom: 1px solid #333333;
-}
-
-/* keeps the artwork small instead of full size */
-td.albumIcon img {
-    width: 40px;
-    height: 40px;
+    height: 100%;
     object-fit: cover;
     display: block;
 }
 
-.tableTitle a {
-    color: #ffffff;
-    font-weight: 700;
+.songTitle a {
+    color: inherit;
+    text-decoration: none;
 }
 
-.tableTitle a:hover {
-    color: #ff4f9a;
-}
-
-/* puts the artist on its own line under the title */
-.tableArtist {
-    display: block;
-    color: #b3b1b1;
-    font-size: 0.85rem;
-}
-
-.removeBtn {
-    background: none;
-    border: none;
-    color: #b3b1b1;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-.removeBtn:hover {
-    color: #ff4f9a;
+.songTitle a:hover {
+    color: var(--accent);
 }
 
 .savedEmpty {
+    padding: 30px 20px;
     color: #b3b1b1;
-    padding: 20px 10px;
-}
-
-/* phones: put the info above the table */
-@media (max-width: 767px) {
-    .playlistInfoRow {
-        flex-direction: column;
-    }
-
-    .twoCol.left,
-    .twoCol.right {
-        width: 100%;
-    }
-}
-
-
-td.albumIcon {
-    background-color: transparent;
-}
-
-td.albumIcon img {
-    background-color: #ff4f9a;
-    border-radius: 4px;
 }

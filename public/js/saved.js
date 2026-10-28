@@ -1,6 +1,6 @@
 //=======================================================
 // CLARISHA: SAVED SONGS PAGE
-// Reads the saved songs from local storage and shows them in the table.
+// Reads the saved songs from local storage and shows them in Michelle's table.
 //=======================================================
 
 //==GET THE SAVED SONGS FROM LOCAL STORAGE==//
@@ -34,31 +34,28 @@ function displaySavedSongs() {
   // username and number of songs
   let username = localStorage.getItem("replayUsername");
   if (username) {
-    $(".playlistSubtitle").text("Saved by " + username);
+    $("#savedUser").text(username);
   }
 
-  $("#savedCount").text(saved.length + " songs");
+  $("#savedCount").text(saved.length + " tracks");
 
-  // no saved songs: show a message and the plain pink cover
+  // no saved songs: show a message and the plain cover
   if (saved.length === 0) {
     $(".albumPlaceholder").css("background-image", "none");
     $("#savedSongsList").html(
-      "<tr><td colspan='6' class='savedEmpty'>You have not saved any songs yet. Go to Explore and click + Save.</td></tr>",
+      "<div class='savedEmpty'>You have not saved any songs yet. Go to Explore and click + Save.</div>",
     );
     return;
   }
 
   // first saved song's artwork becomes the big cover
   if (saved[0].image !== "") {
-    $(".albumPlaceholder").css(
-      "background-image",
-      "url('" + saved[0].image + "')",
-    );
+    $(".albumPlaceholder").css("background-image", "url('" + saved[0].image + "')");
     $(".albumPlaceholder").css("background-size", "cover");
     $(".albumPlaceholder").css("background-position", "center");
   }
 
-  // one table row per saved song
+  // one row per saved song (same layout as Michelle's HTML)
   for (let i = 0; i < saved.length; i++) {
     let song = saved[i];
 
@@ -69,44 +66,33 @@ function displaySavedSongs() {
 
     let artwork = "";
     if (song.image !== "") {
-      artwork =
-        "<img src='" + song.image + "' alt='" + song.title + " artwork'>";
+      artwork = "<img src='" + song.image + "' alt='" + song.title + " artwork'>";
     }
 
     let row =
-      "<tr class='tableItem'>" +
-      "<td class='albumIcon'>" +
-      artwork +
-      "</td>" +
-      "<td class='tableTitle'>" +
-      "<a href='songInfo.html?id=" +
-      song.id +
-      "'>" +
-      song.title +
-      "</a>" +
-      "<span class='tableArtist'>" +
-      song.artist +
-      "</span>" +
-      "</td>" +
-      "<td class='tableGenre'>" +
-      song.genre +
-      "</td>" +
-      "<td class='tableYear'>" +
-      year +
-      "</td>" +
-      "<td class='tableRating'>&#9733; " +
-      getSavedRating(song.favourites) +
-      "</td>" +
-      "<td class='removeIcon'>" +
-      "<button class='removeBtn' value='" +
-      song.id +
-      "' aria-label='Remove " +
-      song.title +
-      "'>" +
+      "<div class='playlistTableRow' role='row'>" +
+      "<div class='tableAlbum' role='cell'>" +
+      "<div class='albumIcon'>" + artwork + "</div>" +
+      "</div>" +
+      "<div class='tableTitle' role='cell'>" +
+      "<div class='songTitle'><a href='songInfo.html?id=" + song.id + "'>" + song.title + "</a></div>" +
+      "<div class='songArtist'>" + song.artist + "</div>" +
+      "</div>" +
+      "<div class='tableGenre d-none d-md-block' role='cell'>" +
+      "<div class='songTableGenre'>" + song.genre + "</div>" +
+      "</div>" +
+      "<div class='tableYear d-none d-md-block' role='cell'>" +
+      "<div class='songYear'>" + year + "</div>" +
+      "</div>" +
+      "<div class='tableRating' role='cell'>" +
+      "<div class='songRating'><i class='fa-solid fa-star'></i>" + getSavedRating(song.favourites) + "</div>" +
+      "</div>" +
+      "<div class='tableRemove' role='cell'>" +
+      "<button class='removeBtn' value='" + song.id + "' aria-label='Remove " + song.title + "'>" +
       "<i class='fa-regular fa-circle-xmark'></i>" +
       "</button>" +
-      "</td>" +
-      "</tr>";
+      "</div>" +
+      "</div>";
 
     $("#savedSongsList").append(row);
   }
