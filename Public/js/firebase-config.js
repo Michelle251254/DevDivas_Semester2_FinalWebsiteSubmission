@@ -1,4 +1,8 @@
 //Import the two Firebase functions need//
+//First, I created a project in the Firebase console and enabled email and password sign-in. Firebase gave me a config object, which tells my website which Firebase project to connect to.
+//In this file, I import initializeApp and getAuth from Firebase. initializeApp connects my site to my Firebase project, and getAuth gives me the authentication service. Then I export auth, so my login file can import and use it. Because these files use import and export, the script tag in the HTML needs type="module". Otherwise the browser gives an error.//
+
+
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";

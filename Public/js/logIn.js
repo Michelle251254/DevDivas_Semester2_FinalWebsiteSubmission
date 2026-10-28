@@ -1,4 +1,7 @@
-//==IMPORT FIREBASE FUNCTIONS==//
+//==IMPORT FIREBASE FUNCTIONS==
+// At the top of logIn.js, I import the three Firebase functions I need: createUserWithEmailAndPassword for signing up, signInWithEmailAndPassword for logging in, and signOut. I also import auth from my config file.//
+
+
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -38,7 +41,11 @@ function showMessage(messageElement, messageContent, messageType) {
   messageElement.className = "formMessage " + messageType;
 }
 
-//==TURN FIREBASE ERROR CODES INTO FRIENDLY MESSAGES==//
+//==TURN FIREBASE ERROR CODES INTO FRIENDLY MESSAGES==
+// "Next, I use document.getElementById to store the two forms and the two message areas in variables, so I can use them later.Then I wrote a function called showMessage. It takes three parameters: where to show the message, the text, and the type, which is either success or error. It changes the element's text and its class, and the class makes the message green for success or red for an error.//
+
+
+
 function getFriendlyErrorMessage(errorCode) {
   let friendlyMessage = "Something went wrong. Please try again.";
 
@@ -55,7 +62,10 @@ function getFriendlyErrorMessage(errorCode) {
   return friendlyMessage;
 }
 
-//==SIGN UP: CREATE A NEW ACCOUNT==//
+//==SIGN UP: CREATE A NEW ACCOUNT
+// handleSignUp calls Firebase's createUserWithEmailAndPassword with the email and password. Firebase takes a moment to answer, because it's asynchronous, so it returns a promise. I handle the answer with .then() and .catch().If the account is created, .then() runs. I sign the user out straight away so they have to log in themselves, then I reset the form, slide across to the Log In form, and show a green message: 'Account created! Please log in.==//
+
+
 async function handleSignUp(userEmail, userPassword) {
   createUserWithEmailAndPassword(auth, userEmail, userPassword)
     .then(function (userCredential) {
@@ -79,7 +89,10 @@ async function handleSignUp(userEmail, userPassword) {
     });
 }
 
-//==LOG IN TO AN EXISTING ACCOUNT==//
+//==LOG IN TO AN EXISTING ACCOUNT
+// handleLogin works the same way, but with signInWithEmailAndPassword. If the email and password are correct, .then() runs. I save the username in local storage with localStorage.setItem, so the home page can use it. Then window.location.href takes the user to the home page.The page change is inside .then() on purpose, so the user only gets to the home page once Firebase confirms the password is correct. If the login fails, .catch() shows the error message.//
+
+
 async function handleLogin(username, userEmail, userPassword) {
   signInWithEmailAndPassword(auth, userEmail, userPassword)
     .then(function (userCredential) {
